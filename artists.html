@@ -177,8 +177,8 @@
 <!-- <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-12">
 ... cerca i filtres deshabilitats temporalment ...
 </section> -->
-<!-- Artists Grid (Asymmetric) -->
-<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-fr">
+<!-- Artists Grid (Asymmetric) — es reompla dinàmicament des de site-data.js -->
+<section id="artists-grid" class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-fr">
 <!-- Artist 1 (Large Featured) -->
 <div class="md:col-span-7 group cursor-pointer framer-reveal framer-hover-scale" onclick="window.location.href='artist-detail.html'">
 <div class="relative overflow-hidden rounded-3xl aspect-[16/10] bg-surface-container">
@@ -289,6 +289,44 @@
 </div>
 </footer>
 <script src="animations.js"></script>
+<script src="site-data.js"></script>
+<script>
+        // Render dinàmic del catàleg d'artistes des de l'API del dashboard.
+        // Si l'API falla o no hi ha artistes, es manté el contingut de demostració.
+        (function () {
+            var S = window.EseyasaSite;
+            var grid = document.getElementById('artists-grid');
+            if (!S || !grid) return;
+            S.getArtists().then(function (list) {
+                if (!Array.isArray(list) || list.length === 0) return;
+                grid.innerHTML = '';
+                list.forEach(function (a, i) {
+                    var mod = i % 5;
+                    var span = mod === 0 ? 7 : (mod === 1 ? 5 : 4);
+                    var aspect = mod === 0 ? 'aspect-[16/10]' : (mod === 1 ? 'aspect-square' : 'aspect-[3/4]');
+                    var nameCls = mod === 0 ? 'font-display-lg text-primary text-4xl md:text-5xl mb-2' : 'font-headline-xl text-primary mb-1';
+                    var delay = ['', 'delay-100', 'delay-200', 'delay-300', 'delay-400'][mod];
+                    var media = a.imageUrl
+                        ? '<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" src="' + S.esc(a.imageUrl) + '" alt="' + S.esc(a.name) + '"/>'
+                        : '<div class="w-full h-full bg-gradient-to-br from-secondary-container to-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-6xl text-primary/40">music_note</span></div>';
+                    var card = document.createElement('div');
+                    card.className = 'md:col-span-' + span + ' group cursor-pointer framer-reveal ' + delay + ' framer-hover-scale';
+                    card.addEventListener('click', function () { location.href = 'artist-detail.html?id=' + encodeURIComponent(a.id); });
+                    card.innerHTML =
+                        '<div class="relative overflow-hidden rounded-3xl ' + aspect + ' bg-surface-container">' +
+                            media +
+                            '<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>' +
+                            '<div class="absolute bottom-6 left-6 md:bottom-8 md:left-8">' +
+                                '<h3 class="' + nameCls + '">' + S.esc(a.name) + '</h3>' +
+                                (a.genre ? '<p class="font-body-lg text-tertiary">' + S.esc(a.genre) + '</p>' : '') +
+                            '</div>' +
+                        '</div>';
+                    grid.appendChild(card);
+                    requestAnimationFrame(function () { requestAnimationFrame(function () { card.classList.add('framer-visible'); }); });
+                });
+            }).catch(function () {});
+        })();
+    </script>
 <script>
         // Sticky header — soft gradient on scroll
         const siteHeader = document.getElementById('siteHeader');

@@ -170,9 +170,9 @@
 <div class="absolute bottom-20 -right-20 w-96 h-96 bg-primary-container rounded-full blur-[100px]"></div>
 </div>
 <div class="relative z-10 w-full md:w-1/2 px-margin-mobile md:pl-margin-desktop py-12">
-<p class="text-tertiary font-label-sm mb-4">Artista destacat</p>
-<h1 class="font-display-lg text-4xl md:text-display-lg text-primary mb-4 leading-none">MALEK <br/><span class="text-tertiary">AZIKIWE</span></h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed">
+<p class="text-tertiary font-label-sm mb-4" id="artist-genre">Artista destacat</p>
+<h1 class="font-display-lg text-4xl md:text-display-lg text-primary mb-4 leading-none" id="artist-name">MALEK <br/><span class="text-tertiary">AZIKIWE</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed" id="artist-bio">
                     Un arquitecte rítmic que fusiona el Highlife tradicional amb textures Afro-electròniques contemporànies. Amb base a Lagos, la ressonància de Malek ha conquerit escenaris de tot el món.
                 </p>
 <div class="flex flex-wrap gap-4">
@@ -190,7 +190,7 @@
 </div>
 <div class="relative w-full md:w-1/2 h-[400px] md:h-[60vh]">
 <div class="absolute inset-0 bg-secondary-container/20 organic-mask-hero"></div>
-<img alt="Malek Azikiwe Portrait" class="w-full h-full object-cover organic-mask-hero" data-alt="A portrait of a charismatic African male artist wearing vibrant contemporary Afro-centric fashion, standing against a deep forest green textured wall with natural sunlight filtering through palm leaves, creating dramatic shadows. The mood is powerful and rhythmic, with rich amber and terracotta accents reflecting the brand's visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1ALuT43Cy1O99SqMmq8etfIHpoZTcpHROxd_zTFTi8hcFVqnwPU5CnFviaBY0jk7MWaweExIeOtHPEJIR-bMByYUUqZroaO4PIpaoZUD9PJ6v-QVsu_HUtiB-W1YVCXhgZCmlcGhS1biJoaQKcIobnpXOKM5DGf_HyLDEhmjau5jFsIJtY3DA0gkpQVRKa-Z5uBkc5c8XSjecxVcQ50HFiCCGZS27KU__LQl8h9SntbMZjQTKbJsBYXQta3GHWo2VyYfVIxU-T1E"/>
+<img alt="Retrat de l'artista" id="artist-photo" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover organic-mask-hero" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1ALuT43Cy1O99SqMmq8etfIHpoZTcpHROxd_zTFTi8hcFVqnwPU5CnFviaBY0jk7MWaweExIeOtHPEJIR-bMByYUUqZroaO4PIpaoZUD9PJ6v-QVsu_HUtiB-W1YVCXhgZCmlcGhS1biJoaQKcIobnpXOKM5DGf_HyLDEhmjau5jFsIJtY3DA0gkpQVRKa-Z5uBkc5c8XSjecxVcQ50HFiCCGZS27KU__LQl8h9SntbMZjQTKbJsBYXQta3GHWo2VyYfVIxU-T1E"/>
 
 </div>
 </section>
@@ -207,18 +207,11 @@
                         Durant l'última dècada, Malek ha encapçalat festivals a tres continents i s'ha guanyat el títol de "El Griot Modern". Els seus directes són més que concerts: són rituals culturals immersius que fan de pont entre les històries ancestrals i els futurs digitals.
                     </p>
 </div>
-<!-- Video Player -->
-<div class="relative rounded-3xl overflow-hidden bg-surface-container-highest group">
-<img alt="Latest Performance Video Thumbnail" class="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide cinematic shot of a live music performance on a dark stage with intense amber spotlights. A lead singer is caught in a moment of soul-stirring passion, surrounded by haze and blurred silhouettes of a band. The lighting is moody and dramatic, focusing on the raw energy and rhythmic soul of a premium African cultural festival." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-a2h6rzBLIWS7-lA08-hNtleyDF2nj0JkfPmJE6PMgoOt3uqQWgxVqqEYKCwsCVpJ2cmfKr62j3fU1myHbLDNvJplL7gNw4zB_Kp0aV8PNJLCQbtvFtWdhhDlN685MZBSpC6otNjjQR7c1tIKs1SP7Y1Ny_8NRt2RjZNjBVfj8FQoWshJDutg9k29LbSLTU_cTJRN9kaNres8Sygjnn5wfTYp8T4Ba65UVrLEBreSf96XwOuv6Eyht09bG3PFAG2YWPtAyMgymYQ"/>
-<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-<button class="w-24 h-24 rounded-full bg-primary/90 text-on-primary flex items-center justify-center hover:scale-110 transition-transform shadow-2xl">
-<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-</button>
-</div>
-<div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
-<p class="font-headline-md text-headline-md text-white">En directe a Echoes of the Sun (2023)</p>
-<p class="font-body-md text-body-md text-tertiary">Vídeo oficial de l'actuació</p>
-</div>
+<!-- Video Player (es munta dinàmicament des de site-data.js) -->
+<div id="artist-video-wrap" class="space-y-6" style="display:none">
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary">En directe</h2>
+<div class="w-20 h-1 bg-tertiary"></div>
+<div id="artist-video"></div>
 </div>
 </div>
 <aside class="lg:col-span-5 space-y-12">
@@ -243,7 +236,7 @@
 </div>
 <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col lg:flex-row items-center gap-20">
 <div class="w-full lg:w-1/2">
-<h2 class="font-display-lg text-4xl md:text-headline-xl text-primary mb-6">Reserva Malek per al teu <span class="text-tertiary">pròxim esdeveniment cultural.</span></h2>
+<h2 class="font-display-lg text-4xl md:text-headline-xl text-primary mb-6">Reserva <span id="artist-name-booking">l'artista</span> per al teu <span class="text-tertiary">pròxim esdeveniment cultural.</span></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
                         Ens encarreguem de tot, des del contracte fins al directe. Malek està disponible per a festivals internacionals, curacions privades i tallers col·laboratius.
                     </p>
@@ -320,6 +313,38 @@
 </footer>
 <!-- Reproductor flotant eliminat — la playlist viu a la home -->
 <script src="animations.js"></script>
+<script src="site-data.js"></script>
+<script>
+        // Carrega dinàmica de l'artista per ?id (des de l'API del dashboard)
+        (function () {
+            var S = window.EseyasaSite;
+            var id = new URLSearchParams(location.search).get('id');
+            if (!id || !S) return; // sense id: es manté el contingut de demostració
+            S.getArtist(id).then(function (a) {
+                if (!a || a.error) return;
+                document.title = a.name + ' | Eseyasa Productions';
+                var nameEl = document.getElementById('artist-name');
+                if (nameEl) {
+                    var parts = String(a.name || '').trim().split(/\s+/);
+                    var first = (parts.shift() || '').toUpperCase();
+                    var rest = parts.join(' ').toUpperCase();
+                    nameEl.innerHTML = S.esc(first) + (rest ? '<br/><span class="text-tertiary">' + S.esc(rest) + '</span>' : '');
+                }
+                var g = document.getElementById('artist-genre');
+                if (g) g.textContent = a.genre || 'Artista destacat';
+                var bio = document.getElementById('artist-bio');
+                if (bio) bio.textContent = a.bio || '';
+                var photo = document.getElementById('artist-photo');
+                if (photo && a.imageUrl) { photo.src = a.imageUrl; photo.alt = 'Retrat de ' + a.name; }
+                var nb = document.getElementById('artist-name-booking');
+                if (nb) nb.textContent = a.name;
+                if (a.videoUrl && S.parseVideo(a.videoUrl)) {
+                    document.getElementById('artist-video-wrap').style.display = '';
+                    S.mountVideoFacade(document.getElementById('artist-video'), a.videoUrl, { title: a.name, subtitle: 'Vídeo oficial' });
+                }
+            }).catch(function () {});
+        })();
+    </script>
 <script>
         // Sticky header — soft gradient on scroll
         const siteHeader = document.getElementById('siteHeader');
