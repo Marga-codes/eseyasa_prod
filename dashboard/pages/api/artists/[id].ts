@@ -13,6 +13,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const artistId = Number(id)
 
   if (req.method === 'GET') {
+    // El sitio público (otro origen) consume esta API: permitir lectura CORS.
+    res.setHeader('Access-Control-Allow-Origin', '*')
     const a = await prisma.artist.findUnique({ where: { id: artistId } })
     return res.json(a)
   }
@@ -20,8 +22,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!checkAdmin(req)) return res.status(401).json({ error: 'Unauthorized' })
 
   if (req.method === 'PUT') {
-    const { name, bio, imageUrl, links } = req.body
-    const updated = await prisma.artist.update({ where: { id: artistId }, data: { name, bio, imageUrl, links } })
+    const { name, genre, bio, imageUrl, videoUrl, links } = req.body
+    const updated = await prisma.artist.update({ where: { id: artistId }, data: { name, genre, bio, imageUrl, videoUrl, links } })
     return res.json(updated)
   }
 

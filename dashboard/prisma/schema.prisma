@@ -10,8 +10,10 @@ generator client {
 model Artist {
   id        Int      @id @default(autoincrement())
   name      String
+  genre     String?
   bio       String?
   imageUrl  String?
+  videoUrl  String?
   links     Json?
   createdAt DateTime @default(now())
 }
