@@ -1,20 +1,27 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '../../../lib/prisma'
 
+function setCors(res: NextApiResponse) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,DELETE,OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,x-admin-password')
+}
+
 function checkAdmin(req: NextApiRequest) {
   const pw = req.headers['x-admin-password'] as string | undefined
   return pw && pw === process.env.ADMIN_PASSWORD
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  setCors(res)
+  if (req.method === 'OPTIONS') return res.status(204).end()
+
   const { id } = req.query
   if (!id) return res.status(400).json({ error: 'Missing id' })
 
   const artistId = Number(id)
 
   if (req.method === 'GET') {
-    // El sitio público (otro origen) consume esta API: permitir lectura CORS.
-    res.setHeader('Access-Control-Allow-Origin', '*')
     const a = await prisma.artist.findUnique({ where: { id: artistId } })
     return res.json(a)
   }

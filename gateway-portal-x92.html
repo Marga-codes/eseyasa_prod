@@ -135,7 +135,7 @@
 <div class="relative z-10 w-full max-w-[480px] stagger-in">
 <!-- Brand Anchor -->
 <div class="flex flex-col items-center mb-10" style="animation-delay: 0.1s;">
-<img alt="Eseyasa Productions Logo" class="w-24 h-24 mb-6 object-contain hover:scale-110 transition-transform duration-500 cursor-pointer" src="images/Image 1.png"/>
+<img alt="Eseyasa Productions Logo" class="w-24 h-24 mb-6 object-contain hover:scale-110 transition-transform duration-500 cursor-pointer" src="assets/images/Image 1.png"/>
 <h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary tracking-tight text-center">
                     Eseyasa Productions
                 </h1>
@@ -227,6 +227,8 @@
         // Simple animation trigger for visual feedback
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
+            const password = document.getElementById('password').value;
+            sessionStorage.setItem('eseyasaAdminPassword', password);
             const btn = e.target.querySelector('button[type="submit"]');
             btn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Verifying Credentials...';
             btn.classList.add('opacity-80', 'cursor-wait');

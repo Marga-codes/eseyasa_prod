@@ -1,11 +1,18 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client'
 
-// Subida de imágenes de artistas a Vercel Blob mediante "client upload":
-// el navegador sube el archivo directamente al store (sin el límite de 4.5MB
-// de las funciones serverless). Este endpoint solo genera el token de subida
-// tras validar el password de admin, que el cliente envía en clientPayload.
+function setCors(res: NextApiResponse) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,x-admin-password')
+}
+
+// Client upload for artist images. The browser uploads directly to Vercel Blob;
+// this endpoint only authorizes the upload token with the admin password.
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  setCors(res)
+  if (req.method === 'OPTIONS') return res.status(204).end()
+
   if (req.method !== 'POST') {
     res.setHeader('Allow', ['POST'])
     return res.status(405).end(`Method ${req.method} Not Allowed`)
@@ -18,18 +25,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       body,
       request: req,
       onBeforeGenerateToken: async (_pathname, clientPayload) => {
-        // clientPayload lleva el password de admin enviado desde el formulario.
         if (!clientPayload || clientPayload !== process.env.ADMIN_PASSWORD) {
           throw new Error('Not authorized')
         }
         return {
           allowedContentTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/gif'],
-          maximumSizeInBytes: 10 * 1024 * 1024, // 10MB
+          maximumSizeInBytes: 10 * 1024 * 1024,
           addRandomSuffix: true,
         }
       },
-      // En local onUploadCompleted no se dispara (Vercel no alcanza tu
-      // localhost); el cliente recibe la URL y la guarda al crear el artista.
       onUploadCompleted: async () => {},
     })
 

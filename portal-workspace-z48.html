@@ -160,7 +160,7 @@
 <h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background">Performance <span class="text-primary italic">Pulse</span></h2>
 <p class="text-on-surface-variant font-body-md mt-2">Welcome back. Here is the latest from your artist roster.</p>
 </div>
-<button class="flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-body-md hover:scale-105 active:scale-95 transition-transform">
+<button id="addArtistBtn" class="flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-body-md hover:scale-105 active:scale-95 transition-transform">
 <span class="material-symbols-outlined">person_add</span>
                 Add New Artist
             </button>
@@ -185,7 +185,7 @@
 <!-- Stat 2 -->
 <div class="bg-surface-container-high p-8 rounded-2xl border border-outline-variant/30">
 <p class="text-on-surface-variant font-label-sm uppercase tracking-widest mb-2">Total Artists</p>
-<h3 class="font-headline-xl text-primary">128</h3>
+<h3 id="totalArtistsStat" class="font-headline-xl text-primary">0</h3>
 <div class="mt-6 h-1 w-full bg-surface-container rounded-full overflow-hidden">
 <div class="h-full bg-primary w-[75%]"></div>
 </div>
@@ -206,7 +206,7 @@
 <div class="flex items-center gap-4">
 <div class="relative">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="bg-surface-container-high border-none rounded-full pl-12 pr-6 py-2 focus:ring-2 focus:ring-primary text-body-md text-on-background w-64" placeholder="Search artists..." type="text"/>
+<input id="artistSearch" class="bg-surface-container-high border-none rounded-full pl-12 pr-6 py-2 focus:ring-2 focus:ring-primary text-body-md text-on-background w-64" placeholder="Search artists..." type="text"/>
 </div>
 <button class="p-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors">
 <span class="material-symbols-outlined">filter_list</span>
@@ -214,7 +214,7 @@
 </div>
 </div>
 <!-- Artist Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
+<div id="artistGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
 <!-- Artist Card 1 -->
 <div class="bg-surface-container-low rounded-3xl p-4 group border border-transparent hover:border-primary/20 transition-all">
 <div class="relative aspect-square overflow-hidden artist-card-mask mb-6">
@@ -314,6 +314,59 @@
 </div>
 </div>
 </main>
+<div id="artistModal" class="fixed inset-0 z-[80] hidden items-center justify-center bg-black/70 px-4">
+<div class="w-full max-w-2xl bg-surface-container-low border border-outline-variant/40 rounded-xl shadow-2xl max-h-[92vh] overflow-y-auto">
+<div class="flex items-center justify-between px-6 py-5 border-b border-outline-variant/30">
+<div>
+<p class="font-label-sm text-label-sm text-sapling uppercase tracking-widest">Admin</p>
+<h3 id="artistModalTitle" class="font-headline-md text-primary">Crear artista</h3>
+</div>
+<button id="closeArtistModal" class="p-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form id="artistForm" class="p-6 space-y-5">
+<input id="artistId" type="hidden"/>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="space-y-2">
+<span class="block font-label-sm text-label-sm text-sapling uppercase tracking-widest">Nombre</span>
+<input id="artistName" class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/50" required type="text"/>
+</label>
+<label class="space-y-2">
+<span class="block font-label-sm text-label-sm text-sapling uppercase tracking-widest">Genero</span>
+<input id="artistGenre" class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/50" type="text"/>
+</label>
+</div>
+<label class="space-y-2 block">
+<span class="block font-label-sm text-label-sm text-sapling uppercase tracking-widest">Bio</span>
+<textarea id="artistBio" class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/50" rows="4"></textarea>
+</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="space-y-2">
+<span class="block font-label-sm text-label-sm text-sapling uppercase tracking-widest">Foto URL</span>
+<input id="artistImageUrl" class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/50" type="url"/>
+</label>
+<label class="space-y-2">
+<span class="block font-label-sm text-label-sm text-sapling uppercase tracking-widest">Video URL</span>
+<input id="artistVideoUrl" class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/50" type="url"/>
+</label>
+</div>
+<label class="space-y-2 block">
+<span class="block font-label-sm text-label-sm text-sapling uppercase tracking-widest">Subir foto</span>
+<input id="artistPhotoFile" class="block w-full text-on-surface-variant file:mr-4 file:rounded-lg file:border-0 file:bg-primary file:px-4 file:py-2 file:text-on-primary" accept="image/*" type="file"/>
+</label>
+<div id="artistPreviewWrap" class="hidden">
+<img id="artistPreview" class="w-40 h-40 rounded-xl object-cover border border-outline-variant/40" alt="Vista previa"/>
+</div>
+<p id="artistFormStatus" class="min-h-6 text-sm text-tertiary"></p>
+<div class="flex flex-col sm:flex-row justify-end gap-3 pt-2">
+<button id="deleteArtistBtn" class="hidden px-6 py-3 rounded-lg bg-error-container/30 text-error hover:bg-error-container/50 transition-colors" type="button">Eliminar</button>
+<button class="px-6 py-3 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-colors" id="cancelArtistForm" type="button">Cancelar</button>
+<button id="saveArtistBtn" class="px-6 py-3 rounded-lg bg-primary text-on-primary font-headline-md hover:scale-[1.02] active:scale-95 transition-transform" type="submit">Guardar</button>
+</div>
+</form>
+</div>
+</div>
 <!-- Interactive script for dashboard subtle effects -->
 <script src="animations.js"></script>
 <script>
@@ -357,4 +410,221 @@
             }, 800);
         });
     </script>
+<script>
+(function () {
+    const PROD_API = 'https://eseyasa-dashboard.vercel.app';
+    const host = location.hostname;
+    const isProd = /\.vercel\.app$/.test(host) || /(^|\.)eseyasaproductions\./.test(host);
+    const API_BASE = isProd ? PROD_API : (location.protocol + '//' + host + ':3001');
+    const state = { artists: [], filtered: [] };
+
+    function byId(id) { return document.getElementById(id); }
+    function esc(value) {
+        return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+    }
+
+    const els = {
+        grid: byId('artistGrid'),
+        total: byId('totalArtistsStat'),
+        search: byId('artistSearch'),
+        add: byId('addArtistBtn'),
+        modal: byId('artistModal'),
+        title: byId('artistModalTitle'),
+        form: byId('artistForm'),
+        id: byId('artistId'),
+        name: byId('artistName'),
+        genre: byId('artistGenre'),
+        bio: byId('artistBio'),
+        imageUrl: byId('artistImageUrl'),
+        videoUrl: byId('artistVideoUrl'),
+        file: byId('artistPhotoFile'),
+        previewWrap: byId('artistPreviewWrap'),
+        preview: byId('artistPreview'),
+        status: byId('artistFormStatus'),
+        save: byId('saveArtistBtn'),
+        deleteBtn: byId('deleteArtistBtn'),
+        close: byId('closeArtistModal'),
+        cancel: byId('cancelArtistForm'),
+    };
+
+    function adminPassword() {
+        let pw = sessionStorage.getItem('eseyasaAdminPassword') || '';
+        if (!pw) {
+            pw = prompt('Password de admin') || '';
+            if (pw) sessionStorage.setItem('eseyasaAdminPassword', pw);
+        }
+        return pw;
+    }
+
+    async function api(path, options) {
+        const res = await fetch(API_BASE + path, options);
+        if (!res.ok) {
+            let message = 'Error ' + res.status;
+            try {
+                const body = await res.json();
+                if (body.error) message = body.error;
+            } catch (_) {}
+            throw new Error(message);
+        }
+        if (res.status === 204) return null;
+        return res.json();
+    }
+
+    async function loadArtists() {
+        els.grid.innerHTML = '<p class="text-on-surface-variant">Cargando artistas...</p>';
+        try {
+            state.artists = await api('/api/artists');
+            applyFilter();
+        } catch (error) {
+            els.grid.innerHTML = '<p class="text-error">No se pudo cargar artistas: ' + esc(error.message) + '</p>';
+        }
+    }
+
+    function applyFilter() {
+        const q = (els.search.value || '').toLowerCase().trim();
+        state.filtered = state.artists.filter(function (a) {
+            return !q || [a.name, a.genre, a.bio].join(' ').toLowerCase().includes(q);
+        });
+        renderArtists();
+    }
+
+    function renderArtists() {
+        els.total.textContent = String(state.artists.length);
+        if (!state.filtered.length) {
+            els.grid.innerHTML = '<p class="text-on-surface-variant">No hay artistas para mostrar.</p>';
+            return;
+        }
+        els.grid.innerHTML = state.filtered.map(function (a) {
+            const img = a.imageUrl
+                ? '<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110" src="' + esc(a.imageUrl) + '" alt="' + esc(a.name) + '"/>'
+                : '<div class="w-full h-full bg-secondary-container flex items-center justify-center"><span class="material-symbols-outlined text-[96px] text-primary/50">person_pin</span></div>';
+            return '<div class="bg-surface-container-low rounded-3xl p-4 group border border-transparent hover:border-primary/20 transition-all" data-card-id="' + esc(a.id) + '">' +
+                '<div class="relative aspect-square overflow-hidden artist-card-mask mb-6">' + img + '<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div></div>' +
+                '<div class="px-2"><div class="flex justify-between items-start gap-3 mb-2">' +
+                '<h4 class="font-headline-md text-primary">' + esc(a.name || 'Sin nombre') + '</h4>' +
+                '<span class="bg-leaf-muted/20 text-sapling px-3 py-1 rounded-full font-label-sm uppercase tracking-tighter">' + esc(a.genre || 'Artista') + '</span>' +
+                '</div><p class="text-on-surface-variant font-body-md mb-6 line-clamp-3">' + esc(a.bio || 'Sin bio') + '</p>' +
+                '<div class="flex gap-2"><button class="editArtist flex-1 bg-surface-container-highest text-on-surface font-body-md py-3 rounded-xl hover:bg-secondary-container hover:text-secondary transition-colors" data-id="' + esc(a.id) + '">Edit</button>' +
+                '<button class="deleteArtist p-3 bg-surface-container-highest text-error font-body-md rounded-xl hover:bg-error-container/30 transition-colors" data-id="' + esc(a.id) + '"><span class="material-symbols-outlined">delete</span></button></div></div></div>';
+        }).join('');
+    }
+
+    function findArtist(id) {
+        return state.artists.find(function (a) { return String(a.id) === String(id); });
+    }
+
+    function updatePreview() {
+        if (els.imageUrl.value) {
+            els.preview.src = els.imageUrl.value;
+            els.previewWrap.classList.remove('hidden');
+        } else {
+            els.preview.removeAttribute('src');
+            els.previewWrap.classList.add('hidden');
+        }
+    }
+
+    function openModal(artist) {
+        const editing = Boolean(artist);
+        els.title.textContent = editing ? 'Editar artista' : 'Crear artista';
+        els.id.value = editing ? artist.id : '';
+        els.name.value = editing ? (artist.name || '') : '';
+        els.genre.value = editing ? (artist.genre || '') : '';
+        els.bio.value = editing ? (artist.bio || '') : '';
+        els.imageUrl.value = editing ? (artist.imageUrl || '') : '';
+        els.videoUrl.value = editing ? (artist.videoUrl || '') : '';
+        els.file.value = '';
+        els.status.textContent = '';
+        els.deleteBtn.classList.toggle('hidden', !editing);
+        updatePreview();
+        els.modal.classList.remove('hidden');
+        els.modal.classList.add('flex');
+        els.name.focus();
+    }
+
+    function closeModal() {
+        els.modal.classList.add('hidden');
+        els.modal.classList.remove('flex');
+    }
+
+    async function uploadSelectedFile(pw) {
+        if (!els.file.files || !els.file.files[0]) return els.imageUrl.value.trim();
+        els.status.textContent = 'Subiendo foto...';
+        const mod = await import('https://esm.sh/@vercel/blob@2.4.0/client');
+        const blob = await mod.upload(els.file.files[0].name, els.file.files[0], {
+            access: 'public',
+            handleUploadUrl: API_BASE + '/api/upload',
+            clientPayload: pw,
+        });
+        return blob.url;
+    }
+
+    async function saveArtist(event) {
+        event.preventDefault();
+        const pw = adminPassword();
+        if (!pw) {
+            els.status.textContent = 'Introduce el password de admin.';
+            return;
+        }
+        els.save.disabled = true;
+        try {
+            const imageUrl = await uploadSelectedFile(pw);
+            const payload = {
+                name: els.name.value.trim(),
+                genre: els.genre.value.trim(),
+                bio: els.bio.value.trim(),
+                imageUrl: imageUrl,
+                videoUrl: els.videoUrl.value.trim(),
+            };
+            const id = els.id.value;
+            await api(id ? '/api/artists/' + encodeURIComponent(id) : '/api/artists', {
+                method: id ? 'PUT' : 'POST',
+                headers: { 'Content-Type': 'application/json', 'x-admin-password': pw },
+                body: JSON.stringify(payload),
+            });
+            els.status.textContent = 'Guardado.';
+            await loadArtists();
+            closeModal();
+        } catch (error) {
+            els.status.textContent = 'Error: ' + error.message;
+        } finally {
+            els.save.disabled = false;
+        }
+    }
+
+    async function deleteArtist(id) {
+        const artist = findArtist(id);
+        if (!artist || !confirm('Eliminar ' + (artist.name || 'este artista') + '?')) return;
+        const pw = adminPassword();
+        if (!pw) return;
+        await api('/api/artists/' + encodeURIComponent(id), {
+            method: 'DELETE',
+            headers: { 'x-admin-password': pw },
+        });
+        await loadArtists();
+        closeModal();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        els.add.addEventListener('click', function () { openModal(null); });
+        els.search.addEventListener('input', applyFilter);
+        els.close.addEventListener('click', closeModal);
+        els.cancel.addEventListener('click', closeModal);
+        els.imageUrl.addEventListener('input', updatePreview);
+        els.form.addEventListener('submit', saveArtist);
+        els.deleteBtn.addEventListener('click', function () { if (els.id.value) deleteArtist(els.id.value); });
+        els.grid.addEventListener('click', function (event) {
+            const edit = event.target.closest('.editArtist');
+            const del = event.target.closest('.deleteArtist');
+            if (edit) openModal(findArtist(edit.dataset.id));
+            if (del) deleteArtist(del.dataset.id);
+        });
+        byId('logoutBtn').addEventListener('click', function () {
+            sessionStorage.removeItem('eseyasaAdminPassword');
+        });
+        loadArtists();
+    });
+})();
+</script>
 </body></html>
