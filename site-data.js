@@ -8,12 +8,15 @@
   'use strict';
 
   // --- Base de la API del dashboard -----------------------------------------
-  // En local apunta al dev server; en producción, al dominio del dashboard.
+  // En producción apunta al dominio del dashboard; en cualquier otro caso
+  // (localhost, 127.0.0.1 o una IP de red local como 192.168.x / 172.x) deriva
+  // la API del MISMO host donde se abre la página, en el puerto 3001. Así el
+  // sitio funciona tanto en http://localhost:8000 como en http://<IP>:8000.
   // ⚠️ Cambia PROD_API por tu dominio real del dashboard si no es este.
-  var LOCAL_API = 'http://localhost:3001';
   var PROD_API = 'https://eseyasa-dashboard.vercel.app';
-  var isLocal = ['localhost', '127.0.0.1', ''].indexOf(location.hostname) !== -1;
-  var API_BASE = isLocal ? LOCAL_API : PROD_API;
+  var host = location.hostname;
+  var isProd = /\.vercel\.app$/.test(host) || /(^|\.)eseyasaproductions\./.test(host);
+  var API_BASE = isProd ? PROD_API : (location.protocol + '//' + host + ':3001');
 
   function apiGet(path) {
     return fetch(API_BASE + path, { headers: { Accept: 'application/json' } })
