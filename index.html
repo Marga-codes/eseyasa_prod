@@ -162,28 +162,24 @@
     <div class="slider absolute inset-0 z-0" id="heroSlider">
         <div class="slides">
             <!--
-              SLIDER HERO — substitueix les imatges deixant els 4 fitxers a /images/:
-                  images/hero-1.jpg
-                  images/hero-2.jpg
-                  images/hero-3.jpg
-                  images/hero-4.jpg
-              Si algun no existeix, l'onerror carrega automàticament un mockup com a fallback.
+              SLIDER HERO — usa les teves fotos. Deixa 4 fitxers a /assets/images/:
+                  assets/images/hero-1.jpg
+                  assets/images/hero-2.jpg
+                  assets/images/hero-3.jpg
+                  assets/images/hero-4.jpg
+              (Pots canviar els noms aquí sota si les teves fotos es diuen diferent.)
             -->
             <div class="slide active">
-                <img class="slide-thumb" src="images/hero-1.jpg" alt="Eseyasa — slide 1"
-                     onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuD4vWuy2qySgvCxbJsT9j4u2K6jKKa93huvjuYTiqsVniR5MjG8xQsf4qFJzzIXlq8w34VRk7AOUDA9p8cnE7MpyjvNLQ_tLWwrrIvP6dbFx2QUPKgrnetwxneuEgtiH2BsmUDkGPkcvxfYpENP10KfjfOf2r-ScMtCDWRwTQEqR7jQqleSAiBJ5oxrwwE5DB1_Vg2Q8Ryql60QFRvVSsTbGH5v7i66d0bp0awpAUDv7W4yCdwOJvvovSsHyuMwB31QRAKZ0bJOrJg';">
+                <img class="slide-thumb" src="assets/images/hero-1.jpg" alt="Eseyasa — slide 1" loading="eager" fetchpriority="high">
             </div>
             <div class="slide">
-                <img class="slide-thumb" src="images/hero-2.jpg" alt="Eseyasa — slide 2"
-                     onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCxvh7tHkw7NpcBoBuDpx9LE-8HAmFu4Na9uugktt5RfJPRPZ39hqnON5qRNBnkTYesCsOmhzHrNNi_WLN1A2vAghmgxIbylMon4XszHTEZgwfhzHXc3iVmB_ZXZjDMmm3ybNI0CmspxPzYgpJ351BegN_CdXFA6hxwIoHACdvTWWc54YF-7KH_XZC9afnnMO0ESUmsLzIzDrg-gJG9NuB5ipX-zbJ_MZGHQOzHUrjdDRmCWhddHhlWfdw2mA2JhJtq_MLmXAIC-tk';">
+                <img class="slide-thumb" src="assets/images/hero-2.jpg" alt="Eseyasa — slide 2" loading="lazy" decoding="async">
             </div>
             <div class="slide">
-                <img class="slide-thumb" src="images/hero-3.jpg" alt="Eseyasa — slide 3"
-                     onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuDEIQjIz8kRk8J-NnfTvUI8J56i3f50aODK9SBz3wZ8prES_2HhRccqiDHGbIiJy-n1e8S8rsQB4HzEEpAlZjZ7uV0yDXcz_9ip2a0ZVUvOyztkXssOWGQvFwETpA4EK67qUcYaYZYy7eem490rUDFQRwOcOheDptloIpjAyMeuzZkeuYGLGY0_OaT1rTfTTP2cEvGgemr408FRjpRwoRA7NhrcKEUtGyU8DDz9YF2mOtBPmrICoxK_nYs5inBG18OKU_QSbry11Dg';">
+                <img class="slide-thumb" src="assets/images/hero-3.jpg" alt="Eseyasa — slide 3" loading="lazy" decoding="async">
             </div>
             <div class="slide">
-                <img class="slide-thumb" src="images/hero-4.jpg" alt="Eseyasa — slide 4"
-                     onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAuNUrKHSUYIW3qE2AO9y5Cxw9Mirea8mGFtPwPRG94oYyDiV0yZtfFji2k__6S1CLogw6ouoocnyRCDQgpyhOoYzReQ7uvBE9oCa5bZnjvovXKxm4NjAxauxgV8NNZRkbbZhlO9nJN26wonENUxnDoS1W4s65MSdH9JkY1Q9W3UQXxnGXoPGlrP6iqSZZVUg3izTZDhnDJpARA87yY_kFjSyELtVyY_Ie_HDWVHSbG-aeYYUXXFYBAH0t8aGTzz64Xl-8dDC2TrGc';">
+                <img class="slide-thumb" src="assets/images/hero-4.jpg" alt="Eseyasa — slide 4" loading="lazy" decoding="async">
             </div>
         </div>
         <div class="hero-scrim"></div>
