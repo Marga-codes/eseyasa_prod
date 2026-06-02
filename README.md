@@ -1,3 +1,22 @@
+# eseyasa_prod — Deployment guide
+
+This repository contains a static site and a simple admin dashboard in `dashboard/`.
+
+Quick deploy (recommended):
+
+1. Create a Vercel project and link it to this GitHub repo.
+2. Add the following Repository Secrets in GitHub (Settings → Secrets → Actions):
+   - `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`
+   - `DATABASE_URL` (Supabase connection string)
+   - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`
+   - `ADMIN_PASSWORD`
+3. Push to `main` and the GitHub Action will build and deploy to Vercel.
+
+Local quick test:
+
+cd dashboard
+npm install
+npm run dev:sqlite
 # Eseyasa Productions — Sitio Estático
 
 Sitio estático creado con HTML/CSS/JS. Este repositorio contiene las páginas estáticas y recursos necesarios para ejecutar la web localmente o desplegar en GitHub Pages.

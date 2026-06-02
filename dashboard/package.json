@@ -4,18 +4,24 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
+    "dev:sqlite": "cross-env DATABASE_URL=file:./prisma/dev.db next dev -p 3001",
     "build": "next build",
     "start": "next start -p 3001",
-    "prisma": "prisma"
+    "prisma": "prisma",
+    "prisma:generate:sqlite": "prisma generate --schema=prisma/schema.sqlite.prisma",
+    "prisma:dbpush:sqlite": "prisma db push --schema=prisma/schema.sqlite.prisma"
   },
   "dependencies": {
-    "next": "13.4.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "@prisma/client": "^5.0.0",
-    "nodemailer": "^6.9.0"
+    "next": "13.4.5",
+    "nodemailer": "^6.9.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@types/node": "25.9.1",
+    "@types/react": "19.2.16",
+    "cross-env": "^7.0.3",
     "prisma": "^5.0.0",
     "typescript": "^5.0.4"
   }

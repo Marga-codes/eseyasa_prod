@@ -17,6 +17,9 @@ Thumbs.db
 
 # Environment
 .env
+ 
+# Local Prisma DB
+dashboard/prisma/dev.db
 
 # Python
 __pycache__/
