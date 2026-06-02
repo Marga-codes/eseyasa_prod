@@ -1,5 +1,11 @@
 node_modules/
 .next/
 dist/
-env.local
 *.log
+.vercel
+claude.md
+
+# Variables de entorno (nunca commitear secrets)
+.env
+.env.*
+!.env.example
