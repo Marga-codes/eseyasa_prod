@@ -5,6 +5,7 @@ dist/
 *.log
 .vercel
 claude.md
+.remember
 
 # Variables de entorno (nunca commitear secrets)
 .env
