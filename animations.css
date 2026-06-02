@@ -1,0 +1,126 @@
+/* animations.css - Framer-style Premium Transitions & Interactive Effects */
+
+/* Custom easing curves mimicking spring physics */
+:root {
+  --ease-framer-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-framer-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-framer-io: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Base class for elements that should animate on scroll */
+.framer-reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: 
+    opacity 0.8s var(--ease-framer-smooth),
+    transform 0.8s var(--ease-framer-smooth);
+  will-change: transform, opacity;
+}
+
+.framer-reveal.framer-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delays for children */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Left-to-Right framer reveal */
+.framer-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: 
+    opacity 0.8s var(--ease-framer-smooth),
+    transform 0.8s var(--ease-framer-smooth);
+  will-change: transform, opacity;
+}
+
+.framer-reveal-left.framer-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Right-to-Left framer reveal */
+.framer-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: 
+    opacity 0.8s var(--ease-framer-smooth),
+    transform 0.8s var(--ease-framer-smooth);
+  will-change: transform, opacity;
+}
+
+.framer-reveal-right.framer-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Zoom-in reveal */
+.framer-reveal-zoom {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: 
+    opacity 0.8s var(--ease-framer-smooth),
+    transform 0.8s var(--ease-framer-smooth);
+  will-change: transform, opacity;
+}
+
+.framer-reveal-zoom.framer-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Smooth Premium Hover Scaling */
+.framer-hover-scale {
+  transition: transform 0.6s var(--ease-framer-smooth), box-shadow 0.6s var(--ease-framer-smooth);
+}
+
+.framer-hover-scale:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(238, 168, 59, 0.15); /* matching Eseyasa primary color glow */
+}
+
+/* Custom interactive button animation */
+.framer-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-framer-spring), filter 0.3s ease;
+}
+
+.framer-btn:hover {
+  transform: scale(1.05);
+}
+
+.framer-btn:active {
+  transform: scale(0.95);
+}
+
+.framer-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg) translateX(-100%);
+  transition: transform 0.75s var(--ease-framer-smooth);
+}
+
+.framer-btn:hover::after {
+  transform: skewX(-25deg) translateX(100%);
+}
+
+/* Elastic drawer slide-in */
+.framer-drawer {
+  transition: transform 0.5s var(--ease-framer-spring), opacity 0.5s ease;
+}

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .organic-mask {
+            clip-path: ellipse(80% 90% at 50% 50%);
+        }
+        @media (min-width: 768px) {
+            .organic-mask-hero {
+                clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+        .glass-card {
+            background: rgba(30, 32, 29, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 200, 124, 0.3);
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu-overlay {
+            clip-path: circle(0px at 100% 0%);
+            transition: clip-path 0.5s var(--ease-framer-smooth);
+        }
+        .mobile-menu-overlay.open {
+            clip-path: circle(150% at 100% 0%);
+        }
+    </style>
+    <link href="animations.css" rel="stylesheet" />
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#514535",
+                        "on-tertiary-fixed": "#311300",
+                        "on-tertiary-container": "#743600",
+                        "sapling": "#AEBA8A",
+                        "on-surface-variant": "#d6c4af",
+                        "inverse-on-surface": "#2f312e",
+                        "on-tertiary-fixed-variant": "#733500",
+                        "on-primary-fixed": "#291800",
+                        "on-background": "#e3e3de",
+                        "secondary-container": "#184f46",
+                        "tertiary": "#ffc5a2",
+                        "primary-fixed-dim": "#ffb952",
+                        "background": "#121411",
+                        "on-secondary": "#003730",
+                        "leaf-muted": "#80917D",
+                        "on-secondary-container": "#8abfb4",
+                        "surface-dim": "#121411",
+                        "surface": "#121411",
+                        "secondary-fixed-dim": "#9cd1c5",
+                        "surface-container-high": "#292b27",
+                        "on-error": "#690005",
+                        "surface-bright": "#383a36",
+                        "on-primary-fixed-variant": "#633f00",
+                        "tertiary-fixed-dim": "#ffb689",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#512400",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#634000",
+                        "surface-container-highest": "#333532",
+                        "secondary-fixed": "#b7ede1",
+                        "secondary": "#9cd1c5",
+                        "surface-container-low": "#1a1c19",
+                        "tertiary-container": "#fd9f60",
+                        "tertiary-fixed": "#ffdbc7",
+                        "outline": "#9e8e7c",
+                        "on-secondary-fixed": "#00201b",
+                        "primary": "#ffc87c",
+                        "surface-container": "#1e201d",
+                        "surface-variant": "#333532",
+                        "surface-cream": "#FDF9F0",
+                        "primary-fixed": "#ffddb3",
+                        "on-primary": "#452b00",
+                        "on-surface": "#e3e3de",
+                        "surface-container-lowest": "#0d0f0c",
+                        "inverse-primary": "#825500",
+                        "surface-tint": "#ffb952",
+                        "inverse-surface": "#e3e3de",
+                        "error-container": "#93000a",
+                        "primary-container": "#eea83b",
+                        "on-secondary-fixed-variant": "#184f46"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-xl-mobile": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "fontWeight": "700"}],
+                        "display-lg": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<a href="index.html" class="flex items-center gap-3">
+<img alt="Eseyasa Productions Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUwN_X3hCHcWer-yPim_Bpx9geUBon8qm1K4OFZEGcI2XWPvz91kZwXijVdofsX-uoxtzJYi3H-nnDmnicM8rmTIZdztAyZhfrIEht6ata91Uve4-u1ohQiHFLgJ6M8VnAgdZe55215f5FztiqziX8PdLv0dJSZVRSF5ikqXm_Bc1HRbYTDxcWyav6Fpfw2DvVQUTGEA4pLss3LwXd3IKbPOyGvIw5cb_KC8iCuEJz1_UQuoUiAOT0emM3-_KxkKf7Q4GTu435Xsw"/>
+<span class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-primary tracking-tight">Eseyasa Productions</span>
+</a>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="index.html">Home</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 hover:scale-105 transition-all duration-300" href="artists.html">Artists</a>
+<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="contact.html">Contact</a>
+<a href="contact.html" class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-headline-md text-headline-md text-base font-bold active:scale-95 transition-transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                    Book Now
+                </a>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary" id="mobileMenuBtn">
+<span class="material-symbols-outlined text-3xl" id="menuIcon">menu</span>
+</button>
+</div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-background/98 z-45 flex flex-col justify-center items-center gap-8 md:hidden mobile-menu-overlay" id="mobileMenuOverlay">
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Home</a>
+<a class="font-headline-xl text-3xl text-primary font-bold" href="artists.html" onclick="toggleMobileMenu()">Artists</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contact</a>
+<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Book Now</a>
+</div>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[80vh] flex flex-col md:flex-row items-center overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+<div class="absolute top-20 -left-20 w-96 h-96 bg-secondary-container rounded-full blur-[100px]"></div>
+<div class="absolute bottom-20 -right-20 w-96 h-96 bg-primary-container rounded-full blur-[100px]"></div>
+</div>
+<div class="relative z-10 w-full md:w-1/2 px-margin-mobile md:pl-margin-desktop py-12">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm mb-6 tracking-widest">SPOTLIGHT ARTIST</span>
+<h1 class="font-display-lg text-4xl md:text-display-lg text-primary mb-4 leading-none">MALEK <br/><span class="text-tertiary">AZIKIWE</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed">
+                    A rhythmic architect merging traditional Highlife with contemporary Afro-electronic textures. Based in Lagos, Malek’s soulful resonance has captured global stages.
+                </p>
+<div class="flex flex-wrap gap-4">
+<a href="#booking" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline-md text-headline-md flex items-center gap-2 hover:scale-105 transition-all duration-300 framer-btn">
+<span class="material-symbols-outlined" data-weight="fill">calendar_today</span>
+                        Book for Event
+</a>
+<div class="flex items-center gap-4">
+<a class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-primary">play_arrow</span>
+</a>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter">Listen to Latest Single</span>
+</div>
+</div>
+</div>
+<div class="relative w-full md:w-1/2 h-[500px] md:h-screen">
+<div class="absolute inset-0 bg-secondary-container/20 organic-mask-hero"></div>
+<img alt="Malek Azikiwe Portrait" class="w-full h-full object-cover organic-mask-hero" data-alt="A portrait of a charismatic African male artist wearing vibrant contemporary Afro-centric fashion, standing against a deep forest green textured wall with natural sunlight filtering through palm leaves, creating dramatic shadows. The mood is powerful and rhythmic, with rich amber and terracotta accents reflecting the brand's visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1ALuT43Cy1O99SqMmq8etfIHpoZTcpHROxd_zTFTi8hcFVqnwPU5CnFviaBY0jk7MWaweExIeOtHPEJIR-bMByYUUqZroaO4PIpaoZUD9PJ6v-QVsu_HUtiB-W1YVCXhgZCmlcGhS1biJoaQKcIobnpXOKM5DGf_HyLDEhmjau5jFsIJtY3DA0gkpQVRKa-Z5uBkc5c8XSjecxVcQ50HFiCCGZS27KU__LQl8h9SntbMZjQTKbJsBYXQta3GHWo2VyYfVIxU-T1E"/>
+
+</div>
+</section>
+<!-- Biography & Video Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+<div class="lg:col-span-7 space-y-12">
+<div class="space-y-6">
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary">The Journey</h2>
+<div class="w-20 h-1 bg-tertiary"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-loose">
+                        Born into a lineage of percussionists in Lagos, Malek Azikiwe has redefined the boundaries of Afro-fusion. His work is characterized by "Asymmetrical Rhythms"—a technique that blends the heartbeat of the talking drum with modular synthesis.
+                    </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-loose">
+                        Over the last decade, Malek has headlined festivals across three continents, earning him the title of 'The Modern Griot'. His performances are more than just concerts; they are immersive cultural rituals that bridge the gap between ancestral stories and digital futures.
+                    </p>
+</div>
+<!-- Video Player -->
+<div class="relative rounded-3xl overflow-hidden bg-surface-container-highest group">
+<img alt="Latest Performance Video Thumbnail" class="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide cinematic shot of a live music performance on a dark stage with intense amber spotlights. A lead singer is caught in a moment of soul-stirring passion, surrounded by haze and blurred silhouettes of a band. The lighting is moody and dramatic, focusing on the raw energy and rhythmic soul of a premium African cultural festival." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-a2h6rzBLIWS7-lA08-hNtleyDF2nj0JkfPmJE6PMgoOt3uqQWgxVqqEYKCwsCVpJ2cmfKr62j3fU1myHbLDNvJplL7gNw4zB_Kp0aV8PNJLCQbtvFtWdhhDlN685MZBSpC6otNjjQR7c1tIKs1SP7Y1Ny_8NRt2RjZNjBVfj8FQoWshJDutg9k29LbSLTU_cTJRN9kaNres8Sygjnn5wfTYp8T4Ba65UVrLEBreSf96XwOuv6Eyht09bG3PFAG2YWPtAyMgymYQ"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<button class="w-24 h-24 rounded-full bg-primary/90 text-on-primary flex items-center justify-center hover:scale-110 transition-transform shadow-2xl">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+<p class="font-headline-md text-headline-md text-white">Live at Echoes of the Sun (2023)</p>
+<p class="font-body-md text-body-md text-tertiary">Official Performance Video</p>
+</div>
+</div>
+</div>
+<aside class="lg:col-span-5 space-y-12">
+<!-- Social Links -->
+<div class="flex gap-6 px-4">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors scale-125" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors scale-125" href="#">
+<span class="material-symbols-outlined">language</span>
+</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors scale-125" href="#">
+<span class="material-symbols-outlined">podcasts</span>
+</a>
+</div>
+</aside>
+</section>
+<!-- Booking CTA Section -->
+<section id="booking" class="py-24 bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-tertiary-container rounded-full blur-[120px]"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col lg:flex-row items-center gap-20">
+<div class="w-full lg:w-1/2">
+<h2 class="font-display-lg text-4xl md:text-headline-xl text-primary mb-6">Secure Malek for your next <span class="text-tertiary">Cultural Showcase.</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                        Our booking agency ensures a seamless professional experience from contract to curtain call. Malek is available for international festivals, private curations, and collaborative workshops.
+                    </p>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-sapling">check_circle</span>
+<span class="font-body-md text-body-md">Global touring &amp; logistics handled</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-sapling">check_circle</span>
+<span class="font-body-md text-body-md">Full tech-rider support provided</span>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 bg-surface-cream p-10 rounded-3xl text-background">
+<h3 class="font-headline-md text-headline-md mb-8 text-secondary-container">Booking Inquiry</h3>
+<form class="space-y-6" id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Event Name</label>
+<input name="event_name" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="e.g. Afro-Fusion Fest" type="text" required />
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Date</label>
+<input name="event_date" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" type="date" required />
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Email Address</label>
+<input name="email" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="you@company.com" type="email" required />
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Additional Requirements</label>
+<textarea name="requirements" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="Tell us about the venue and audience..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container py-5 rounded-xl font-headline-md text-headline-md font-bold shadow-xl hover:shadow-2xl transition-all duration-300" type="submit">
+                            Submit Booking Request
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-2 space-y-6">
+<span class="font-headline-md text-headline-md text-sapling block">Eseyasa Productions</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                    Curating the future of Afro-centric sound. We represent a collective of visionaries pushing the boundaries of rhythm and soul.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-sm text-label-sm text-primary uppercase font-bold">Connect</h4>
+<ul class="space-y-2">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="index.html">Home</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="artists.html">Artists</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-sm text-label-sm text-primary uppercase font-bold">Legal</h4>
+<ul class="space-y-2">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="#">Terms of Service</a></li>
+</ul>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-8">© 2024 Eseyasa Productions. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<!-- Audio Player Bar (Minimalist) -->
+<div class="fixed bottom-0 left-0 right-0 h-16 bg-secondary-container border-t border-white/5 flex items-center px-margin-mobile md:px-margin-desktop z-[60]">
+<div class="flex items-center gap-4 w-1/3">
+<div class="w-10 h-10 rounded bg-primary overflow-hidden hidden md:block">
+<img alt="Playing Now" class="w-full h-full object-cover" data-alt="Small thumbnail of an abstract album cover with rhythmic green and amber patterns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxFOTLxu__NUn5dv4_Vw9dF9Z6xbTs0lqTjRaEkleSZO3CgHaucHYDVR2DXXzoXkI0K3KrAqbiIRQGePymg3lcxvKkfWTyobyuSqt_Ag_D6it3Dv9FTJfqkNkY0VoTyYp8PgECuty33L5h0KqkqC8hwmUXcJygSyrNCyrZTG3MZO-VnJPyxi1kHFxtX5MgjpunrEBL2kKrbjoMSBtdgt_X7sX0x7AqPy3imtC3GnOFczwt3ZZaE3YIS3pLJ8GstyR6VQrCUaXlCoI"/>
+</div>
+<div class="hidden sm:block">
+<p class="font-label-sm text-label-sm text-white truncate max-w-[150px]">Midnight in Lagos</p>
+<p class="text-[10px] text-sapling uppercase">Malek Azikiwe</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<div class="flex items-center gap-6">
+<button class="text-white hover:text-primary"><span class="material-symbols-outlined">skip_previous</span></button>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="text-white hover:text-primary"><span class="material-symbols-outlined">skip_next</span></button>
+</div>
+<div class="w-full max-w-md h-1 bg-white/10 rounded-full relative">
+<div class="absolute inset-y-0 left-0 w-1/3 bg-primary rounded-full"></div>
+</div>
+</div>
+<div class="w-1/3 flex justify-end items-center gap-4 text-white">
+<span class="material-symbols-outlined hidden md:block">volume_up</span>
+<span class="material-symbols-outlined">queue_music</span>
+</div>
+</div>
+<script src="animations.js"></script>
+<script>
+        // Simple micro-interaction for organic shift
+        document.querySelectorAll('.glass-card, .bg-surface-container-low').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translate(4px, -4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // Mobile Navigation Drawer Toggle
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const menuIcon = document.getElementById('menuIcon');
+
+        function toggleMobileMenu() {
+            mobileMenuOverlay.classList.toggle('open');
+            if (mobileMenuOverlay.classList.contains('open')) {
+                menuIcon.textContent = 'close';
+            } else {
+                menuIcon.textContent = 'menu';
+            }
+        }
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        }
+    </script>
+</body></html>

@@ -1,0 +1,25 @@
+# Node
+node_modules/
+
+# Build
+dist/
+build/
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Python
+__pycache__/
+
+# Misc
+.history/

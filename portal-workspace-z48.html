@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="robots" content="noindex, nofollow">
+<title>Workspace | Eseyasa Productions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121411;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #184f46;
+            border-radius: 10px;
+        }
+        .artist-card-mask {
+            clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+        }
+    </style>
+<link href="animations.css" rel="stylesheet" />
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#514535",
+                        "on-tertiary-fixed": "#311300",
+                        "on-tertiary-container": "#743600",
+                        "sapling": "#AEBA8A",
+                        "on-surface-variant": "#d6c4af",
+                        "inverse-on-surface": "#2f312e",
+                        "on-tertiary-fixed-variant": "#733500",
+                        "on-primary-fixed": "#291800",
+                        "on-background": "#e3e3de",
+                        "secondary-container": "#184f46",
+                        "tertiary": "#ffc5a2",
+                        "primary-fixed-dim": "#ffb952",
+                        "background": "#121411",
+                        "on-secondary": "#003730",
+                        "leaf-muted": "#80917D",
+                        "on-secondary-container": "#8abfb4",
+                        "surface-dim": "#121411",
+                        "surface": "#121411",
+                        "secondary-fixed-dim": "#9cd1c5",
+                        "surface-container-high": "#292b27",
+                        "on-error": "#690005",
+                        "surface-bright": "#383a36",
+                        "on-primary-fixed-variant": "#633f00",
+                        "tertiary-fixed-dim": "#ffb689",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#512400",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#634000",
+                        "surface-container-highest": "#333532",
+                        "secondary-fixed": "#b7ede1",
+                        "secondary": "#9cd1c5",
+                        "surface-container-low": "#1a1c19",
+                        "tertiary-container": "#fd9f60",
+                        "tertiary-fixed": "#ffdbc7",
+                        "outline": "#9e8e7c",
+                        "on-secondary-fixed": "#00201b",
+                        "primary": "#ffc87c",
+                        "surface-container": "#1e201d",
+                        "surface-variant": "#333532",
+                        "surface-cream": "#FDF9F0",
+                        "primary-fixed": "#ffddb3",
+                        "on-primary": "#452b00",
+                        "on-surface": "#e3e3de",
+                        "surface-container-lowest": "#0d0f0c",
+                        "inverse-primary": "#825500",
+                        "surface-tint": "#ffb952",
+                        "inverse-surface": "#e3e3de",
+                        "error-container": "#93000a",
+                        "primary-container": "#eea83b",
+                        "on-secondary-fixed-variant": "#184f46"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-xl-mobile": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "fontWeight": "700"}],
+                        "display-lg": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary min-h-screen flex overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col w-72 bg-surface-container-lowest border-r border-outline-variant h-screen fixed left-0 top-0 z-40 transition-all duration-300">
+<div class="h-20 flex items-center px-8">
+<h1 class="font-headline-xl text-[24px] font-bold text-primary tracking-tight">Eseyasa <span class="text-tertiary">Admin</span></h1>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2">
+<!-- Dashboard Tab (Active) -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl bg-primary-container text-on-primary-container transition-all group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-body-md font-bold">Dashboard</span>
+</a>
+<!-- Artists Tab -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all group" href="#">
+<span class="material-symbols-outlined">person_pin</span>
+<span class="font-body-md font-medium group-hover:text-primary">Artists</span>
+</a>
+<!-- Settings Tab -->
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all group" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md font-medium group-hover:text-primary">Settings</span>
+</a>
+</nav>
+<div class="p-6 border-t border-outline-variant">
+<button id="logoutBtn" class="flex items-center gap-4 px-4 py-3 w-full rounded-xl text-error hover:bg-error-container/20 transition-all group">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md font-semibold">Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 h-screen overflow-y-auto bg-background p-margin-mobile md:p-margin-desktop scroll-smooth">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+<div>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background">Performance <span class="text-primary italic">Pulse</span></h2>
+<p class="text-on-surface-variant font-body-md mt-2">Welcome back. Here is the latest from your artist roster.</p>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-body-md hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">person_add</span>
+                Add New Artist
+            </button>
+</header>
+<!-- Analytics Overview Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+<!-- Stat 1 -->
+<div class="col-span-1 md:col-span-2 bg-secondary-container p-8 rounded-2xl relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-secondary font-label-sm uppercase tracking-widest mb-2">Monthly Bookings</p>
+<h3 class="font-display-lg text-[64px] leading-none text-on-secondary-container mb-4">42</h3>
+<div class="flex items-center gap-2 text-sapling">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-label-sm">+12% from last month</span>
+</div>
+</div>
+<!-- Decorative organic leaf -->
+<div class="absolute -right-8 -bottom-8 opacity-20 scale-150 transform group-hover:rotate-12 transition-transform duration-700">
+<span class="material-symbols-outlined text-[180px] text-on-secondary">eco</span>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-high p-8 rounded-2xl border border-outline-variant/30">
+<p class="text-on-surface-variant font-label-sm uppercase tracking-widest mb-2">Total Artists</p>
+<h3 class="font-headline-xl text-primary">128</h3>
+<div class="mt-6 h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%]"></div>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-high p-8 rounded-2xl border border-outline-variant/30">
+<p class="text-on-surface-variant font-label-sm uppercase tracking-widest mb-2">Revenue Growth</p>
+<h3 class="font-headline-xl text-tertiary">$14.2k</h3>
+<div class="flex items-center gap-2 text-tertiary-container mt-4">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span class="font-label-sm">High performance week</span>
+</div>
+</div>
+</section>
+<!-- Artist Roster Header -->
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline-md text-on-background">Artist Roster</h3>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-high border-none rounded-full pl-12 pr-6 py-2 focus:ring-2 focus:ring-primary text-body-md text-on-background w-64" placeholder="Search artists..." type="text"/>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Artist Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
+<!-- Artist Card 1 -->
+<div class="bg-surface-container-low rounded-3xl p-4 group border border-transparent hover:border-primary/20 transition-all">
+<div class="relative aspect-square overflow-hidden artist-card-mask mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110" data-alt="A portrait of a soulful Afro-fusion musician performing on a stage with warm golden stage lighting. The lighting creates deep shadows and vibrant amber highlights on their skin and colorful patterned attire. The atmosphere is energetic and authentic, capturing a live musical performance in a premium cultural setting with soft focus on the audience in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK8ou1WQ7WAIcPGzY3RnWpolJYeRUciKa7mzSbW3rLhMIW7Hsf0Fw5cv0QwDMKerL5tZOhRmoV1Zxn6ZY9Ob41KK1kTrAXTkeLPLb_PZnf82_OPwxd-2zax8RSRqySFVZkT9W-Yx5u2b_lGO_MWOPrt-u_BySXQUIfp9_G90UpO6LCukAr8U8BaOtO_CSschpcsg764WH7p9BBnIGQKtarv5p4jjpfAeXmpv2P8pTekPd06G3TZ2m4YwRbjR07hLVnvk8_lB276FI"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-primary">Amara Keita</h4>
+<span class="bg-leaf-muted/20 text-sapling px-3 py-1 rounded-full font-label-sm uppercase tracking-tighter">Afro-Soul</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-6">12 bookings this month • High Demand</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-surface-container-highest text-on-surface font-body-md py-3 rounded-xl hover:bg-secondary-container hover:text-secondary transition-colors">Edit</button>
+<button class="p-3 bg-surface-container-highest text-error font-body-md rounded-xl hover:bg-error-container/30 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Artist Card 2 -->
+<div class="bg-surface-container-low rounded-3xl p-4 group border border-transparent hover:border-primary/20 transition-all">
+<div class="relative aspect-square overflow-hidden artist-card-mask mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110" data-alt="A professional close-up of a jazz percussionist focusing intensely on their instruments. The scene is drenched in deep forest green and terracotta tones with sharp, dramatic lighting that highlights the textures of the drums. The visual style is organic yet brutalist, conveying a raw and rhythmic energy typical of a high-end cultural festival." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKZQyZh909I0YwQM86rhrMD8w95voXXgdG32RDSZ64Hl2zF5mqRPk1sKTC8LVke9yZ718tdWxkGP38p0eslWopYabXJ7zlnSe4P9PNLF4VdmV6XpAt-4j2lY8cCiwSR2JljS1THSXJLIfEYEgTe4VpE1qRaLGpMZ95zobQbFVTbQYx-3w8Y964bBultIKJ8GzAeRoeD0ozlryoCJ-cSaU_4mLK_sIvqL4wl1-Y_YW9KW1g7vcrMxUyrQ6JHuany1NXcD-iNkHnj6w"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-primary">Kofi Mensah</h4>
+<span class="bg-leaf-muted/20 text-sapling px-3 py-1 rounded-full font-label-sm uppercase tracking-tighter">Percussionist</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-6">8 bookings this month • Emerging</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-surface-container-highest text-on-surface font-body-md py-3 rounded-xl hover:bg-secondary-container hover:text-secondary transition-colors">Edit</button>
+<button class="p-3 bg-surface-container-highest text-error font-body-md rounded-xl hover:bg-error-container/30 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Artist Card 3 -->
+<div class="bg-surface-container-low rounded-3xl p-4 group border border-transparent hover:border-primary/20 transition-all">
+<div class="relative aspect-square overflow-hidden artist-card-mask mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110" data-alt="A dynamic shot of a modern dance troop in flowing earth-toned fabrics performing under theatrical sunlight. The background features organic brutalist architecture with large leaf shadows cast across the floor. The color palette is rich with amber, forest green, and terracotta, giving the scene a vibrant and soulful Afro-centric professional vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqkeaOWmKZZ3H3N-_k05oHY4gq8HJ_7KVqnqYTL1nxryQDjTXWM2Gqu6DhybWhfq2exyONXkQ0eNpJu9mf0ItIW7uy7cJlAnvKtrmNah9Xmew_QT-LshtPlInc3Gs3qEKFFe4R7WdN_hq5UUGuY1HX1EbKmlFPzRKZjWFUxaT5UnPph1Dz1Knhvv4O39Iub1WAJ1m_bzrfADLY7iRRagPNCJ86mRyjyaXPMtGeGnp4yZ-eeCT21Y4G2lc45_-MLhL_Dgnv1a3G88Q"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-primary">The Rhythm Collective</h4>
+<span class="bg-leaf-muted/20 text-sapling px-3 py-1 rounded-full font-label-sm uppercase tracking-tighter">Dance</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-6">22 bookings this month • Top Tier</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-surface-container-highest text-on-surface font-body-md py-3 rounded-xl hover:bg-secondary-container hover:text-secondary transition-colors">Edit</button>
+<button class="p-3 bg-surface-container-highest text-error font-body-md rounded-xl hover:bg-error-container/30 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Media Player (Mandate) -->
+<div class="fixed bottom-0 left-0 md:left-72 right-0 bg-secondary-container border-t border-outline-variant px-8 py-4 flex items-center justify-between z-50">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">music_note</span>
+</div>
+<div class="hidden sm:block">
+<p class="text-on-secondary-container font-body-md font-bold">Midnight in Lagos</p>
+<p class="text-secondary text-label-sm">Amara Keita</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 max-w-xl px-12">
+<div class="flex items-center gap-6 text-on-secondary-container">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">shuffle</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">skip_previous</span>
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">skip_next</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">repeat</span>
+</div>
+<div class="w-full flex items-center gap-3">
+<span class="text-label-sm text-secondary">2:45</span>
+<div class="h-1 flex-1 bg-on-secondary-container/20 rounded-full relative">
+<div class="absolute left-0 top-0 h-full bg-primary w-[65%] rounded-full"></div>
+</div>
+<span class="text-label-sm text-secondary">4:12</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-on-secondary-container">
+<span class="material-symbols-outlined cursor-pointer hidden sm:block">volume_up</span>
+<div class="w-24 h-1 bg-on-secondary-container/20 rounded-full hidden sm:block">
+<div class="h-full bg-primary w-1/2 rounded-full"></div>
+</div>
+<span class="material-symbols-outlined cursor-pointer">playlist_play</span>
+</div>
+</div>
+</main>
+<!-- Interactive script for dashboard subtle effects -->
+<script src="animations.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hover effect for card images shifting - specified in style guidance
+            const cards = document.querySelectorAll('.bg-surface-container-low');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translate(4px, -4px)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translate(0, 0)';
+                });
+            });
+
+            // Smooth fade in for elements
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section, .grid > div').forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+
+        // Logout button → redirect to login portal
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            document.getElementById('logoutBtn').innerHTML = '<span class="material-symbols-outlined">refresh</span><span class="font-body-md font-semibold">Signing out...</span>';
+            setTimeout(() => {
+                window.location.href = 'gateway-portal-x92.html';
+            }, 800);
+        });
+    </script>
+</body></html>

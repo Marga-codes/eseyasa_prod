@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | Eseyasa Productions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#514535",
+                        "on-tertiary-fixed": "#311300",
+                        "on-tertiary-container": "#743600",
+                        "sapling": "#AEBA8A",
+                        "on-surface-variant": "#d6c4af",
+                        "inverse-on-surface": "#2f312e",
+                        "on-tertiary-fixed-variant": "#733500",
+                        "on-primary-fixed": "#291800",
+                        "on-background": "#e3e3de",
+                        "secondary-container": "#184f46",
+                        "tertiary": "#ffc5a2",
+                        "primary-fixed-dim": "#ffb952",
+                        "background": "#121411",
+                        "on-secondary": "#003730",
+                        "leaf-muted": "#80917D",
+                        "on-secondary-container": "#8abfb4",
+                        "surface-dim": "#121411",
+                        "surface": "#121411",
+                        "secondary-fixed-dim": "#9cd1c5",
+                        "surface-container-high": "#292b27",
+                        "on-error": "#690005",
+                        "surface-bright": "#383a36",
+                        "on-primary-fixed-variant": "#633f00",
+                        "tertiary-fixed-dim": "#ffb689",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#512400",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#634000",
+                        "surface-container-highest": "#333532",
+                        "secondary-fixed": "#b7ede1",
+                        "secondary": "#9cd1c5",
+                        "surface-container-low": "#1a1c19",
+                        "tertiary-container": "#fd9f60",
+                        "tertiary-fixed": "#ffdbc7",
+                        "outline": "#9e8e7c",
+                        "on-secondary-fixed": "#00201b",
+                        "primary": "#ffc87c",
+                        "surface-container": "#1e201d",
+                        "surface-variant": "#333532",
+                        "surface-cream": "#FDF9F0",
+                        "primary-fixed": "#ffddb3",
+                        "on-primary": "#452b00",
+                        "on-surface": "#e3e3de",
+                        "surface-container-lowest": "#0d0f0c",
+                        "inverse-primary": "#825500",
+                        "surface-tint": "#ffb952",
+                        "inverse-surface": "#e3e3de",
+                        "error-container": "#93000a",
+                        "primary-container": "#eea83b",
+                        "on-secondary-fixed-variant": "#184f46"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-xl-mobile": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "fontWeight": "700"}],
+                        "display-lg": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .organic-mask {
+            clip-path: ellipse(50% 40% at 50% 50%);
+        }
+        .bg-mesh {
+            background-image: radial-gradient(at 0% 0%, rgba(255, 200, 124, 0.15) 0, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(24, 79, 70, 0.2) 0, transparent 50%);
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu-overlay {
+            clip-path: circle(0px at 100% 0%);
+            transition: clip-path 0.5s var(--ease-framer-smooth);
+        }
+        .mobile-menu-overlay.open {
+            clip-path: circle(150% at 100% 0%);
+        }
+    </style>
+    <link href="animations.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<a href="index.html" class="flex items-center gap-4">
+<img alt="Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUwN_X3hCHcWer-yPim_Bpx9geUBon8qm1K4OFZEGcI2XWPvz91kZwXijVdofsX-uoxtzJYi3H-nnDmnicM8rmTIZdztAyZhfrIEht6ata91Uve4-u1ohQiHFLgJ6M8VnAgdZe55215f5FztiqziX8PdLv0dJSZVRSF5ikqXm_Bc1HRbYTDxcWyav6Fpfw2DvVQUTGEA4pLss3LwXd3IKbPOyGvIw5cb_KC8iCuEJz1_UQuoUiAOT0emM3-_KxkKf7Q4GTu435Xsw"/>
+<span class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-primary tracking-tight">Eseyasa Productions</span>
+</a>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-background font-medium hover:text-primary transition-colors font-body-md text-body-md hover:scale-105 duration-300" href="index.html">Home</a>
+<a class="text-on-background font-medium hover:text-primary transition-colors font-body-md text-body-md hover:scale-105 duration-300" href="artists.html">Artists</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="contact.html">Contact</a>
+<a href="contact.html" class="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold font-headline-md text-headline-md hover:scale-105 transition-all duration-300 active:scale-95 flex items-center justify-center">
+                    Book Now
+                </a>
+</nav>
+<button class="md:hidden text-primary" id="mobileMenuBtn">
+<span class="material-symbols-outlined text-4xl" id="menuIcon">menu</span>
+</button>
+</div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-background/98 z-45 flex flex-col justify-center items-center gap-8 md:hidden mobile-menu-overlay" id="mobileMenuOverlay">
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Home</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="artists.html" onclick="toggleMobileMenu()">Artists</a>
+<a class="font-headline-xl text-3xl text-primary font-bold" href="contact.html" onclick="toggleMobileMenu()">Contact</a>
+<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Book Now</a>
+</div>
+<main class="pt-32 pb-20 bg-mesh">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-24">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+<div class="md:col-span-8">
+<h1 class="font-display-lg text-headline-xl-mobile md:text-display-lg text-primary uppercase mb-4 leading-none">
+                        Let's Sync Your <br/>Next Rhythm
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Eseyasa Productions connects world-class Afro-centric talent with premium stages. Use the form below to initiate a booking inquiry or reach our headquarters directly.
+                    </p>
+</div>
+<div class="md:col-span-4 hidden md:block text-right">
+<div class="inline-block p-8 border-2 border-primary rounded-full animate-pulse">
+<span class="material-symbols-outlined text-primary scale-[3]" data-icon="auto_awesome">auto_awesome</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content: Bento Layout -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Booking Form: Spans 7 columns -->
+<div class="md:col-span-7 bg-surface-container rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline-xl text-headline-xl-mobile text-tertiary mb-8">Booking Inquiry</h2>
+<form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" class="space-y-6" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Your Name</label>
+<input name="name" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="e.g. John Doe" type="text" required />
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Email Address</label>
+<input name="email" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="you@company.com" type="email" required />
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Artist Selection</label>
+<select name="artist" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" required>
+<option value="">Select an Artist</option>
+<option value="Yemi Afro-Beat Collective">Yemi Afro-Beat Collective</option>
+<option value="The Saharan Souls">The Saharan Souls</option>
+<option value="Lagos Jazz Ensemble">Lagos Jazz Ensemble</option>
+<option value="Highlife Legends">Highlife Legends</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Event Type</label>
+<select name="event_type" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" required>
+<option value="Festival">Festival</option>
+<option value="Private Event">Private Event</option>
+<option value="Corporate Gala">Corporate Gala</option>
+<option value="Club Residency">Club Residency</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Preferred Date</label>
+<input name="event_date" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" type="date" required />
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Location</label>
+<input name="location" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="City, Country" type="text" required />
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Message / Requirements</label>
+<textarea name="message" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="Tell us about your event vision..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-5 rounded-xl font-headline-md text-headline-md font-bold hover:translate-y-[-4px] transition-transform duration-300 framer-btn" type="submit">
+                                Send Inquiry
+                            </button>
+</form>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-10 -right-10 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" data-icon="music_note">music_note</span>
+</div>
+</div>
+<!-- Sidebar Details: Spans 5 columns -->
+<div class="md:col-span-5 space-y-8">
+<!-- Contact Cards -->
+<div class="bg-secondary-container rounded-[2rem] p-8 text-on-secondary-container">
+<h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+                            Direct Reach
+                        </h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="bg-primary/20 p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="alternate_email">alternate_email</span>
+</div>
+<div>
+<p class="font-label-sm uppercase opacity-70">Email Us</p>
+<p class="font-headline-md text-headline-md">bookings@eseyasa.com</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/20 p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="phone_in_talk">phone_in_talk</span>
+</div>
+<div>
+<p class="font-label-sm uppercase opacity-70">Call Us</p>
+<p class="font-headline-md text-headline-md">+234 (0) 805 123 4567</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Integration Placeholder -->
+<div class="bg-surface-container-high rounded-[2rem] p-8 h-80 relative overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale opacity-40" data-location="Lagos" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-1Kq5s2n0t8XxRxy5y39j3Ckcrb4R2kDhRvyABwCy_VeWjINr7KkCchTK9_mbKsma3f1_TCMFjB7eN-yCCjrDWLjJ5553shLLQGGj26_4eE7Gvlru4SOORYFpfkSVVN31EGrKNxZtp7x4OTm2fRPgwuJBvHU8kG2ZoiHVepwI_mn8wqsdAbb6KXTXEe_hLr_szGf_EV2C3c7CmvL2L0X_-FHl5Wff1INUDpm2KgzuRm_jSf3ax2_ByZgEBQGnQDH93MwZvAhFeEI')"></div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div class="bg-background/80 backdrop-blur-sm p-4 rounded-xl inline-block self-start">
+<h4 class="font-headline-md text-headline-md text-primary">Headquarters</h4>
+<p class="font-body-md text-body-md">12 Victoria Island Road, Lagos, Nigeria</p>
+</div>
+<button class="bg-surface-cream text-background px-6 py-3 rounded-xl font-bold self-start hover:bg-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                                Open in Maps
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Decorative Section -->
+<section class="mt-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="flex gap-12 animate-infinite-scroll whitespace-nowrap">
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Rhythm</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Culture</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Talent</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Excellence</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Soul</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Legacy</span>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 bg-surface-container-lowest dark:bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1 flex flex-col items-start gap-4">
+<img alt="Logo" class="h-16 w-16 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAOv2yhxwJQJHLWNiKU8e0ZmnQub0SdEXWyXvhDXR85I62tEIt4JFOOJ6UeTrGdy_GoVavL53dEELlPGaHIOr6h5AQybnwDvIKOFXE_RyuGR9sNu9Uj2dBp8Sz-_mMvCDi169kk_KVHgF0NiZo2L6bSf8kAJJX2u5cUsh2S1Aqw5OzZhHSfy7haFxr9sQ_S_l_nnlz_0a1ZMLmyscD-LnUDhFVaQr_-dQXx_ED_xUOKyj5_T5LEjAAADvzTf6Y395YO7_vuucu21U"/>
+<div class="font-headline-md text-headline-md text-sapling">Eseyasa Productions</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Eseyasa Productions. All rights reserved.</p>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<h5 class="text-tertiary font-bold font-body-md">Quick Links</h5>
+<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="artists.html">Artists</a>
+<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="contact.html">Booking Policy</a>
+<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="#">Privacy</a>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<h5 class="text-tertiary font-bold font-body-md">Follow Us</h5>
+<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="#">Instagram</a>
+<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="#">YouTube</a>
+<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="#">Newsletter</a>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<h5 class="text-tertiary font-bold font-body-md">Join the Vibe</h5>
+<div class="flex border-b border-outline-variant py-2">
+<input class="bg-transparent border-none focus:ring-0 text-on-background w-full" placeholder="Your email" type="email"/>
+<button class="text-primary font-bold">Join</button>
+</div>
+</div>
+</div>
+</footer>
+<script src="animations.js"></script>
+<script>
+        // Micro-interaction for form inputs
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.addEventListener('focus', () => {
+                element.parentElement.querySelector('label')?.classList.add('text-primary');
+            });
+            element.addEventListener('blur', () => {
+                element.parentElement.querySelector('label')?.classList.remove('text-primary');
+            });
+        });
+
+        // Atmospheric parallax on scroll for marquee
+        window.addEventListener('scroll', () => {
+            const marquee = document.querySelector('.animate-infinite-scroll');
+            if (marquee) {
+                const scrollPos = window.scrollY;
+                marquee.style.transform = `translateX(-${scrollPos * 0.2}px)`;
+            }
+        });
+
+        // Mobile Navigation Drawer Toggle
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const menuIcon = document.getElementById('menuIcon');
+
+        function toggleMobileMenu() {
+            mobileMenuOverlay.classList.toggle('open');
+            if (mobileMenuOverlay.classList.contains('open')) {
+                menuIcon.textContent = 'close';
+            } else {
+                menuIcon.textContent = 'menu';
+            }
+        }
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        }
+    </script>
+</body></html>

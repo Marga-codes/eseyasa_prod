@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artists | Eseyasa Productions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#514535",
+                        "on-tertiary-fixed": "#311300",
+                        "on-tertiary-container": "#743600",
+                        "sapling": "#AEBA8A",
+                        "on-surface-variant": "#d6c4af",
+                        "inverse-on-surface": "#2f312e",
+                        "on-tertiary-fixed-variant": "#733500",
+                        "on-primary-fixed": "#291800",
+                        "on-background": "#e3e3de",
+                        "secondary-container": "#184f46",
+                        "tertiary": "#ffc5a2",
+                        "primary-fixed-dim": "#ffb952",
+                        "background": "#121411",
+                        "on-secondary": "#003730",
+                        "leaf-muted": "#80917D",
+                        "on-secondary-container": "#8abfb4",
+                        "surface-dim": "#121411",
+                        "surface": "#121411",
+                        "secondary-fixed-dim": "#9cd1c5",
+                        "surface-container-high": "#292b27",
+                        "on-error": "#690005",
+                        "surface-bright": "#383a36",
+                        "on-primary-fixed-variant": "#633f00",
+                        "tertiary-fixed-dim": "#ffb689",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#512400",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#634000",
+                        "surface-container-highest": "#333532",
+                        "secondary-fixed": "#b7ede1",
+                        "secondary": "#9cd1c5",
+                        "surface-container-low": "#1a1c19",
+                        "tertiary-container": "#fd9f60",
+                        "tertiary-fixed": "#ffdbc7",
+                        "outline": "#9e8e7c",
+                        "on-secondary-fixed": "#00201b",
+                        "primary": "#ffc87c",
+                        "surface-container": "#1e201d",
+                        "surface-variant": "#333532",
+                        "surface-cream": "#FDF9F0",
+                        "primary-fixed": "#ffddb3",
+                        "on-primary": "#452b00",
+                        "on-surface": "#e3e3de",
+                        "surface-container-lowest": "#0d0f0c",
+                        "inverse-primary": "#825500",
+                        "surface-tint": "#ffb952",
+                        "inverse-surface": "#e3e3de",
+                        "error-container": "#93000a",
+                        "primary-container": "#eea83b",
+                        "on-secondary-fixed-variant": "#184f46"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-xl-mobile": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "fontWeight": "700"}],
+                        "display-lg": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .artist-card-mask {
+            clip-path: ellipse(100% 100% at 50% 0%);
+            transition: clip-path 0.5s ease;
+        }
+        .artist-card:hover .artist-card-mask {
+            clip-path: ellipse(120% 120% at 50% 0%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ffc87c;
+            border-radius: 10px;
+        }
+        .organic-bg-blob {
+            position: absolute;
+            background: radial-gradient(circle, rgba(174, 186, 138, 0.1) 0%, rgba(18, 20, 17, 0) 70%);
+            z-index: -1;
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu-overlay {
+            clip-path: circle(0px at 100% 0%);
+            transition: clip-path 0.5s var(--ease-framer-smooth);
+        }
+        .mobile-menu-overlay.open {
+            clip-path: circle(150% at 100% 0%);
+        }
+    </style>
+    <link href="animations.css" rel="stylesheet" />
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md">
+<nav class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<a href="index.html" class="flex items-center gap-4">
+<img alt="Logo" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUwN_X3hCHcWer-yPim_Bpx9geUBon8qm1K4OFZEGcI2XWPvz91kZwXijVdofsX-uoxtzJYi3H-nnDmnicM8rmTIZdztAyZhfrIEht6ata91Uve4-u1ohQiHFLgJ6M8VnAgdZe55215f5FztiqziX8PdLv0dJSZVRSF5ikqXm_Bc1HRbYTDxcWyav6Fpfw2DvVQUTGEA4pLss3LwXd3IKbPOyGvIw5cb_KC8iCuEJz1_UQuoUiAOT0emM3-_KxkKf7Q4GTu435Xsw"/>
+<span class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-primary tracking-tight">Eseyasa Productions</span>
+</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-background font-medium hover:text-primary transition-colors hover:scale-105" href="index.html">Home</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hover:scale-105 transition-all duration-300" href="artists.html">Artists</a>
+<a class="text-on-background font-medium hover:text-primary transition-colors hover:scale-105" href="contact.html">Contact</a>
+<a href="contact.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-headline-md text-body-md font-bold active:scale-95 transition-transform flex items-center justify-center">
+                    Book Now
+                </a>
+</div>
+<button class="md:hidden text-primary" id="mobileMenuBtn">
+<span class="material-symbols-outlined text-4xl" id="menuIcon">menu</span>
+</button>
+</nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-background/98 z-45 flex flex-col justify-center items-center gap-8 md:hidden mobile-menu-overlay" id="mobileMenuOverlay">
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Home</a>
+<a class="font-headline-xl text-3xl text-primary font-bold" href="artists.html" onclick="toggleMobileMenu()">Artists</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contact</a>
+<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Book Now</a>
+</div>
+<main class="pt-32 pb-20">
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-16 relative">
+<div class="organic-bg-blob w-[500px] h-[500px] -top-24 -left-24"></div>
+<h1 class="font-display-lg text-4xl md:text-display-lg text-primary mb-6">Our Talent <br/><span class="text-sapling">The Pulse of Afro-Culture</span></h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+                Discover a curated selection of artists bringing the rhythmic soul of Africa to global stages. From the deep grooves of Amapiano to the infectious energy of Afrobeat.
+            </p>
+</section>
+<!-- Search & Filter Bar -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-12">
+<div class="flex flex-col md:flex-row gap-gutter items-end">
+<!-- Search -->
+<div class="w-full md:w-1/3">
+<label class="block font-label-sm text-sapling mb-2 uppercase tracking-widest">Search Artists</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-2 border-outline-variant focus:border-primary text-on-surface py-4 pl-12 rounded-xl transition-all outline-none font-body-md" placeholder="Search by name..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+</div>
+<!-- Filters -->
+<div class="w-full md:w-2/3 overflow-x-auto pb-2 custom-scrollbar">
+<label class="block font-label-sm text-sapling mb-2 uppercase tracking-widest">Filter by Genre</label>
+<div class="flex gap-3">
+<button class="whitespace-nowrap px-6 py-3 rounded-full bg-primary text-on-primary font-bold transition-all">All Genres</button>
+<button class="whitespace-nowrap px-6 py-3 rounded-full border-2 border-outline-variant hover:border-primary transition-all font-medium">Afrobeat</button>
+<button class="whitespace-nowrap px-6 py-3 rounded-full border-2 border-outline-variant hover:border-primary transition-all font-medium">Reggae</button>
+<button class="whitespace-nowrap px-6 py-3 rounded-full border-2 border-outline-variant hover:border-primary transition-all font-medium">Amapiano</button>
+<button class="whitespace-nowrap px-6 py-3 rounded-full border-2 border-outline-variant hover:border-primary transition-all font-medium">Dancehall</button>
+<button class="whitespace-nowrap px-6 py-3 rounded-full border-2 border-outline-variant hover:border-primary transition-all font-medium">Highlife</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Artists Grid (Asymmetric) -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Artist 1 (Large Featured) -->
+<div class="md:col-span-7 group cursor-pointer framer-reveal framer-hover-scale" onclick="window.location.href='artist-detail.html'">
+<div class="relative overflow-hidden rounded-3xl aspect-[16/10] bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional studio portrait of a charismatic male Afrobeat artist with traditional gold jewelry and a vibrant patterned silk shirt. He is posing confidently against a deep forest green textured backdrop. The lighting is dramatic, high-contrast, highlighting the textures of the fabric and the soulful expression on his face. The overall aesthetic is premium, cultural, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4vWuy2qySgvCxbJsT9j4u2K6jKKa93huvjuYTiqsVniR5MjG8xQsf4qFJzzIXlq8w34VRk7AOUDA9p8cnE7MpyjvNLQ_tLWwrrIvP6dbFx2QUPKgrnetwxneuEgtiH2BsmUDkGPkcvxfYpENP10KfjfOf2r-ScMtCDWRwTQEqR7jQqleSAiBJ5oxrwwE5DB1_Vg2Q8Ryql60QFRvVSsTbGH5v7i66d0bp0awpAUDv7W4yCdwOJvvovSsHyuMwB31QRAKZ0bJOrJg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-8 left-8">
+<span class="bg-primary text-on-primary px-3 py-1 rounded-lg font-label-sm mb-4 inline-block">FEATURED</span>
+<h3 class="font-display-lg text-primary text-5xl mb-2">Burna Soul</h3>
+<p class="font-body-lg text-tertiary">Afrobeat / Fusion</p>
+</div>
+</div>
+</div>
+<!-- Artist 2 -->
+<div class="md:col-span-5 group cursor-pointer framer-reveal delay-100 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
+<div class="relative overflow-hidden rounded-3xl aspect-square bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A dynamic action shot of a female Amapiano DJ performing at a sun-drenched outdoor festival. She is wearing stylish oversized sunglasses and a vibrant terracotta-colored streetwear outfit. The background is filled with a blurred, energetic crowd and tropical palm trees under a warm sunset glow. The vibe is electric, soulful, and rhythmic, reflecting the Eseyasa brand personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEIQjIz8kRk8J-NnfTvUI8J56i3f50aODK9SBz3wZ8prES_2HhRccqiDHGbIiJy-n1e8S8rsQB4HzEEpAlZjZ7uV0yDXcz_9ip2a0ZVUvOyztkXssOWGQvFwETpA4EK67qUcYaYZYy7eem490rUDFQRwOcOheDptloIpjAyMeuzZkeuYGLGY0_OaT1rTfTTP2cEvGgemr408FRjpRwoRA7NhrcKEUtGyU8DDz9YF2mOtBPmrICoxK_nYs5inBG18OKU_QSbry11Dg"/>
+<div class="absolute bottom-6 left-6">
+<h3 class="font-headline-xl text-primary mb-1">Luna Amara</h3>
+<p class="font-body-md text-tertiary">Amapiano / Electronic</p>
+</div>
+</div>
+</div>
+<!-- Artist 3 -->
+<div class="md:col-span-4 group cursor-pointer framer-reveal delay-100 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
+<div class="relative overflow-hidden rounded-3xl aspect-[3/4] bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A moody, atmospheric close-up of a reggae artist playing an acoustic guitar in a dimly lit studio. Smoke curls softly in the air, caught by a warm amber spotlight. The artist has long dreadlocks and a serene, focused expression. The color palette consists of deep forest greens, rich ambers, and dark shadows, creating a soulful and intimate mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHq6htvFvOqaZn_9mDv9drou5cyCtHymmwxu_eCdiZtvFVdgWXi4418Z_w4f-8tb1wVPppaLEhqAInmQT_cFEAygxwcli9EyFpOxUvPpRuDOa6p6nrCu61Y-z26K-WHpVi1RUbrW5-zVFoxoc4H9RjjMpS0GHA6R191IQ_yZQPDAA78AI6pd9djoAzft-9zriePRTM_5EzVIkk3f8pnolhJBuXu2ynwHOzFL4xAm9h4_9L5ASUA4Q3ZeG5HJNQQV5GXaM6UU2RIDw"/>
+<div class="absolute bottom-6 left-6">
+<h3 class="font-headline-xl text-primary mb-1">Roots Jah</h3>
+<p class="font-body-md text-tertiary">Reggae / Roots</p>
+</div>
+</div>
+</div>
+<!-- Artist 4 -->
+<div class="md:col-span-4 group cursor-pointer framer-reveal delay-200 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
+<div class="relative overflow-hidden rounded-3xl aspect-[3/4] bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A vibrant, high-energy photo of a dancehall group performing on a stage lit with neon pink and orange lights. The dancers are captured mid-movement, showing powerful athleticism and rhythm. The background is a dark night scene with colorful bokeh light effects. The overall image is bursting with life and captures the high-intensity vibe of Afro-centrist culture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxM8fy_KOjzflWaGglTMtcCetSGei8AKYlr0sHdZgAD9MkZpRawtb1AzqpObVeFmXMywwRAv0PhijKINxRD7QQIUPxdB-e0_qPfLzJet_WEgdMIBuTj5GtObF9Mgj-Wg7mcK8YJ1Z9GJWd7NJrg_cuHNZWYc0up_VdQoowJJR1bU56xXcbPpi3-UwK8fU1URsDHSZtA0IJyUwbky0pnbds5aNJ7kJ1UreAg4OOUdAGDKEj-E_rv2G0L6IaVItLY_E6lxpSs4G_NFg"/>
+<div class="absolute bottom-6 left-6">
+<h3 class="font-headline-xl text-primary mb-1">The Riddim Crew</h3>
+<p class="font-body-md text-tertiary">Dancehall / Street</p>
+</div>
+</div>
+</div>
+<!-- Artist 5 -->
+<div class="md:col-span-4 group cursor-pointer framer-reveal delay-300 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
+<div class="relative overflow-hidden rounded-3xl aspect-[3/4] bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A sophisticated portrait of a jazz-fusion singer with a large floral crown made of exotic tropical flowers like hibiscus and protea. She is dressed in a flowing cream-colored robe against a warm sandy background. The lighting is soft and ethereal, creating a peaceful and high-end artistic feel. The design is magazine-style, elegant, and celebrates organic beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQRWqOHhIePSk8tbGV4ZaQRwwi1I4_-PbFbSxsFTkZRa0PdLUIr9AppnACpzBMPsEk03VjHOxadN1I4SDfH4e23Hs90jlsVRq7XWyb8JX-aF93dz3FzzHUqgM8kR6RkAHuFs-WdlkiUTIONkuYjHp7cazE8c9PSrydD1fVIdgOPw78BWI3DUoTl_nZ-XlYTQ7X0B26X-fzUOkil6U9OCIPb90q65cdTvFxoJLc5u8Oy24zkhpfiYRynmqbc3UVmFNveW7n79hpmaY"/>
+<div class="absolute bottom-6 left-6">
+<h3 class="font-headline-xl text-primary mb-1">Zola High</h3>
+<p class="font-body-md text-tertiary">Jazz Fusion / Highlife</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mt-24 framer-reveal">
+<div class="bg-secondary-container rounded-[40px] p-12 md:p-24 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="organic-bg-blob w-96 h-96 -bottom-20 -right-20 opacity-30"></div>
+<div class="z-10 max-w-xl text-center md:text-left">
+<h2 class="font-display-lg text-primary text-4xl md:text-6xl mb-6">Bring the Rhythm to Your Event</h2>
+<p class="font-body-lg text-on-secondary-container">From private galas to global festivals, we provide the ultimate talent curation for unforgettable experiences.</p>
+</div>
+<div class="z-10">
+<a href="contact.html" class="bg-primary text-on-primary hover:scale-105 active:scale-95 transition-all px-12 py-6 rounded-full font-headline-md text-xl font-bold shadow-2xl framer-btn flex items-center justify-center">
+                        Enquire Today
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<img alt="Footer Logo" class="h-10 w-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAOv2yhxwJQJHLWNiKU8e0ZmnQub0SdEXWyXvhDXR85I62tEIt4JFOOJ6UeTrGdy_GoVavL53dEELlPGaHIOr6h5AQybnwDvIKOFXE_RyuGR9sNu9Uj2dBp8Sz-_mMvCDi169kk_KVHgF0NiZo2L6bSf8kAJJX2u5cUsh2S1Aqw5OzZhHSfy7haFxr9sQ_S_l_nnlz_0a1ZMLmyscD-LnUDhFVaQr_-dQXx_ED_xUOKyj5_T5LEjAAADvzTf6Y395YO7_vuucu21U"/>
+<span class="font-headline-md text-headline-md text-sapling">Eseyasa</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Eseyasa Productions. All rights reserved.</p>
+</div>
+<div class="col-span-1">
+<h4 class="font-headline-md text-tertiary mb-6">Explore</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-tertiary transition-transform duration-200 hover:translate-x-1 inline-block font-body-md text-body-md" href="artists.html">Artists Catalog</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-transform duration-200 hover:translate-x-1 inline-block font-body-md text-body-md" href="contact.html">Booking Process</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-transform duration-200 hover:translate-x-1 inline-block font-body-md text-body-md" href="index.html#about-us">Success Stories</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-headline-md text-tertiary mb-6">Connect</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-tertiary transition-transform duration-200 hover:translate-x-1 inline-block font-body-md text-body-md" href="#">Instagram</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-transform duration-200 hover:translate-x-1 inline-block font-body-md text-body-md" href="#">YouTube</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-transform duration-200 hover:translate-x-1 inline-block font-body-md text-body-md" href="#">Newsletter</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-headline-md text-tertiary mb-6">Contact</h4>
+<p class="text-on-surface-variant font-body-md mb-2">info@eseyasa.com</p>
+<p class="text-on-surface-variant font-body-md mb-6">Lagos, Nigeria | London, UK</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">call</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating Audio Player Bar -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl bg-secondary-container/90 backdrop-blur-xl border border-outline-variant/30 px-6 py-4 rounded-full flex items-center gap-6 shadow-2xl z-50 animate-bounce-in">
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="hidden sm:block">
+<p class="text-primary font-bold text-sm">Lastest Beat Selection</p>
+<p class="text-sapling text-xs">Eseyasa Curated Mix Vol. 22</p>
+</div>
+</div>
+<div class="flex-1 h-1 bg-on-secondary/30 rounded-full relative">
+<div class="absolute left-0 top-0 h-full w-1/3 bg-primary rounded-full"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">volume_up</span>
+<span class="material-symbols-outlined text-primary text-xl">close</span>
+</div>
+</div>
+<script src="animations.js"></script>
+<script>
+        // Simple micro-interaction for filter buttons
+        const filterButtons = document.querySelectorAll('button.whitespace-nowrap');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('border-outline-variant');
+                });
+                btn.classList.remove('border-outline-variant');
+                btn.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+
+        // Search bar interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+
+        // Mobile Navigation Drawer Toggle
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const menuIcon = document.getElementById('menuIcon');
+
+        function toggleMobileMenu() {
+            mobileMenuOverlay.classList.toggle('open');
+            if (mobileMenuOverlay.classList.contains('open')) {
+                menuIcon.textContent = 'close';
+            } else {
+                menuIcon.textContent = 'menu';
+            }
+        }
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    </script>
+</body></html>
