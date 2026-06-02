@@ -157,33 +157,47 @@
 <a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contact</a>
 <a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Book Now</a>
 </div>
-<!-- Hero Slider Section -->
+<!-- Hero Slider Section (3 YouTube slides) -->
 <section class="relative h-screen w-full flex items-center overflow-hidden">
-<!-- Slides Container (JS would handle switching) -->
-<div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000" data-alt="A powerful portrait of a charismatic Afrobeat artist performing on stage under warm golden spotlights. The mood is high-energy and soulful, with golden dust particles in the air reflecting a deep palette of amber and forest green. The composition is cinematic and editorial, capturing a moment of pure rhythmic passion." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDMfQ2yoTwlCLxg9gaQnNI6HQ1n8isaKHRBgENKCHWY0mCVHzx2fesjTgKyCTLFuEXrt26k7DOc7HLNVSutZIBXqwRtkhldTTcYMDqxpij-HTN48eGTdwdaoH4bFnTI7snx7lbaz5VTBpTORhW_umNLKPleycZUtTMukz0pyXgsWoCdKnrJE2cqMfWwsqA1S2AtOVp64gKRZuTurzicFdTXGTtcYeBm6q1EUrQKltpEbeaOVf6M4xND0V11AU1VLkROW3Du-pVO7Xw');"></div>
-<div class="absolute inset-0 hero-gradient"></div>
-</div>
-<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
-<div class="max-w-3xl animate-slide">
-<span class="text-tertiary font-headline-md tracking-widest uppercase mb-4 block">The Soul of the Continent</span>
-<h1 class="font-display-lg text-[48px] md:text-display-lg text-on-background leading-none mb-8 text-glow">RESONATING<br/><span class="text-primary italic">AFRO-BEATS</span><br/>GLOBAL VIBRANCE</h1>
-<div class="flex flex-wrap gap-4">
-<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md flex items-center gap-2 framer-btn">
-                        Book an Artist
-                        <span class="material-symbols-outlined">arrow_forward</span>
-</a>
-<a href="artists.html" class="border-2 border-primary text-primary px-8 py-4 rounded-full font-headline-md hover:bg-primary hover:text-on-primary transition-all framer-btn flex items-center justify-center">
-                        View All Artists
-                    </a>
-</div>
-</div>
-</div>
-<!-- Slider Navigation -->
-<div class="absolute bottom-12 right-margin-desktop hidden md:flex gap-4">
-<button class="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary/10"><span class="material-symbols-outlined">chevron_left</span></button>
-<button class="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary/10"><span class="material-symbols-outlined">chevron_right</span></button>
-</div>
+    <div class="slider absolute inset-0 z-0">
+        <div class="slides">
+            <div class="slide">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" aria-label="Slide 1">
+                    <img class="slide-thumb" src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Slide 1 - YouTube thumbnail">
+                </a>
+            </div>
+            <div class="slide">
+                <a href="https://www.youtube.com/watch?v=3JZ_D3ELwOQ" target="_blank" rel="noopener noreferrer" aria-label="Slide 2">
+                    <img class="slide-thumb" src="https://img.youtube.com/vi/3JZ_D3ELwOQ/maxresdefault.jpg" alt="Slide 2 - YouTube thumbnail">
+                </a>
+            </div>
+            <div class="slide">
+                <a href="https://www.youtube.com/watch?v=V-_O7nl0Ii0" target="_blank" rel="noopener noreferrer" aria-label="Slide 3">
+                    <img class="slide-thumb" src="https://img.youtube.com/vi/V-_O7nl0Ii0/maxresdefault.jpg" alt="Slide 3 - YouTube thumbnail">
+                </a>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <div class="slider-dot active" aria-label="Go to slide 1"></div>
+            <div class="slider-dot" aria-label="Go to slide 2"></div>
+            <div class="slider-dot" aria-label="Go to slide 3"></div>
+        </div>
+    </div>
+    <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+        <div class="max-w-3xl animate-slide">
+            <span class="text-tertiary font-headline-md tracking-widest uppercase mb-4 block">The Soul of the Continent</span>
+            <h1 class="font-display-lg text-[48px] md:text-display-lg text-on-background leading-none mb-8 text-glow">RESONATING<br/><span class="text-primary italic">AFRO-BEATS</span><br/>GLOBAL VIBRANCE</h1>
+            <div class="flex flex-wrap gap-4">
+                <a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md flex items-center gap-2 framer-btn">
+                    Book an Artist
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+                <a href="artists.html" class="border-2 border-primary text-primary px-8 py-4 rounded-full font-headline-md hover:bg-primary hover:text-on-primary transition-all framer-btn flex items-center justify-center">
+                    View All Artists
+                </a>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- About Us Section: Asymmetric Editorial Layout -->
 <section id="about-us" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
@@ -207,15 +221,8 @@
 <p class="font-body-lg text-body-lg text-on-surface-variant">
                     At Eseyasa Productions, we don't just book artists; we curate cultural movements. We bridge the gap between soulful rhythmic heritage and the global industry, ensuring the vibrant heartbeat of Africa echoes in every corner of the planet.
                 </p>
-<div class="grid grid-cols-2 gap-8 pt-4">
-<div>
-<span class="block font-headline-md text-tertiary">50+</span>
-<span class="text-label-sm uppercase tracking-widest text-on-surface-variant">Elite Artists</span>
-</div>
-<div>
-<span class="block font-headline-md text-tertiary">12</span>
-<span class="text-label-sm uppercase tracking-widest text-on-surface-variant">Global Hubs</span>
-</div>
+<div class="pt-4">
+    <p class="font-body-md text-on-surface-variant">A curated roster of artists and partners across multiple global hubs, connecting authentic rhythm with meaningful stages.</p>
 </div>
 <a href="#about-us" class="font-headline-md text-primary flex items-center gap-2 group">
                     Learn more about our vision

@@ -50,3 +50,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Simple slider for homepage (3 slides, YouTube links)
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.querySelector('.slider');
+  if (!slider) return;
+  const slidesEl = slider.querySelector('.slides');
+  const dots = Array.from(slider.querySelectorAll('.slider-dot'));
+  let idx = 0;
+  const setSlide = i => {
+    idx = i % dots.length;
+    slidesEl.style.transform = `translateX(${idx * -100}%)`;
+    dots.forEach((d, j) => d.classList.toggle('active', j === idx));
+  };
+  dots.forEach((d, j) => d.addEventListener('click', () => setSlide(j)));
+  let autoplay = setInterval(() => setSlide((idx + 1) % dots.length), 5000);
+  slider.addEventListener('mouseenter', () => clearInterval(autoplay));
+  slider.addEventListener('mouseleave', () => autoplay = setInterval(() => setSlide((idx + 1) % dots.length), 5000));
+});
