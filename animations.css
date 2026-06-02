@@ -129,6 +129,11 @@
 .hero-gradient {
   background: linear-gradient(0deg, rgba(18,20,17,1) 0%, rgba(18,20,17,0) 50%);
 }
+
+/* Hide hero filter when requested */
+.hero-gradient {
+  display: none !important;
+}
 .text-glow {
   text-shadow: 0 0 20px rgba(255, 200, 124, 0.3);
 }
