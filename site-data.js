@@ -133,6 +133,40 @@
     });
   }
 
+  /* Renderitza el grid d'artistes (mateix disseny a inici i a artistes.html).
+     Si l'API falla o no hi ha artistes, deixa el contingut de demostració. */
+  function renderGrid(grid) {
+    if (!grid) return Promise.resolve();
+    return apiGet('/api/artists').then(function (list) {
+      if (!Array.isArray(list) || list.length === 0) return;
+      grid.innerHTML = '';
+      list.forEach(function (a, i) {
+        var mod = i % 5;
+        var span = mod === 0 ? 7 : (mod === 1 ? 5 : 4);
+        var aspect = mod === 0 ? 'aspect-[16/10]' : (mod === 1 ? 'aspect-square' : 'aspect-[3/4]');
+        var nameCls = mod === 0 ? 'font-display-lg text-primary text-4xl md:text-5xl mb-2' : 'font-headline-xl text-primary mb-1';
+        var delay = ['', 'delay-100', 'delay-200', 'delay-300', 'delay-400'][mod];
+        var media = a.imageUrl
+          ? '<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" src="' + esc(a.imageUrl) + '" alt="' + esc(a.name) + '"/>'
+          : '<div class="w-full h-full bg-gradient-to-br from-secondary-container to-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-6xl text-primary/40">music_note</span></div>';
+        var card = document.createElement('div');
+        card.className = 'md:col-span-' + span + ' group cursor-pointer framer-reveal ' + delay + ' framer-hover-scale';
+        card.addEventListener('click', function () { location.href = 'artist-detail.html?id=' + encodeURIComponent(a.id); });
+        card.innerHTML =
+          '<div class="relative overflow-hidden rounded-3xl ' + aspect + ' bg-surface-container">' +
+            media +
+            '<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>' +
+            '<div class="absolute bottom-6 left-6 md:bottom-8 md:left-8">' +
+              '<h3 class="' + nameCls + '">' + esc(a.name) + '</h3>' +
+              (a.genre ? '<p class="font-body-lg text-tertiary">' + esc(a.genre) + '</p>' : '') +
+            '</div>' +
+          '</div>';
+        grid.appendChild(card);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { card.classList.add('framer-visible'); }); });
+      });
+    }).catch(function () {});
+  }
+
   // Expone la API mínima al resto de páginas
   window.EseyasaSite = {
     API_BASE: API_BASE,
@@ -140,6 +174,7 @@
     getArtist: function (id) { return apiGet('/api/artists/' + encodeURIComponent(id)); },
     parseVideo: parseVideo,
     mountVideoFacade: mountVideoFacade,
+    renderGrid: renderGrid,
     esc: esc,
   };
 })();

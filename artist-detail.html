@@ -180,12 +180,6 @@
 <span class="material-symbols-outlined">calendar_today</span>
                         Reserva per a l'esdeveniment
 </a>
-<div class="flex items-center gap-4">
-<a class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-surface-container transition-colors" href="#">
-<span class="material-symbols-outlined text-primary">play_arrow</span>
-</a>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter">Escolta l'últim single</span>
-</div>
 </div>
 </div>
 <div class="relative w-full md:w-1/2 h-[400px] md:h-[60vh]">
@@ -195,9 +189,8 @@
 </div>
 </section>
 <!-- Biography & Video Section -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
-<div class="lg:col-span-7 space-y-12">
-<div class="space-y-6">
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<div class="lg:col-span-7 space-y-6">
 <h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary">El recorregut</h2>
 <div class="w-20 h-1 bg-tertiary"></div>
 <p class="font-body-lg text-body-lg text-on-surface-variant leading-loose">
@@ -207,27 +200,12 @@
                         Durant l'última dècada, Malek ha encapçalat festivals a tres continents i s'ha guanyat el títol de "El Griot Modern". Els seus directes són més que concerts: són rituals culturals immersius que fan de pont entre les històries ancestrals i els futurs digitals.
                     </p>
 </div>
-<!-- Video Player (es munta dinàmicament des de site-data.js) -->
-<div id="artist-video-wrap" class="space-y-6" style="display:none">
+<!-- Video Player (a la dreta de la bio; es munta des de site-data.js) -->
+<div id="artist-video-wrap" class="lg:col-span-5 space-y-6 lg:sticky lg:top-28" style="display:none">
 <h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary">En directe</h2>
 <div class="w-20 h-1 bg-tertiary"></div>
 <div id="artist-video"></div>
 </div>
-</div>
-<aside class="lg:col-span-5 space-y-12">
-<!-- Social Links -->
-<div class="flex gap-6 px-4">
-<a class="text-on-surface-variant hover:text-tertiary transition-colors scale-125" href="#">
-<span class="material-symbols-outlined">share</span>
-</a>
-<a class="text-on-surface-variant hover:text-tertiary transition-colors scale-125" href="#">
-<span class="material-symbols-outlined">language</span>
-</a>
-<a class="text-on-surface-variant hover:text-tertiary transition-colors scale-125" href="#">
-<span class="material-symbols-outlined">podcasts</span>
-</a>
-</div>
-</aside>
 </section>
 <!-- Booking CTA Section -->
 <section id="booking" class="py-24 bg-surface-container-lowest relative overflow-hidden">
