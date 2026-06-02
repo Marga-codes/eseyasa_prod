@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
+<html class="dark" lang="ca"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contact | Eseyasa Productions</title>
+<title>Contacte | Eseyasa Productions</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -125,18 +125,18 @@
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md">
-<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<header class="site-header" id="siteHeader">
+<div class="flex justify-between items-center h-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <a href="index.html" class="flex items-center gap-4">
-<img alt="Logo" class="h-10 w-10 object-contain" src="images/Image 1.png"/>
+<img alt="Eseyasa Logo" class="h-16 w-16 md:h-20 md:w-20 object-contain" src="images/Image 1.png"/>
 <span class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-primary tracking-tight">Eseyasa Productions</span>
 </a>
 <nav class="hidden md:flex gap-8 items-center">
-<a class="text-on-background font-medium hover:text-primary transition-colors font-body-md text-body-md hover:scale-105 duration-300" href="index.html">Home</a>
-<a class="text-on-background font-medium hover:text-primary transition-colors font-body-md text-body-md hover:scale-105 duration-300" href="artists.html">Artists</a>
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="contact.html">Contact</a>
+<a class="text-on-background font-medium hover:text-primary transition-colors font-body-md text-body-md hover:scale-105 duration-300" href="index.html">Inici</a>
+<a class="text-on-background font-medium hover:text-primary transition-colors font-body-md text-body-md hover:scale-105 duration-300" href="artists.html">Artistes</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="contact.html">Contacte</a>
 <a href="contact.html" class="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold font-headline-md text-headline-md hover:scale-105 transition-all duration-300 active:scale-95 flex items-center justify-center">
-                    Book Now
+                    Reserva ara
                 </a>
 </nav>
 <button class="md:hidden text-primary" id="mobileMenuBtn">
@@ -147,10 +147,10 @@
 
 <!-- Mobile Menu Overlay -->
 <div class="fixed inset-0 bg-background/98 z-45 flex flex-col justify-center items-center gap-8 md:hidden mobile-menu-overlay" id="mobileMenuOverlay">
-<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Home</a>
-<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="artists.html" onclick="toggleMobileMenu()">Artists</a>
-<a class="font-headline-xl text-3xl text-primary font-bold" href="contact.html" onclick="toggleMobileMenu()">Contact</a>
-<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Book Now</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Inici</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="artists.html" onclick="toggleMobileMenu()">Artistes</a>
+<a class="font-headline-xl text-3xl text-primary font-bold" href="contact.html" onclick="toggleMobileMenu()">Contacte</a>
+<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Reserva ara</a>
 </div>
 <main class="pt-32 pb-20 bg-mesh">
 <!-- Hero Section -->
@@ -158,10 +158,10 @@
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
 <div class="md:col-span-8">
 <h1 class="font-display-lg text-headline-xl-mobile md:text-display-lg text-primary uppercase mb-4 leading-none">
-                        Let's Sync Your <br/>Next Rhythm
+                        Sincronitzem el teu<br/>pròxim ritme
                     </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-                        Eseyasa Productions connects world-class Afro-centric talent with premium stages. Use the form below to initiate a booking inquiry or reach our headquarters directly.
+                        Eseyasa Productions connecta talent afro de primer nivell amb els millors escenaris. Omple el formulari per iniciar una consulta de booking o escriu-nos directament des de Barcelona.
                     </p>
 </div>
 <div class="md:col-span-4 hidden md:block text-right">
@@ -177,55 +177,57 @@
 <!-- Booking Form: Spans 7 columns -->
 <div class="md:col-span-7 bg-surface-container rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
 <div class="relative z-10">
-<h2 class="font-headline-xl text-headline-xl-mobile text-tertiary mb-8">Booking Inquiry</h2>
+<h2 class="font-headline-xl text-headline-xl-mobile text-tertiary mb-8">Consulta de booking</h2>
 <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" class="space-y-6" method="POST">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Your Name</label>
-<input name="name" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="e.g. John Doe" type="text" required />
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">El teu nom</label>
+<input name="name" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="p. ex. Joana Puig" type="text" required />
 </div>
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Email Address</label>
-<input name="email" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="you@company.com" type="email" required />
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Correu electrònic</label>
+<input name="email" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="tu@empresa.com" type="email" required />
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Artist Selection</label>
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Artista</label>
 <select name="artist" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" required>
-<option value="">Select an Artist</option>
-<option value="Yemi Afro-Beat Collective">Yemi Afro-Beat Collective</option>
-<option value="The Saharan Souls">The Saharan Souls</option>
-<option value="Lagos Jazz Ensemble">Lagos Jazz Ensemble</option>
-<option value="Highlife Legends">Highlife Legends</option>
+<option value="">Selecciona un artista</option>
+<option value="Zara Elani">Zara Elani</option>
+<option value="Kofi Roots">Kofi Roots</option>
+<option value="The Sunset Sextet">The Sunset Sextet</option>
+<option value="Luna Amara">Luna Amara</option>
+<option value="The Riddim Crew">The Riddim Crew</option>
+<option value="Zola High">Zola High</option>
 </select>
 </div>
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Event Type</label>
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Tipus d'esdeveniment</label>
 <select name="event_type" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" required>
 <option value="Festival">Festival</option>
-<option value="Private Event">Private Event</option>
-<option value="Corporate Gala">Corporate Gala</option>
-<option value="Club Residency">Club Residency</option>
+<option value="Esdeveniment privat">Esdeveniment privat</option>
+<option value="Gala corporativa">Gala corporativa</option>
+<option value="Residència de club">Residència de club</option>
 </select>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Preferred Date</label>
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Data preferida</label>
 <input name="event_date" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" type="date" required />
 </div>
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Location</label>
-<input name="location" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="City, Country" type="text" required />
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Ubicació</label>
+<input name="location" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="Ciutat, país" type="text" required />
 </div>
 </div>
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Message / Requirements</label>
-<textarea name="message" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="Tell us about your event vision..." rows="4"></textarea>
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Missatge / requisits</label>
+<textarea name="message" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" placeholder="Explica'ns la teva visió de l'esdeveniment..." rows="4"></textarea>
 </div>
 <button class="w-full bg-primary text-on-primary py-5 rounded-xl font-headline-md text-headline-md font-bold hover:translate-y-[-4px] transition-transform duration-300 framer-btn" type="submit">
-                                Send Inquiry
+                                Enviar consulta
                             </button>
 </form>
 </div>
@@ -239,43 +241,69 @@
 <!-- Contact Cards -->
 <div class="bg-secondary-container rounded-[2rem] p-8 text-on-secondary-container">
 <h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-3">
-<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
-                            Direct Reach
+<span class="material-symbols-outlined">contact_support</span>
+                            Contacte directe
                         </h3>
 <div class="space-y-6">
-<div class="flex items-start gap-4">
-<div class="bg-primary/20 p-3 rounded-lg">
-<span class="material-symbols-outlined text-primary" data-icon="alternate_email">alternate_email</span>
+<a href="mailto:Eseyasaproductions@gmail.com" class="flex items-start gap-4 group">
+<div class="bg-primary/20 p-3 rounded-lg group-hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined text-primary">alternate_email</span>
 </div>
 <div>
-<p class="font-label-sm uppercase opacity-70">Email Us</p>
-<p class="font-headline-md text-headline-md">bookings@eseyasa.com</p>
+<p class="font-label-sm uppercase opacity-70">Escriu-nos</p>
+<p class="font-headline-md text-[20px] md:text-[22px] break-all group-hover:text-primary transition-colors">Eseyasaproductions@gmail.com</p>
+</div>
+</a>
+<div class="flex items-start gap-4">
+<div class="bg-primary/20 p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<div>
+<p class="font-label-sm uppercase opacity-70">Seu</p>
+<p class="font-headline-md text-headline-md">Barcelona, Catalunya</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
 <div class="bg-primary/20 p-3 rounded-lg">
-<span class="material-symbols-outlined text-primary" data-icon="phone_in_talk">phone_in_talk</span>
+<span class="material-symbols-outlined text-primary">schedule</span>
 </div>
 <div>
-<p class="font-label-sm uppercase opacity-70">Call Us</p>
-<p class="font-headline-md text-headline-md">+234 (0) 805 123 4567</p>
+<p class="font-label-sm uppercase opacity-70">Horari</p>
+<p class="font-headline-md text-headline-md">Dilluns a divendres · 10–19h</p>
 </div>
 </div>
 </div>
 </div>
-<!-- Map Integration Placeholder -->
-<div class="bg-surface-container-high rounded-[2rem] p-8 h-80 relative overflow-hidden group">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale opacity-40" data-location="Lagos" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-1Kq5s2n0t8XxRxy5y39j3Ckcrb4R2kDhRvyABwCy_VeWjINr7KkCchTK9_mbKsma3f1_TCMFjB7eN-yCCjrDWLjJ5553shLLQGGj26_4eE7Gvlru4SOORYFpfkSVVN31EGrKNxZtp7x4OTm2fRPgwuJBvHU8kG2ZoiHVepwI_mn8wqsdAbb6KXTXEe_hLr_szGf_EV2C3c7CmvL2L0X_-FHl5Wff1INUDpm2KgzuRm_jSf3ax2_ByZgEBQGnQDH93MwZvAhFeEI')"></div>
-<div class="relative z-10 h-full flex flex-col justify-between">
-<div class="bg-background/80 backdrop-blur-sm p-4 rounded-xl inline-block self-start">
-<h4 class="font-headline-md text-headline-md text-primary">Headquarters</h4>
-<p class="font-body-md text-body-md">12 Victoria Island Road, Lagos, Nigeria</p>
+<!-- Process card (replaces the map) -->
+<div class="bg-surface-container-high rounded-[2rem] p-8 relative overflow-hidden">
+<div class="absolute -top-16 -right-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-3 relative z-10">
+<span class="material-symbols-outlined">workspace_premium</span>
+    Com treballem
+</h3>
+<ol class="space-y-5 relative z-10">
+<li class="flex gap-4">
+<span class="font-display-lg text-3xl text-primary/40 leading-none">01</span>
+<div>
+<p class="font-headline-md text-base text-on-background">Ens escrius</p>
+<p class="font-body-md text-on-surface-variant text-sm">Compartim disponibilitats i pressupost.</p>
 </div>
-<button class="bg-surface-cream text-background px-6 py-3 rounded-xl font-bold self-start hover:bg-primary transition-colors flex items-center gap-2">
-<span class="material-symbols-outlined" data-icon="map">map</span>
-                                Open in Maps
-                            </button>
+</li>
+<li class="flex gap-4">
+<span class="font-display-lg text-3xl text-primary/40 leading-none">02</span>
+<div>
+<p class="font-headline-md text-base text-on-background">Curem la proposta</p>
+<p class="font-body-md text-on-surface-variant text-sm">Tria d'artista, rider tècnic i logística.</p>
 </div>
+</li>
+<li class="flex gap-4">
+<span class="font-display-lg text-3xl text-primary/40 leading-none">03</span>
+<div>
+<p class="font-headline-md text-base text-on-background">Tanquem el booking</p>
+<p class="font-body-md text-on-surface-variant text-sm">Contracte, producció i posada en escena.</p>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -283,12 +311,19 @@
 <!-- Secondary Decorative Section -->
 <section class="mt-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop overflow-hidden">
 <div class="flex gap-12 animate-infinite-scroll whitespace-nowrap">
-<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Rhythm</span>
-<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Culture</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Ritme</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Cultura</span>
 <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Talent</span>
-<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Excellence</span>
-<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Soul</span>
-<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Legacy</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Excel·lència</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Ànima</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Llegat</span>
+<!-- Duplicated for seamless loop -->
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Ritme</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Cultura</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Talent</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Excel·lència</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Ànima</span>
+<span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-outline opacity-20 uppercase">Llegat</span>
 </div>
 </section>
 </main>
@@ -296,33 +331,43 @@
 <footer class="w-full py-16 bg-surface-container-lowest dark:bg-surface-container-lowest">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="col-span-1 md:col-span-1 flex flex-col items-start gap-4">
-<img alt="Logo" class="h-16 w-16 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAOv2yhxwJQJHLWNiKU8e0ZmnQub0SdEXWyXvhDXR85I62tEIt4JFOOJ6UeTrGdy_GoVavL53dEELlPGaHIOr6h5AQybnwDvIKOFXE_RyuGR9sNu9Uj2dBp8Sz-_mMvCDi169kk_KVHgF0NiZo2L6bSf8kAJJX2u5cUsh2S1Aqw5OzZhHSfy7haFxr9sQ_S_l_nnlz_0a1ZMLmyscD-LnUDhFVaQr_-dQXx_ED_xUOKyj5_T5LEjAAADvzTf6Y395YO7_vuucu21U"/>
+<img alt="Eseyasa Logo" class="h-16 w-16 object-contain" src="images/Image 1.png"/>
 <div class="font-headline-md text-headline-md text-sapling">Eseyasa Productions</div>
-<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Eseyasa Productions. All rights reserved.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Eseyasa Productions. Tots els drets reservats.</p>
 </div>
 <div class="col-span-1 flex flex-col gap-4">
-<h5 class="text-tertiary font-bold font-body-md">Quick Links</h5>
-<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="artists.html">Artists</a>
-<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="contact.html">Booking Policy</a>
-<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="#">Privacy</a>
+<h5 class="text-tertiary font-bold font-body-md">Enllaços ràpids</h5>
+<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="artists.html">Artistes</a>
+<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="contact.html">Política de booking</a>
+<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="#">Privacitat</a>
 </div>
 <div class="col-span-1 flex flex-col gap-4">
-<h5 class="text-tertiary font-bold font-body-md">Follow Us</h5>
+<h5 class="text-tertiary font-bold font-body-md">Segueix-nos</h5>
 <a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="#">Instagram</a>
 <a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="#">YouTube</a>
-<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="#">Newsletter</a>
+<a class="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 font-body-md text-body-md" href="https://soundcloud.com/eseyasaproductions" target="_blank" rel="noopener">SoundCloud</a>
 </div>
 <div class="col-span-1 flex flex-col gap-4">
-<h5 class="text-tertiary font-bold font-body-md">Join the Vibe</h5>
+<h5 class="text-tertiary font-bold font-body-md">Apunta't al ritme</h5>
 <div class="flex border-b border-outline-variant py-2">
-<input class="bg-transparent border-none focus:ring-0 text-on-background w-full" placeholder="Your email" type="email"/>
-<button class="text-primary font-bold">Join</button>
+<input class="bg-transparent border-none focus:ring-0 text-on-background w-full" placeholder="El teu correu" type="email"/>
+<button class="text-primary font-bold">Uneix-te</button>
 </div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Barcelona · Catalunya</p>
 </div>
 </div>
 </footer>
 <script src="animations.js"></script>
 <script>
+        // Sticky header — soft gradient on scroll
+        const siteHeader = document.getElementById('siteHeader');
+        function onScroll() {
+            if (window.scrollY > 24) siteHeader.classList.add('scrolled');
+            else siteHeader.classList.remove('scrolled');
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
         // Micro-interaction for form inputs
         document.querySelectorAll('input, select, textarea').forEach(element => {
             element.addEventListener('focus', () => {
@@ -333,15 +378,6 @@
             });
         });
 
-        // Atmospheric parallax on scroll for marquee
-        window.addEventListener('scroll', () => {
-            const marquee = document.querySelector('.animate-infinite-scroll');
-            if (marquee) {
-                const scrollPos = window.scrollY;
-                marquee.style.transform = `translateX(-${scrollPos * 0.2}px)`;
-            }
-        });
-
         // Mobile Navigation Drawer Toggle
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -349,11 +385,7 @@
 
         function toggleMobileMenu() {
             mobileMenuOverlay.classList.toggle('open');
-            if (mobileMenuOverlay.classList.contains('open')) {
-                menuIcon.textContent = 'close';
-            } else {
-                menuIcon.textContent = 'menu';
-            }
+            menuIcon.textContent = mobileMenuOverlay.classList.contains('open') ? 'close' : 'menu';
         }
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', toggleMobileMenu);

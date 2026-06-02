@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="cat"><head>
-<title>Eseyasa Productions - Afro Music Talent Booking & Creative Production</title>
+<html class="dark" lang="ca"><head>
+<title>Eseyasa Productions — Booking de talent afro i producció creativa</title>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
       tailwind.config = {
@@ -105,21 +102,23 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        .organic-mask {
-            clip-path: url(#organic-blob);
-        }
         .text-glow {
-            text-shadow: 0 0 20px rgba(255, 200, 124, 0.3);
-        }
-        .hero-gradient {
-            background: linear-gradient(0deg, rgba(18,20,17,1) 0%, rgba(18,20,17,0) 50%);
+            text-shadow: 0 0 30px rgba(255, 200, 124, 0.35), 0 2px 24px rgba(0,0,0,0.6);
         }
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate-slide { animation: slideIn 0.8s ease-out forwards; }
-        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .hero-stagger > * { opacity: 0; animation: fadeUp 0.9s var(--ease-framer-smooth, ease-out) forwards; }
+        .hero-stagger > *:nth-child(1) { animation-delay: 0.15s; }
+        .hero-stagger > *:nth-child(2) { animation-delay: 0.35s; }
+        .hero-stagger > *:nth-child(3) { animation-delay: 0.55s; }
+        .hero-stagger > *:nth-child(4) { animation-delay: 0.75s; }
+
         /* Mobile menu styles */
         .mobile-menu-overlay {
             clip-path: circle(0px at 100% 0%);
@@ -132,119 +131,138 @@
 </head>
 <body class="bg-background text-on-background selection:bg-primary selection:text-on-primary font-body-md overflow-x-hidden">
 <!-- TopAppBar Shell -->
-<nav class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md">
-<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<header class="site-header" id="siteHeader">
+<nav class="flex justify-between items-center h-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <a href="index.html" class="flex items-center gap-4">
-<img alt="Eseyasa Logo" class="h-10 w-10 object-contain" src="images/Image 1.png"/>
+<img alt="Eseyasa Logo" class="h-16 w-16 md:h-20 md:w-20 object-contain" src="images/Image 1.png"/>
 <span class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-primary tracking-tight">Eseyasa Productions</span>
 </a>
 <div class="hidden md:flex items-center gap-8">
-<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="index.html">Home</a>
-<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-all duration-300 hover:scale-105" href="artists.html">Artists</a>
-<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-all duration-300 hover:scale-105" href="contact.html">Contact</a>
-<a href="contact.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-headline-md text-[16px] hover:scale-95 transition-transform active:scale-90 flex items-center justify-center">Book Now</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="index.html">Inici</a>
+<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-all duration-300 hover:scale-105" href="artists.html">Artistes</a>
+<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-all duration-300 hover:scale-105" href="contact.html">Contacte</a>
+<a href="contact.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-headline-md text-[16px] hover:scale-95 transition-transform active:scale-90 flex items-center justify-center">Reserva ara</a>
 </div>
 <button class="md:hidden text-primary" id="mobileMenuBtn">
 <span class="material-symbols-outlined text-4xl" id="menuIcon">menu</span>
 </button>
-</div>
 </nav>
+</header>
 
 <!-- Mobile Menu Overlay -->
 <div class="fixed inset-0 bg-background/98 z-45 flex flex-col justify-center items-center gap-8 md:hidden mobile-menu-overlay" id="mobileMenuOverlay">
-<a class="font-headline-xl text-3xl text-primary font-bold" href="index.html" onclick="toggleMobileMenu()">Home</a>
-<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="artists.html" onclick="toggleMobileMenu()">Artists</a>
-<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contact</a>
-<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Book Now</a>
+<a class="font-headline-xl text-3xl text-primary font-bold" href="index.html" onclick="toggleMobileMenu()">Inici</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="artists.html" onclick="toggleMobileMenu()">Artistes</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contacte</a>
+<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Reserva ara</a>
 </div>
-<!-- Hero Slider Section (3 YouTube slides) -->
-<section class="relative min-h-[65vh] w-full flex items-center overflow-hidden">
-    <div class="slider absolute inset-0 z-0">
+
+<!-- Hero Slider Section — 100vh, 4 slides, content indented right -->
+<section class="relative h-screen w-full flex items-center overflow-hidden">
+    <div class="slider absolute inset-0 z-0" id="heroSlider">
         <div class="slides">
-            <div class="slide">
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" aria-label="Slide 1">
-                    <img class="slide-thumb" src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Slide 1 - YouTube thumbnail">
-                </a>
+            <!--
+              SLIDER HERO — substitueix les imatges deixant els 4 fitxers a /images/:
+                  images/hero-1.jpg
+                  images/hero-2.jpg
+                  images/hero-3.jpg
+                  images/hero-4.jpg
+              Si algun no existeix, l'onerror carrega automàticament un mockup com a fallback.
+            -->
+            <div class="slide active">
+                <img class="slide-thumb" src="images/hero-1.jpg" alt="Eseyasa — slide 1"
+                     onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuD4vWuy2qySgvCxbJsT9j4u2K6jKKa93huvjuYTiqsVniR5MjG8xQsf4qFJzzIXlq8w34VRk7AOUDA9p8cnE7MpyjvNLQ_tLWwrrIvP6dbFx2QUPKgrnetwxneuEgtiH2BsmUDkGPkcvxfYpENP10KfjfOf2r-ScMtCDWRwTQEqR7jQqleSAiBJ5oxrwwE5DB1_Vg2Q8Ryql60QFRvVSsTbGH5v7i66d0bp0awpAUDv7W4yCdwOJvvovSsHyuMwB31QRAKZ0bJOrJg';">
             </div>
             <div class="slide">
-                <a href="https://www.youtube.com/watch?v=3JZ_D3ELwOQ" target="_blank" rel="noopener noreferrer" aria-label="Slide 2">
-                    <img class="slide-thumb" src="https://img.youtube.com/vi/3JZ_D3ELwOQ/maxresdefault.jpg" alt="Slide 2 - YouTube thumbnail">
-                </a>
+                <img class="slide-thumb" src="images/hero-2.jpg" alt="Eseyasa — slide 2"
+                     onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCxvh7tHkw7NpcBoBuDpx9LE-8HAmFu4Na9uugktt5RfJPRPZ39hqnON5qRNBnkTYesCsOmhzHrNNi_WLN1A2vAghmgxIbylMon4XszHTEZgwfhzHXc3iVmB_ZXZjDMmm3ybNI0CmspxPzYgpJ351BegN_CdXFA6hxwIoHACdvTWWc54YF-7KH_XZC9afnnMO0ESUmsLzIzDrg-gJG9NuB5ipX-zbJ_MZGHQOzHUrjdDRmCWhddHhlWfdw2mA2JhJtq_MLmXAIC-tk';">
             </div>
             <div class="slide">
-                <a href="https://www.youtube.com/watch?v=V-_O7nl0Ii0" target="_blank" rel="noopener noreferrer" aria-label="Slide 3">
-                    <img class="slide-thumb" src="https://img.youtube.com/vi/V-_O7nl0Ii0/maxresdefault.jpg" alt="Slide 3 - YouTube thumbnail">
-                </a>
+                <img class="slide-thumb" src="images/hero-3.jpg" alt="Eseyasa — slide 3"
+                     onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuDEIQjIz8kRk8J-NnfTvUI8J56i3f50aODK9SBz3wZ8prES_2HhRccqiDHGbIiJy-n1e8S8rsQB4HzEEpAlZjZ7uV0yDXcz_9ip2a0ZVUvOyztkXssOWGQvFwETpA4EK67qUcYaYZYy7eem490rUDFQRwOcOheDptloIpjAyMeuzZkeuYGLGY0_OaT1rTfTTP2cEvGgemr408FRjpRwoRA7NhrcKEUtGyU8DDz9YF2mOtBPmrICoxK_nYs5inBG18OKU_QSbry11Dg';">
+            </div>
+            <div class="slide">
+                <img class="slide-thumb" src="images/hero-4.jpg" alt="Eseyasa — slide 4"
+                     onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAuNUrKHSUYIW3qE2AO9y5Cxw9Mirea8mGFtPwPRG94oYyDiV0yZtfFji2k__6S1CLogw6ouoocnyRCDQgpyhOoYzReQ7uvBE9oCa5bZnjvovXKxm4NjAxauxgV8NNZRkbbZhlO9nJN26wonENUxnDoS1W4s65MSdH9JkY1Q9W3UQXxnGXoPGlrP6iqSZZVUg3izTZDhnDJpARA87yY_kFjSyELtVyY_Ie_HDWVHSbG-aeYYUXXFYBAH0t8aGTzz64Xl-8dDC2TrGc';">
             </div>
         </div>
-        <div class="slider-nav">
-            <div class="slider-dot active" aria-label="Go to slide 1"></div>
-            <div class="slider-dot" aria-label="Go to slide 2"></div>
-            <div class="slider-dot" aria-label="Go to slide 3"></div>
+        <div class="hero-scrim"></div>
+        <div class="slider-nav" role="tablist" aria-label="Slider de l'hero">
+            <button class="slider-dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="slider-dot" data-index="2" aria-label="Slide 3"></button>
+            <button class="slider-dot" data-index="3" aria-label="Slide 4"></button>
         </div>
     </div>
     <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
-        <div class="max-w-3xl animate-slide">
-            <span class="text-tertiary font-headline-md tracking-widest uppercase mb-4 block">The Soul of the Continent</span>
-            <h1 class="font-display-lg text-[48px] md:text-display-lg text-on-background leading-none mb-8 text-glow">RESONATING<br/><span class="text-primary italic">AFRO-BEATS</span><br/>GLOBAL VIBRANCE</h1>
-            <div class="flex flex-wrap gap-4">
+        <!-- Content anchored to the LEFT, breathing room on the right -->
+        <div class="mr-auto max-w-2xl text-left hero-stagger">
+            <span class="text-tertiary font-headline-md tracking-[0.3em] uppercase text-sm block pt-16 md:pt-24">L'ànima de l'afrobeat · des de Barcelona</span>
+            <h1 class="font-display-lg text-[44px] md:text-[88px] leading-[0.95] text-on-background text-glow">
+                Ritmes que <br/>
+                <span class="text-primary italic">connecten</span> <br/>
+                cultures
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                Booking d'artistes afro i producció creativa amb segell propi. Posem el batec d'Àfrica als millors escenaris del món.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-start">
                 <a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md flex items-center gap-2 framer-btn">
-                    Book an Artist
+                    Reserva un artista
                     <span class="material-symbols-outlined">arrow_forward</span>
                 </a>
                 <a href="artists.html" class="border-2 border-primary text-primary px-8 py-4 rounded-full font-headline-md hover:bg-primary hover:text-on-primary transition-all framer-btn flex items-center justify-center">
-                    View All Artists
+                    Veure tots els artistes
                 </a>
             </div>
         </div>
     </div>
 </section>
-<!-- About Us Section: Asymmetric Editorial Layout -->
-<section id="about-us" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
-<div class="md:col-span-7 relative framer-reveal-left">
-<!-- Organic Image Frame -->
-<div class="w-full aspect-square md:aspect-video rounded-3xl overflow-hidden relative z-10 border-4 border-secondary-container">
-<img class="w-full h-full object-cover" data-alt="Close up of a traditional African percussionist playing djembe drums in a lush, sun-drenched tropical garden. The morning sunlight filters through large palm leaves, casting soft shadows. The style is professional and vibrant, emphasizing rich textures of wood, skin, and green foliage in an Afro-centric aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGka5tvj5vWSsUaM9ZQG3Q88uwjyganGl1hi_7ePMBZkMLY7ytpcGfcSM1ib7czmTxHqbR_W7p6HURTpC7R1X6XlKyP0BXV2KKVJTyo56mIlkPhCI-9kG0xlzgB5FTXx3fbg3TYHPvAtwAzezIZVRT8YNnLtV2ABNnDMOuOtic1nOrMsnd1Qx1WFKj73DhZRdARJuPLL3nTdTidDAuE57RG5J4RT1ISvYLEKAnF6vbGuSPApE2pYOuy5tJlgSPI_eHTsX67vh9Llo"/>
+
+<!-- About Us Section -->
+<section id="about-us" class="py-20 md:py-28 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+<div class="relative framer-reveal-left">
+<div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative z-10 border border-secondary-container/40">
+<img class="w-full h-full object-cover" alt="Percussionista tocant djembe en un jardí tropical" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGka5tvj5vWSsUaM9ZQG3Q88uwjyganGl1hi_7ePMBZkMLY7ytpcGfcSM1ib7czmTxHqbR_W7p6HURTpC7R1X6XlKyP0BXV2KKVJTyo56mIlkPhCI-9kG0xlzgB5FTXx3fbg3TYHPvAtwAzezIZVRT8YNnLtV2ABNnDMOuOtic1nOrMsnd1Qx1WFKj73DhZRdARJuPLL3nTdTidDAuE57RG5J4RT1ISvYLEKAnF6vbGuSPApE2pYOuy5tJlgSPI_eHTsX67vh9Llo"/>
 </div>
-<!-- Decorative Organic Element -->
-<div class="absolute -top-12 -left-12 w-48 h-48 bg-sapling/20 rounded-full blur-3xl -z-10"></div>
-<div class="absolute -bottom-8 -right-8 w-64 h-64 bg-tertiary/10 rounded-full blur-3xl -z-10"></div>
-<div class="absolute -bottom-10 -left-10 hidden md:block opacity-30 text-[120px] font-display-lg text-primary tracking-tighter leading-none select-none">AFRO</div>
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-sapling/15 rounded-full blur-3xl -z-10"></div>
+<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-tertiary/10 rounded-full blur-3xl -z-10"></div>
 </div>
-<div class="md:col-span-5 space-y-8 framer-reveal-right">
-<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm">
+<div class="space-y-6 framer-reveal-right">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm">
 <span class="material-symbols-outlined text-[16px]">public</span>
-                    OUR MISSION
+                    LA NOSTRA MISSIÓ
                 </div>
-<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary leading-tight">Bringing Afro Music to the World Stage</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">
-                    At Eseyasa Productions, we don't just book artists; we curate cultural movements. We bridge the gap between soulful rhythmic heritage and the global industry, ensuring the vibrant heartbeat of Africa echoes in every corner of the planet.
+<h2 class="font-headline-xl text-3xl md:text-4xl lg:text-5xl text-primary leading-tight">Portem la música afro als escenaris del món</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    A Eseyasa Productions no només contractem artistes: curem moviments culturals. Construïm el pont entre l'herència rítmica afro i la indústria global perquè el batec d'Àfrica ressoni a cada racó del planeta.
                 </p>
-<div class="pt-4">
-    <p class="font-body-md text-on-surface-variant">A curated roster of artists and partners across multiple global hubs, connecting authentic rhythm with meaningful stages.</p>
-</div>
-<a href="#about-us" class="font-headline-md text-primary flex items-center gap-2 group">
-                    Learn more about our vision
+<p class="font-body-md text-on-surface-variant leading-relaxed">Un cartell curat d'artistes i col·laboradors a diferents hubs internacionals, amb base a <strong class="text-primary font-semibold">Barcelona</strong>.</p>
+<a href="#about-us" class="inline-flex items-center gap-2 font-headline-md text-primary group pt-2">
+                    Coneix la nostra visió
                     <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">trending_flat</span>
 </a>
 </div>
 </div>
 </section>
-<!-- Featured Artists: Bento-style Cards -->
+
+<!-- Featured Artists: 5 cards (2 large + 3 medium) -->
 <section class="py-24 bg-surface-container-low">
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 framer-reveal">
 <div class="max-w-xl">
-<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background mb-4">The Rhythm Shapers</h2>
-<p class="font-body-md text-on-surface-variant">Meet the architects of the new sound. Our curated selection of top-tier talent ready to elevate your stage.</p>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background mb-4">Els arquitectes del so</h2>
+<p class="font-body-md text-on-surface-variant">Coneix el talent que dóna forma al nou ritme afro. Un cartell curat, llest per omplir el teu escenari.</p>
 </div>
-<a class="border-b-2 border-sapling text-sapling font-headline-md pb-1 hover:text-primary hover:border-primary transition-colors" href="artists.html">See All Talent</a>
+<a class="border-b-2 border-sapling text-sapling font-headline-md pb-1 hover:text-primary hover:border-primary transition-colors" href="artists.html">Veure tots els artistes</a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter h-auto md:h-[600px]">
+
+<!-- Row 1 — 2 wide hero cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-gutter" style="grid-auto-rows: 360px;">
 <!-- Artist 1: Large Featured -->
-<div class="md:col-span-2 relative group overflow-hidden rounded-3xl bg-surface-container-highest cursor-pointer framer-reveal delay-100 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" data-alt="Portrait of a modern Afro-pop star with elaborate hair ornaments and vibrant tribal-inspired streetwear. She is standing against a deep emerald green background with warm amber backlighting. The aesthetic is organic brutalism, focusing on high-contrast skin textures and bold fashion elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxvh7tHkw7NpcBoBuDpx9LE-8HAmFu4Na9uugktt5RfJPRPZ39hqnON5qRNBnkTYesCsOmhzHrNNi_WLN1A2vAghmgxIbylMon4XszHTEZgwfhzHXc3iVmB_ZXZjDMmm3ybNI0CmspxPzYgpJ351BegN_CdXFA6hxwIoHACdvTWWc54YF-7KH_XZC9afnnMO0ESUmsLzIzDrg-gJG9NuB5ipX-zbJ_MZGHQOzHUrjdDRmCWhddHhlWfdw2mA2JhJtq_MLmXAIC-tk"/>
+<div class="md:col-span-2 md:row-span-1 relative group overflow-hidden rounded-3xl bg-surface-container-highest cursor-pointer framer-reveal delay-100 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" alt="Zara Elani" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxvh7tHkw7NpcBoBuDpx9LE-8HAmFu4Na9uugktt5RfJPRPZ39hqnON5qRNBnkTYesCsOmhzHrNNi_WLN1A2vAghmgxIbylMon4XszHTEZgwfhzHXc3iVmB_ZXZjDMmm3ybNI0CmspxPzYgpJ351BegN_CdXFA6hxwIoHACdvTWWc54YF-7KH_XZC9afnnMO0ESUmsLzIzDrg-gJG9NuB5ipX-zbJ_MZGHQOzHUrjdDRmCWhddHhlWfdw2mA2JhJtq_MLmXAIC-tk"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
 <div class="absolute bottom-8 left-8">
 <span class="bg-tertiary text-on-tertiary-fixed px-3 py-1 rounded text-label-sm mb-2 inline-block">NEO-SOUL</span>
@@ -253,7 +271,7 @@
 </div>
 <!-- Artist 2 -->
 <div class="relative group overflow-hidden rounded-3xl bg-surface-container-highest cursor-pointer framer-reveal delay-200 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" data-alt="A male artist playing an electric guitar, dressed in a contemporary kente cloth patterned jacket. The studio lighting is dramatic, highlighting the instrument and the performer's intense focus. Deep forest green and sunset orange tones dominate the color palette, creating a soulful and professional mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMdC2vmz2FQMbw53QMPzy3IqaRSYxmInl31yX0_iHG7h3eo5AA0eymsMXwArsTscLI5vtIsMvJ_yToR0l1od49JOkwVddTg4gO5sdg4Arqt7EsdSKLH6f1D4adnRJH7I5s6Mb_HH9aVySWu6L4A6q4ElbozeEw5XxofdwV1-bC_83QJtiC6WiguG5gYXX69dBZPJQ9ohs6YVPzFDhHlyRGZcptGXVWMZdAmuZw_ql0TuNSWX8S9uSehqifGl9fibt4RHJPdNaFx4c"/>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" alt="Kofi Roots" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMdC2vmz2FQMbw53QMPzy3IqaRSYxmInl31yX0_iHG7h3eo5AA0eymsMXwArsTscLI5vtIsMvJ_yToR0l1od49JOkwVddTg4gO5sdg4Arqt7EsdSKLH6f1D4adnRJH7I5s6Mb_HH9aVySWu6L4A6q4ElbozeEw5XxofdwV1-bC_83QJtiC6WiguG5gYXX69dBZPJQ9ohs6YVPzFDhHlyRGZcptGXVWMZdAmuZw_ql0TuNSWX8S9uSehqifGl9fibt4RHJPdNaFx4c"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
 <div class="absolute bottom-6 left-6">
 <span class="bg-sapling text-on-secondary-fixed px-3 py-1 rounded text-label-sm mb-2 inline-block">AFRO-FUSION</span>
@@ -262,7 +280,7 @@
 </div>
 <!-- Artist 3 -->
 <div class="relative group overflow-hidden rounded-3xl bg-surface-container-highest cursor-pointer framer-reveal delay-300 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" data-alt="A jazz musician silhouetted against a vibrant sunset-colored backdrop, holding a saxophone. The image uses a warm, tonal color scheme of terracotta and deep blacks. The overall vibe is elegant, artistic, and evocative of a high-end cultural festival." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuNUrKHSUYIW3qE2AO9y5Cxw9Mirea8mGFtPwPRG94oYyDiV0yZtfFji2k__6S1CLogw6ouoocnyRCDQgpyhOoYzReQ7uvBE9oCa5bZnjvovXKxm4NjAxauxgV8NNZRkbbZhlO9nJN26wonENUxnDoS1W4s65MSdH9JkY1Q9W3UQXxnGXoPGlrP6iqSZZVUg3izTZDhnDJpARA87yY_kFjSyELtVyY_Ie_HDWVHSbG-aeYYUXXFYBAH0t8aGTzz64Xl-8dDC2TrGc"/>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" alt="The Sunset Sextet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuNUrKHSUYIW3qE2AO9y5Cxw9Mirea8mGFtPwPRG94oYyDiV0yZtfFji2k__6S1CLogw6ouoocnyRCDQgpyhOoYzReQ7uvBE9oCa5bZnjvovXKxm4NjAxauxgV8NNZRkbbZhlO9nJN26wonENUxnDoS1W4s65MSdH9JkY1Q9W3UQXxnGXoPGlrP6iqSZZVUg3izTZDhnDJpARA87yY_kFjSyELtVyY_Ie_HDWVHSbG-aeYYUXXFYBAH0t8aGTzz64Xl-8dDC2TrGc"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
 <div class="absolute bottom-6 left-6">
 <span class="bg-secondary text-on-secondary px-3 py-1 rounded text-label-sm mb-2 inline-block">AFRO-JAZZ</span>
@@ -270,121 +288,158 @@
 </div>
 </div>
 </div>
+
+<!-- Row 2 — 2 new cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter" style="grid-auto-rows: 360px;">
+<!-- Artist 4 (NEW) -->
+<div class="relative group overflow-hidden rounded-3xl bg-surface-container-highest cursor-pointer framer-reveal delay-100 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" alt="Luna Amara" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEIQjIz8kRk8J-NnfTvUI8J56i3f50aODK9SBz3wZ8prES_2HhRccqiDHGbIiJy-n1e8S8rsQB4HzEEpAlZjZ7uV0yDXcz_9ip2a0ZVUvOyztkXssOWGQvFwETpA4EK67qUcYaYZYy7eem490rUDFQRwOcOheDptloIpjAyMeuzZkeuYGLGY0_OaT1rTfTTP2cEvGgemr408FRjpRwoRA7NhrcKEUtGyU8DDz9YF2mOtBPmrICoxK_nYs5inBG18OKU_QSbry11Dg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-label-sm mb-2 inline-block">AMAPIANO</span>
+<h3 class="font-headline-md text-primary">Luna Amara</h3>
+</div>
+</div>
+<!-- Artist 5 (NEW, wide) -->
+<div class="md:col-span-2 relative group overflow-hidden rounded-3xl bg-surface-container-highest cursor-pointer framer-reveal delay-200 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" alt="The Riddim Crew" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxM8fy_KOjzflWaGglTMtcCetSGei8AKYlr0sHdZgAD9MkZpRawtb1AzqpObVeFmXMywwRAv0PhijKINxRD7QQIUPxdB-e0_qPfLzJet_WEgdMIBuTj5GtObF9Mgj-Wg7mcK8YJ1Z9GJWd7NJrg_cuHNZWYc0up_VdQoowJJR1bU56xXcbPpi3-UwK8fU1URsDHSZtA0IJyUwbky0pnbds5aNJ7kJ1UreAg4OOUdAGDKEj-E_rv2G0L6IaVItLY_E6lxpSs4G_NFg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-8 left-8">
+<span class="bg-primary text-on-primary px-3 py-1 rounded text-label-sm mb-2 inline-block">DANCEHALL</span>
+<h3 class="font-headline-xl text-headline-xl-mobile text-primary">The Riddim Crew</h3>
+</div>
+</div>
+<!-- Artist 6 (NEW) -->
+<div class="relative group overflow-hidden rounded-3xl bg-surface-container-highest cursor-pointer framer-reveal delay-300 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" alt="Zola High" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQRWqOHhIePSk8tbGV4ZaQRwwi1I4_-PbFbSxsFTkZRa0PdLUIr9AppnACpzBMPsEk03VjHOxadN1I4SDfH4e23Hs90jlsVRq7XWyb8JX-aF93dz3FzzHUqgM8kR6RkAHuFs-WdlkiUTIONkuYjHp7cazE8c9PSrydD1fVIdgOPw78BWI3DUoTl_nZ-XlYTQ7X0B26X-fzUOkil6U9OCIPb90q65cdTvFxoJLc5u8Oy24zkhpfiYRynmqbc3UVmFNveW7n79hpmaY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded text-label-sm mb-2 inline-block">HIGHLIFE</span>
+<h3 class="font-headline-md text-primary">Zola High</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SoundCloud Playlist Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center framer-reveal">
+<div class="md:col-span-4 space-y-6">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm">
+<span class="material-symbols-outlined text-[16px]">graphic_eq</span>
+                    PLAYLIST OFICIAL
+                </div>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary leading-tight">El so dels nostres artistes</h2>
+<p class="font-body-md text-on-surface-variant">Una selecció amb tot el cartell d'Eseyasa Productions. Reproducció directa des de SoundCloud.</p>
+<a href="https://soundcloud.com/eseyasaproductions" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-headline-md text-primary group">
+                    Obrir a SoundCloud
+                    <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">open_in_new</span>
+                </a>
+</div>
+<div class="md:col-span-8">
+<!-- SoundCloud embed — perfil oficial d'Eseyasa Productions -->
+<div class="rounded-2xl overflow-hidden border border-outline-variant/40 shadow-2xl">
+<iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay"
+src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Feseyasaproductions&color=%23ffc87c&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+</div>
+</div>
 </div>
 </section>
-<!-- Media Player Floating Bar -->
-<div class="fixed bottom-0 left-0 w-full bg-secondary-container z-40 transform translate-y-0 transition-transform duration-500 border-t border-on-secondary-fixed-variant/20">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20 flex items-center justify-between">
-<div class="flex items-center gap-4 w-1/3">
-<div class="w-12 h-12 bg-primary rounded-lg overflow-hidden shrink-0">
-<img class="w-full h-full object-cover" data-alt="Small thumbnail of a music album cover with vibrant African patterns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK2i3eJL9owOVeZSEQWJlDDjQDWHxek0tyueqjRdS4CL9vmolr_xbXJ4pkQEEN48fIxJ6ZA8QiL0cOjGob7GTzU6GVYxxW8fgocxsDmYLQPtPubF23m1fYCqHb-5FVvDEO4tu-qvLVm7vaHxXTmZtk_5opvG1IeyuKo3NVDU5voj6JTJPUWd03H0XaLkNMGTz9FM6yagyqhMJ_3SmB9IrPjiMrPW3BTc78nA8hqej5QBRxJp37hGPGAKb2sJkcUyUeBWbXm5aXuf4"/>
-</div>
-<div class="hidden sm:block">
-<p class="text-on-secondary font-bold text-sm truncate">Rhythms of Kumasi</p>
-<p class="text-on-secondary-container text-xs">Zara Elani</p>
-</div>
-</div>
-<div class="flex flex-col items-center w-1/3">
-<div class="flex items-center gap-6">
-<button class="text-on-secondary hover:scale-110 transition-transform"><span class="material-symbols-outlined">shuffle</span></button>
-<button class="text-on-secondary hover:scale-110 transition-transform"><span class="material-symbols-outlined">skip_previous</span></button>
-<button class="bg-primary text-on-primary p-2 rounded-full hover:scale-105 active:scale-95 transition-all"><span class="material-symbols-outlined fill">play_arrow</span></button>
-<button class="text-on-secondary hover:scale-110 transition-transform"><span class="material-symbols-outlined">skip_next</span></button>
-<button class="text-on-secondary hover:scale-110 transition-transform"><span class="material-symbols-outlined">repeat</span></button>
-</div>
-<div class="w-full mt-2 hidden md:flex items-center gap-2">
-<span class="text-[10px] text-on-secondary-container font-mono">1:24</span>
-<div class="flex-1 h-1 bg-on-secondary/20 rounded-full relative">
-<div class="absolute top-0 left-0 h-full w-[40%] bg-primary rounded-full"></div>
-</div>
-<span class="text-[10px] text-on-secondary-container font-mono">3:45</span>
-</div>
-</div>
-<div class="flex items-center justify-end gap-4 w-1/3">
-<button class="text-on-secondary"><span class="material-symbols-outlined">volume_up</span></button>
-<button class="text-on-secondary"><span class="material-symbols-outlined">queue_music</span></button>
-</div>
-</div>
-</div>
+
 <!-- Footer -->
-<footer class="bg-surface-container-lowest text-on-surface-variant py-16 mt-20 pb-36">
+<footer class="bg-surface-container-lowest text-on-surface-variant py-16 mt-10">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-16">
 <div class="md:col-span-1 space-y-6">
-<span class="font-headline-md text-sapling block">Eseyasa Productions</span>
-<p class="font-body-md">Celebrating Afro-centrism through elite talent booking and creative production.</p>
+<div class="flex items-center gap-3">
+<img alt="Eseyasa" class="h-12 w-12 object-contain" src="images/Image 1.png"/>
+<span class="font-headline-md text-sapling">Eseyasa Productions</span>
+</div>
+<p class="font-body-md">Booking de talent afro i producció creativa. Des de Barcelona cap al món.</p>
 </div>
 <div class="space-y-4">
-<h4 class="text-on-background font-bold uppercase text-xs tracking-widest">Navigation</h4>
+<h4 class="text-on-background font-bold uppercase text-xs tracking-widest">Navegació</h4>
 <ul class="space-y-2">
-<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="index.html">Home</a></li>
-<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="artists.html">Artists</a></li>
-<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="#about-us">About Us</a></li>
-<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="contact.html">Contact</a></li>
+<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="index.html">Inici</a></li>
+<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="artists.html">Artistes</a></li>
+<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="#about-us">Sobre nosaltres</a></li>
+<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="contact.html">Contacte</a></li>
 </ul>
 </div>
 <div class="space-y-4">
-<h4 class="text-on-background font-bold uppercase text-xs tracking-widest">Connect</h4>
+<h4 class="text-on-background font-bold uppercase text-xs tracking-widest">Connecta</h4>
 <ul class="space-y-2">
 <li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="#">Instagram</a></li>
 <li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="#">YouTube</a></li>
-<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="#">Newsletter</a></li>
+<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="https://soundcloud.com/eseyasaproductions" target="_blank" rel="noopener">SoundCloud</a></li>
 </ul>
 </div>
 <div class="space-y-4">
-<h4 class="text-on-background font-bold uppercase text-xs tracking-widest">Legal</h4>
-<ul class="space-y-2">
-<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="#">Privacy Policy</a></li>
-<li><a class="hover:text-tertiary transition-transform hover:translate-x-1 inline-block" href="#">Terms of Service</a></li>
-</ul>
+<h4 class="text-on-background font-bold uppercase text-xs tracking-widest">Contacte</h4>
+<p class="font-body-md"><a class="hover:text-tertiary" href="mailto:Eseyasaproductions@gmail.com">Eseyasaproductions@gmail.com</a></p>
+<p class="font-body-md">Barcelona, Catalunya</p>
 </div>
 </div>
 <div class="pt-12 border-t border-surface-container flex flex-col md:flex-row justify-between items-center gap-4">
-<span class="font-label-sm text-label-sm">© 2024 Eseyasa Productions. All rights reserved.</span>
+<span class="font-label-sm text-label-sm">© 2024 Eseyasa Productions. Tots els drets reservats.</span>
 <div class="flex gap-4">
-<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors cursor-pointer">
+<a href="#" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors">
 <span class="material-symbols-outlined text-[20px]">play_circle</span>
-</div>
-<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors cursor-pointer">
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors">
 <span class="material-symbols-outlined text-[20px]">share</span>
-</div>
+</a>
 </div>
 </div>
 </div>
 </footer>
-<!-- SVG Blob Masks for Organic Styles -->
-<svg class="absolute" height="0" width="0">
-<defs>
-<clippath clippathunits="objectBoundingBox" id="organic-blob">
-<path d="M0.85,0.15 C0.95,0.3 1,0.5 0.95,0.7 C0.85,0.9 0.6,1 0.4,0.95 C0.2,0.9 0,0.7 0.05,0.4 C0.1,0.2 0.4,0 0.65,0.05 C0.75,0.08 0.8,0.1 0.85,0.15 Z"></path>
-</clippath>
-</defs>
-</svg>
+
 <script src="animations.js"></script>
 <script>
-        // Simple Interaction: Scroll highlight for TopAppBar
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-xl', 'bg-background/100');
-            } else {
-                nav.classList.remove('shadow-xl', 'bg-background/100');
-            }
-        });
+    // Sticky header — soft gradient appears on scroll
+    const header = document.getElementById('siteHeader');
+    function onScroll() {
+        if (window.scrollY > 24) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
-        // Mobile Navigation Drawer Toggle
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const menuIcon = document.getElementById('menuIcon');
+    // Hero slider — auto-advance + dot navigation
+    (function() {
+        const slider = document.getElementById('heroSlider');
+        if (!slider) return;
+        const slidesEl = slider.querySelector('.slides');
+        const slides = slider.querySelectorAll('.slide');
+        const dots = slider.querySelectorAll('.slider-dot');
+        let current = 0;
+        let timer;
 
-        function toggleMobileMenu() {
-            mobileMenuOverlay.classList.toggle('open');
-            if (mobileMenuOverlay.classList.contains('open')) {
-                menuIcon.textContent = 'close';
-            } else {
-                menuIcon.textContent = 'menu';
-            }
+        function go(i) {
+            current = (i + slides.length) % slides.length;
+            slidesEl.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+            slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
         }
-        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-    </script>
+        function next() { go(current + 1); }
+        function restart() { clearInterval(timer); timer = setInterval(next, 5500); }
+
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => { go(idx); restart(); });
+        });
+        restart();
+    })();
+
+    // Mobile Navigation Drawer Toggle
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const menuIcon = document.getElementById('menuIcon');
+
+    function toggleMobileMenu() {
+        mobileMenuOverlay.classList.toggle('open');
+        menuIcon.textContent = mobileMenuOverlay.classList.contains('open') ? 'close' : 'menu';
+    }
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+</script>
 </body></html>

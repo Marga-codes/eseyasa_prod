@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
+<html class="dark" lang="ca"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Malek Azikiwe | Eseyasa Productions</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -132,19 +133,19 @@
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden selection:bg-primary selection:text-on-primary">
 <!-- TopAppBar -->
-<nav class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md">
-<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<a href="index.html" class="flex items-center gap-3">
-<img alt="Eseyasa Productions Logo" class="h-10 w-10 object-contain" src="images/Image 1.png"/>
+<header class="site-header" id="siteHeader">
+<div class="flex justify-between items-center h-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<a href="index.html" class="flex items-center gap-4">
+<img alt="Eseyasa Logo" class="h-16 w-16 md:h-20 md:w-20 object-contain" src="images/Image 1.png"/>
 <span class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-primary tracking-tight">Eseyasa Productions</span>
 </a>
 <!-- Desktop Links -->
 <div class="hidden md:flex items-center gap-8">
-<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="index.html">Home</a>
-<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 hover:scale-105 transition-all duration-300" href="artists.html">Artists</a>
-<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="contact.html">Contact</a>
+<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="index.html">Inici</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 hover:scale-105 transition-all duration-300" href="artists.html">Artistes</a>
+<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="contact.html">Contacte</a>
 <a href="contact.html" class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-headline-md text-headline-md text-base font-bold active:scale-95 transition-transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
-                    Book Now
+                    Reserva ara
                 </a>
 </div>
 <!-- Mobile Menu Toggle -->
@@ -152,16 +153,16 @@
 <span class="material-symbols-outlined text-3xl" id="menuIcon">menu</span>
 </button>
 </div>
-</nav>
+</header>
 
 <!-- Mobile Menu Overlay -->
 <div class="fixed inset-0 bg-background/98 z-45 flex flex-col justify-center items-center gap-8 md:hidden mobile-menu-overlay" id="mobileMenuOverlay">
-<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Home</a>
-<a class="font-headline-xl text-3xl text-primary font-bold" href="artists.html" onclick="toggleMobileMenu()">Artists</a>
-<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contact</a>
-<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Book Now</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Inici</a>
+<a class="font-headline-xl text-3xl text-primary font-bold" href="artists.html" onclick="toggleMobileMenu()">Artistes</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contacte</a>
+<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Reserva ara</a>
 </div>
-<main class="pt-20">
+<main class="pt-24">
 <!-- Hero Section -->
 <section class="relative min-h-[80vh] flex flex-col md:flex-row items-center overflow-hidden">
 <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
@@ -169,21 +170,21 @@
 <div class="absolute bottom-20 -right-20 w-96 h-96 bg-primary-container rounded-full blur-[100px]"></div>
 </div>
 <div class="relative z-10 w-full md:w-1/2 px-margin-mobile md:pl-margin-desktop py-12">
-<p class="text-tertiary font-label-sm mb-4">Artist Spotlight</p>
+<p class="text-tertiary font-label-sm mb-4">Artista destacat</p>
 <h1 class="font-display-lg text-4xl md:text-display-lg text-primary mb-4 leading-none">MALEK <br/><span class="text-tertiary">AZIKIWE</span></h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed">
-                    A rhythmic architect merging traditional Highlife with contemporary Afro-electronic textures. Based in Lagos, Malek’s soulful resonance has captured global stages.
+                    Un arquitecte rítmic que fusiona el Highlife tradicional amb textures Afro-electròniques contemporànies. Amb base a Lagos, la ressonància de Malek ha conquerit escenaris de tot el món.
                 </p>
 <div class="flex flex-wrap gap-4">
 <a href="#booking" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline-md text-headline-md flex items-center gap-2 hover:scale-105 transition-all duration-300 framer-btn">
-<span class="material-symbols-outlined" data-weight="fill">calendar_today</span>
-                        Book for Event
+<span class="material-symbols-outlined">calendar_today</span>
+                        Reserva per a l'esdeveniment
 </a>
 <div class="flex items-center gap-4">
 <a class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-surface-container transition-colors" href="#">
 <span class="material-symbols-outlined text-primary">play_arrow</span>
 </a>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter">Listen to Latest Single</span>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter">Escolta l'últim single</span>
 </div>
 </div>
 </div>
@@ -197,13 +198,13 @@
 <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
 <div class="lg:col-span-7 space-y-12">
 <div class="space-y-6">
-<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary">The Journey</h2>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary">El recorregut</h2>
 <div class="w-20 h-1 bg-tertiary"></div>
 <p class="font-body-lg text-body-lg text-on-surface-variant leading-loose">
-                        Born into a lineage of percussionists in Lagos, Malek Azikiwe has redefined the boundaries of Afro-fusion. His work is characterized by "Asymmetrical Rhythms"—a technique that blends the heartbeat of the talking drum with modular synthesis.
+                        Nascut en un llinatge de percussionistes de Lagos, Malek Azikiwe ha redefinit els límits de l'Afro-fusió. La seva obra es caracteritza pels "Ritmes Asimètrics" — una tècnica que barreja el batec del talking drum amb la síntesi modular.
                     </p>
 <p class="font-body-lg text-body-lg text-on-surface-variant leading-loose">
-                        Over the last decade, Malek has headlined festivals across three continents, earning him the title of 'The Modern Griot'. His performances are more than just concerts; they are immersive cultural rituals that bridge the gap between ancestral stories and digital futures.
+                        Durant l'última dècada, Malek ha encapçalat festivals a tres continents i s'ha guanyat el títol de "El Griot Modern". Els seus directes són més que concerts: són rituals culturals immersius que fan de pont entre les històries ancestrals i els futurs digitals.
                     </p>
 </div>
 <!-- Video Player -->
@@ -215,8 +216,8 @@
 </button>
 </div>
 <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
-<p class="font-headline-md text-headline-md text-white">Live at Echoes of the Sun (2023)</p>
-<p class="font-body-md text-body-md text-tertiary">Official Performance Video</p>
+<p class="font-headline-md text-headline-md text-white">En directe a Echoes of the Sun (2023)</p>
+<p class="font-body-md text-body-md text-tertiary">Vídeo oficial de l'actuació</p>
 </div>
 </div>
 </div>
@@ -242,44 +243,44 @@
 </div>
 <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col lg:flex-row items-center gap-20">
 <div class="w-full lg:w-1/2">
-<h2 class="font-display-lg text-4xl md:text-headline-xl text-primary mb-6">Secure Malek for your next <span class="text-tertiary">Cultural Showcase.</span></h2>
+<h2 class="font-display-lg text-4xl md:text-headline-xl text-primary mb-6">Reserva Malek per al teu <span class="text-tertiary">pròxim esdeveniment cultural.</span></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
-                        Our booking agency ensures a seamless professional experience from contract to curtain call. Malek is available for international festivals, private curations, and collaborative workshops.
+                        Ens encarreguem de tot, des del contracte fins al directe. Malek està disponible per a festivals internacionals, curacions privades i tallers col·laboratius.
                     </p>
 <div class="space-y-4">
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-sapling">check_circle</span>
-<span class="font-body-md text-body-md">Global touring &amp; logistics handled</span>
+<span class="font-body-md text-body-md">Gires globals i logística inclosa</span>
 </div>
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-sapling">check_circle</span>
-<span class="font-body-md text-body-md">Full tech-rider support provided</span>
+<span class="font-body-md text-body-md">Suport tècnic complet (rider) inclòs</span>
 </div>
 </div>
 </div>
 <div class="w-full lg:w-1/2 bg-surface-cream p-10 rounded-3xl text-background">
-<h3 class="font-headline-md text-headline-md mb-8 text-secondary-container">Booking Inquiry</h3>
+<h3 class="font-headline-md text-headline-md mb-8 text-secondary-container">Consulta de booking</h3>
 <form class="space-y-6" id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Event Name</label>
-<input name="event_name" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="e.g. Afro-Fusion Fest" type="text" required />
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Nom de l'esdeveniment</label>
+<input name="event_name" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="p. ex. Afro-Fusion Fest" type="text" required />
 </div>
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Date</label>
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Data</label>
 <input name="event_date" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" type="date" required />
 </div>
 </div>
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Email Address</label>
-<input name="email" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="you@company.com" type="email" required />
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Correu electrònic</label>
+<input name="email" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="tu@empresa.com" type="email" required />
 </div>
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Additional Requirements</label>
-<textarea name="requirements" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="Tell us about the venue and audience..." rows="4"></textarea>
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Requisits addicionals</label>
+<textarea name="requirements" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="Explica'ns el lloc i el públic..." rows="4"></textarea>
 </div>
 <button class="w-full bg-primary-container text-on-primary-container py-5 rounded-xl font-headline-md text-headline-md font-bold shadow-xl hover:shadow-2xl transition-all duration-300" type="submit">
-                            Submit Booking Request
+                            Enviar sol·licitud
                         </button>
 </form>
 </div>
@@ -290,68 +291,44 @@
 <footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-16">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="md:col-span-2 space-y-6">
+<div class="flex items-center gap-3">
+<img alt="Eseyasa Logo" class="h-12 w-12 object-contain" src="images/Image 1.png"/>
 <span class="font-headline-md text-headline-md text-sapling block">Eseyasa Productions</span>
+</div>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
-                    Curating the future of Afro-centric sound. We represent a collective of visionaries pushing the boundaries of rhythm and soul.
+                    Curem el futur del so afro. Representem un col·lectiu de visionaris que empenyen els límits del ritme i l'ànima. Des de Barcelona.
                 </p>
+<p class="font-body-md text-body-md text-on-surface-variant"><a class="hover:text-tertiary" href="mailto:Eseyasaproductions@gmail.com">Eseyasaproductions@gmail.com</a></p>
 </div>
 <div class="space-y-4">
-<h4 class="font-label-sm text-label-sm text-primary uppercase font-bold">Connect</h4>
+<h4 class="font-label-sm text-label-sm text-primary uppercase font-bold">Connecta</h4>
 <ul class="space-y-2">
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="index.html">Home</a></li>
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="artists.html">Artists</a></li>
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="contact.html">Contact</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="index.html">Inici</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="artists.html">Artistes</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="contact.html">Contacte</a></li>
 </ul>
 </div>
 <div class="space-y-4">
 <h4 class="font-label-sm text-label-sm text-primary uppercase font-bold">Legal</h4>
 <ul class="space-y-2">
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="#">Privacy Policy</a></li>
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="#">Terms of Service</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="#">Política de privacitat</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="#">Termes del servei</a></li>
 </ul>
-<p class="font-label-sm text-label-sm text-on-surface-variant mt-8">© 2024 Eseyasa Productions. All rights reserved.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-8">© 2024 Eseyasa Productions. Tots els drets reservats.</p>
 </div>
 </div>
 </footer>
-<!-- Audio Player Bar (Minimalist) -->
-<div class="fixed bottom-0 left-0 right-0 h-16 bg-secondary-container border-t border-white/5 flex items-center px-margin-mobile md:px-margin-desktop z-[60]">
-<div class="flex items-center gap-4 w-1/3">
-<div class="w-10 h-10 rounded bg-primary overflow-hidden hidden md:block">
-<img alt="Playing Now" class="w-full h-full object-cover" data-alt="Small thumbnail of an abstract album cover with rhythmic green and amber patterns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxFOTLxu__NUn5dv4_Vw9dF9Z6xbTs0lqTjRaEkleSZO3CgHaucHYDVR2DXXzoXkI0K3KrAqbiIRQGePymg3lcxvKkfWTyobyuSqt_Ag_D6it3Dv9FTJfqkNkY0VoTyYp8PgECuty33L5h0KqkqC8hwmUXcJygSyrNCyrZTG3MZO-VnJPyxi1kHFxtX5MgjpunrEBL2kKrbjoMSBtdgt_X7sX0x7AqPy3imtC3GnOFczwt3ZZaE3YIS3pLJ8GstyR6VQrCUaXlCoI"/>
-</div>
-<div class="hidden sm:block">
-<p class="font-label-sm text-label-sm text-white truncate max-w-[150px]">Midnight in Lagos</p>
-<p class="text-[10px] text-sapling uppercase">Malek Azikiwe</p>
-</div>
-</div>
-<div class="flex-1 flex flex-col items-center gap-1">
-<div class="flex items-center gap-6">
-<button class="text-white hover:text-primary"><span class="material-symbols-outlined">skip_previous</span></button>
-<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:scale-105 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-</button>
-<button class="text-white hover:text-primary"><span class="material-symbols-outlined">skip_next</span></button>
-</div>
-<div class="w-full max-w-md h-1 bg-white/10 rounded-full relative">
-<div class="absolute inset-y-0 left-0 w-1/3 bg-primary rounded-full"></div>
-</div>
-</div>
-<div class="w-1/3 flex justify-end items-center gap-4 text-white">
-<span class="material-symbols-outlined hidden md:block">volume_up</span>
-<span class="material-symbols-outlined">queue_music</span>
-</div>
-</div>
+<!-- Reproductor flotant eliminat — la playlist viu a la home -->
 <script src="animations.js"></script>
 <script>
-        // Simple micro-interaction for organic shift
-        document.querySelectorAll('.glass-card, .bg-surface-container-low').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translate(4px, -4px)';
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translate(0, 0)';
-            });
-        });
+        // Sticky header — soft gradient on scroll
+        const siteHeader = document.getElementById('siteHeader');
+        function onScroll() {
+            if (window.scrollY > 24) siteHeader.classList.add('scrolled');
+            else siteHeader.classList.remove('scrolled');
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
 
         // Mobile Navigation Drawer Toggle
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
@@ -360,11 +337,7 @@
 
         function toggleMobileMenu() {
             mobileMenuOverlay.classList.toggle('open');
-            if (mobileMenuOverlay.classList.contains('open')) {
-                menuIcon.textContent = 'close';
-            } else {
-                menuIcon.textContent = 'menu';
-            }
+            menuIcon.textContent = mobileMenuOverlay.classList.contains('open') ? 'close' : 'menu';
         }
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', toggleMobileMenu);
