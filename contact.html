@@ -388,7 +388,7 @@
                 data.page = 'contacto';
 
                 try {
-                    const res = await fetch(API_BASE + '/api/contact', {
+                    const res = await fetch('send.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data),
@@ -407,7 +407,7 @@
                 const email = document.getElementById('newsletterEmail').value.trim();
 
                 try {
-                    const res = await fetch(API_BASE + '/api/contact', {
+                    const res = await fetch('send.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
