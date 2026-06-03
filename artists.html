@@ -158,7 +158,7 @@
 </header>
 
 <!-- Mobile Menu Overlay -->
-<div class="fixed inset-0 bg-background/98 z-45 flex flex-col justify-center items-center gap-8 md:hidden mobile-menu-overlay" id="mobileMenuOverlay">
+<div class="fixed inset-0 bg-background/80 backdrop-blur-2xl flex flex-col justify-center items-center gap-8 md:hidden mobile-menu-overlay" id="mobileMenuOverlay">
 <a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Inici</a>
 <a class="font-headline-xl text-3xl text-primary font-bold" href="artists.html" onclick="toggleMobileMenu()">Artistes</a>
 <a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contacte</a>
@@ -178,7 +178,7 @@
 ... cerca i filtres deshabilitats temporalment ...
 </section> -->
 <!-- Artists Grid — es reompla dinàmicament des de site-data.js -->
-<section id="artists-grid" class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid gap-6" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));">
+<section id="artists-grid" class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto columns-1 sm:columns-2 lg:columns-3 gap-5 md:gap-6">
 </section>
 <!-- CTA Section -->
 <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mt-24 framer-reveal">

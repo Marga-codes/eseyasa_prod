@@ -17,7 +17,11 @@
 // Reemplaza <tu_IP_VPS> por la IP real de tu VPS
   var host = location.hostname;
   var isLocal = host === 'localhost' || host === '127.0.0.1' || /^192\.168\./.test(host) || /^10\./.test(host) || /^172\.(1[6-9]|2\d|3[0-1])\./.test(host);
-  var API_BASE = isLocal ? (location.protocol + '//' + host + ':3001') : PROD_API;
+  // Si PROD_API sigue siendo el placeholder (o no es una URL válida), no
+  // intentamos llamar a la API en producción: servimos directamente el JSON
+  // local. Así evitamos una petición fallida + error en consola en cada carga.
+  var API_DISABLED = /<tu_IP_VPS>/.test(PROD_API) || !/^https?:\/\//.test(PROD_API);
+  var API_BASE = isLocal ? (location.protocol + '//' + host + ':3001') : (API_DISABLED ? null : PROD_API);
   var LOCAL_ARTISTS_JSON = 'artists-data.json';
 
   function loadLocalArtists() {
@@ -26,6 +30,7 @@
   }
 
   function apiGet(path) {
+    if (!API_BASE) return Promise.reject(new Error('API disabled'));
     return fetch(API_BASE + path, { headers: { Accept: 'application/json' } })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
   }
@@ -164,8 +169,10 @@
     });
   }
 
-  /* Renderitza el grid d'artistes (mateix disseny a inici i a artistes.html).
-     Si l'API falla o no hi ha artistes, deixa el contingut de demostració. */
+  /* Renderitza el grid d'artistes com una masonry editorial (mateix disseny a
+     inici i a artistes.html). Les alçades varien segons l'orientació real de
+     cada foto -> graella irregular però equilibrada, vàlida per a qualsevol
+     nombre d'artistes. Si l'API falla, cau al JSON local. */
   function renderGrid(grid) {
     if (!grid) return Promise.resolve();
     return fetchArtists().then(function (list) {
@@ -175,31 +182,38 @@
           return { artist: a, orientation: orientation };
         });
       })).then(function (items) {
+        // Masonry responsiva: les classes multi-columna ja venen al contenidor
+        // HTML (columns-1 sm:columns-2 lg:columns-3). Només netegem l'style
+        // inline antic (si en quedés) i el contingut de demostració.
+        grid.removeAttribute('style');
         grid.innerHTML = '';
         items.forEach(function (item, i) {
         var a = item.artist;
-        var mod = i % 5;
-        var span = mod === 0 ? 7 : (mod === 1 ? 5 : 4);
-        var aspect = item.orientation === 'portrait' ? 'aspect-[4/5]' : (item.orientation === 'square' ? 'aspect-square' : 'aspect-[16/10]');
-        var nameCls = mod === 0 ? 'font-display-lg text-primary text-3xl md:text-4xl mb-1' : 'font-headline-xl text-primary mb-0';
-        var delay = ['', 'delay-100', 'delay-200', 'delay-300', 'delay-400'][mod];
+        // Alçada segons orientació real -> ritme irregular natural.
+        var aspect = item.orientation === 'portrait' ? 'aspect-[3/4]' : (item.orientation === 'square' ? 'aspect-square' : 'aspect-[4/3]');
+        // Cada 4 cards en destaquem una amb tipografia display per trencar la malla.
+        var feature = (i % 4 === 0);
+        var nameCls = feature
+          ? 'font-display-lg text-primary text-2xl sm:text-3xl md:text-4xl mb-1 leading-none'
+          : 'font-headline-xl text-primary text-xl sm:text-2xl md:text-3xl mb-0 leading-tight';
+        var delay = ['', 'delay-100', 'delay-200', 'delay-300', 'delay-400'][i % 5];
         var media = a.imageUrl
           ? '<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" src="' + esc(a.imageUrl) + '" alt="' + esc(a.name) + '"/>'
           : '<div class="w-full h-full bg-gradient-to-br from-secondary-container to-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-6xl text-primary/40">music_note</span></div>';
         var videoBadge = a.videoUrl
-          ? '<div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 text-on-primary flex items-center justify-center shadow-2xl"><span class="material-symbols-outlined text-3xl md:text-4xl" style="font-variation-settings: \'FILL\' 1;">play_arrow</span></span></div>'
+          ? '<div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="w-14 h-14 md:w-20 md:h-20 rounded-full bg-primary/90 text-on-primary flex items-center justify-center shadow-2xl"><span class="material-symbols-outlined text-2xl md:text-4xl" style="font-variation-settings: \'FILL\' 1;">play_arrow</span></span></div>'
           : '';
         var card = document.createElement('div');
-        card.className = 'md:col-span-' + span + ' group cursor-pointer framer-reveal ' + delay + ' framer-hover-scale';
+        card.className = 'mb-5 md:mb-6 break-inside-avoid group cursor-pointer framer-reveal ' + delay + ' framer-hover-scale';
         card.addEventListener('click', function () { location.href = 'artist-detail.html?id=' + encodeURIComponent(a.id); });
         card.innerHTML =
           '<div class="relative overflow-hidden rounded-3xl ' + aspect + ' bg-surface-container">' +
             media +
             videoBadge +
-            '<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>' +
-            '<div class="absolute bottom-6 left-6 md:bottom-8 md:left-8">' +
+            '<div class="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent opacity-70"></div>' +
+            '<div class="absolute bottom-5 left-5 md:bottom-7 md:left-7 right-5">' +
               '<h3 class="' + nameCls + '">' + esc(a.name) + '</h3>' +
-              (a.genre ? '<p class=\"font-label-sm text-on-surface-variant truncate max-w-[180px] whitespace-nowrap overflow-hidden leading-none\">' + esc(a.genre) + '</p>' : '') +
+              (a.genre ? '<p class=\"font-label-sm text-on-surface-variant truncate max-w-full whitespace-nowrap overflow-hidden leading-none\">' + esc(a.genre) + '</p>' : '') +
             '</div>' +
           '</div>';
         grid.appendChild(card);

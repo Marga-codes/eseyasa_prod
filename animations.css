@@ -169,13 +169,20 @@
 .slider-dot { width:32px; height:3px; border-radius:2px; background:rgba(255,255,255,0.25); cursor:pointer; transition: background 0.4s, width 0.4s; }
 .slider-dot.active { background:var(--primary, #ffc87c); width: 56px; }
 
+/* Mobile menu overlay — fons translúcid equilibrat + per sobre del contingut.
+   El header (logo + botó tancar) es manté a un z-index superior perquè la X
+   sempre sigui clicable. */
+.mobile-menu-overlay {
+  z-index: 60;
+}
+
 /* Sticky header: transparent at top, soft gradient on scroll */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 50;
+  z-index: 70;
   transition: background 0.4s var(--ease-framer-smooth),
               backdrop-filter 0.4s var(--ease-framer-smooth),
               box-shadow 0.4s var(--ease-framer-smooth);
