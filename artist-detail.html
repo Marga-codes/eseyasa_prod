@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="ca"><head>
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Artista | Eseyasa Productions</title>
+<title>Artist | Eseyasa Productions</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -142,9 +142,9 @@
 </a>
 <!-- Desktop Links -->
 <div class="hidden md:flex items-center gap-8">
-<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="index.html">Inici</a>
-<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 hover:scale-105 transition-all duration-300" href="artists.html">Artistes</a>
-<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="contact.html">Contacte</a>
+<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="index.html">Home</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 hover:scale-105 transition-all duration-300" href="artists.html">Artists</a>
+<a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="contact.html">Contact</a>
 <a href="contact.html" class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-headline-md text-headline-md text-base font-bold active:scale-95 transition-transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
                     Booking
                 </a>
@@ -158,9 +158,9 @@
 
 <!-- Mobile Menu Overlay -->
 <div class="fixed inset-0 bg-background/80 backdrop-blur-2xl flex flex-col justify-center items-center gap-8 md:hidden mobile-menu-overlay" id="mobileMenuOverlay">
-<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Inici</a>
-<a class="font-headline-xl text-3xl text-primary font-bold" href="artists.html" onclick="toggleMobileMenu()">Artistes</a>
-<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contacte</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Home</a>
+<a class="font-headline-xl text-3xl text-primary font-bold" href="artists.html" onclick="toggleMobileMenu()">Artists</a>
+<a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contact</a>
 <a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Booking</a>
 </div>
 <main class="pt-24">
@@ -171,19 +171,19 @@
 <div class="absolute bottom-20 -right-20 w-96 h-96 bg-primary-container rounded-full blur-[100px]"></div>
 </div>
 <div class="relative z-10 w-full md:w-1/2 px-margin-mobile md:pl-margin-desktop py-12">
-<p class="text-tertiary font-label-sm mb-4" id="artist-genre">Artista destacat</p>
-<h1 class="font-display-lg text-4xl md:text-display-lg text-primary mb-4 leading-none" id="artist-name">ARTISTA</h1>
+<p class="text-tertiary font-label-sm mb-4" id="artist-genre">Featured artist</p>
+<h1 class="font-display-lg text-4xl md:text-display-lg text-primary mb-4 leading-none" id="artist-name">ARTIST</h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed" id="artist-bio"></p>
 <div class="flex flex-wrap gap-4">
 <a href="#booking" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline-md text-headline-md flex items-center gap-2 hover:scale-105 transition-all duration-300 framer-btn">
 <span class="material-symbols-outlined">calendar_today</span>
-                        Reserva per a l'esdeveniment
+                        Book for your event
 </a>
 </div>
 </div>
 <div id="artist-photo-wrap" class="relative w-full md:w-1/2 h-[400px] md:h-[60vh] flex items-center justify-center overflow-hidden bg-surface-container-lowest">
 <div class="absolute inset-0 bg-secondary-container/20 organic-mask-hero"></div>
-<img alt="Retrat de l'artista" id="artist-photo" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover organic-mask-hero transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1ALuT43Cy1O99SqMmq8etfIHpoZTcpHROxd_zTFTi8hcFVqnwPU5CnFviaBY0jk7MWaweExIeOtHPEJIR-bMByYUUqZroaO4PIpaoZUD9PJ6v-QVsu_HUtiB-W1YVCXhgZCmlcGhS1biJoaQKcIobnpXOKM5DGf_HyLDEhmjau5jFsIJtY3DA0gkpQVRKa-Z5uBkc5c8XSjecxVcQ50HFiCCGZS27KU__LQl8h9SntbMZjQTKbJsBYXQta3GHWo2VyYfVIxU-T1E"/>
+<img alt="Artist portrait" id="artist-photo" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover organic-mask-hero transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1ALuT43Cy1O99SqMmq8etfIHpoZTcpHROxd_zTFTi8hcFVqnwPU5CnFviaBY0jk7MWaweExIeOtHPEJIR-bMByYUUqZroaO4PIpaoZUD9PJ6v-QVsu_HUtiB-W1YVCXhgZCmlcGhS1biJoaQKcIobnpXOKM5DGf_HyLDEhmjau5jFsIJtY3DA0gkpQVRKa-Z5uBkc5c8XSjecxVcQ50HFiCCGZS27KU__LQl8h9SntbMZjQTKbJsBYXQta3GHWo2VyYfVIxU-T1E"/>
 
 </div>
 </section>
@@ -203,44 +203,44 @@
 </div>
 <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col lg:flex-row items-center gap-20">
 <div class="w-full lg:w-1/2">
-<h2 class="font-display-lg text-4xl md:text-headline-xl text-primary mb-6">Reserva <span id="artist-name-booking">l'artista</span> per al teu <span class="text-tertiary">pròxim esdeveniment cultural.</span></h2>
+<h2 class="font-display-lg text-4xl md:text-headline-xl text-primary mb-6">Book <span id="artist-name-booking">the artist</span> for your <span class="text-tertiary">next cultural event.</span></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
-                        Ens encarreguem de tot, des del contracte fins al directe. Aquest artista està disponible per a festivals internacionals, curacions privades i tallers col·laboratius.
+                        We handle everything, from the contract to the live show. This artist is available for international festivals, private curations and collaborative workshops.
                     </p>
 <div class="space-y-4">
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-sapling">check_circle</span>
-<span class="font-body-md text-body-md">Gires globals i logística inclosa</span>
+<span class="font-body-md text-body-md">Global touring and logistics included</span>
 </div>
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-sapling">check_circle</span>
-<span class="font-body-md text-body-md">Suport tècnic complet (rider) inclòs</span>
+<span class="font-body-md text-body-md">Full technical support (rider) included</span>
 </div>
 </div>
 </div>
 <div class="w-full lg:w-1/2 bg-surface-cream p-10 rounded-3xl text-background">
-<h3 class="font-headline-md text-headline-md mb-8 text-secondary-container">Consulta de booking</h3>
+<h3 class="font-headline-md text-headline-md mb-8 text-secondary-container">Booking inquiry</h3>
 <form class="space-y-6" id="bookingForm">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Nom de l'esdeveniment</label>
-<input name="event_name" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="p. ex. Afro-Fusion Fest" type="text" required />
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Event name</label>
+<input name="event_name" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="e.g. Afro-Fusion Fest" type="text" required />
 </div>
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Data</label>
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Date</label>
 <input name="event_date" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" type="date" required />
 </div>
 </div>
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Correu electrònic</label>
-<input name="email" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="tu@empresa.com" type="email" required />
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Email</label>
+<input name="email" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="you@company.com" type="email" required />
 </div>
 <div class="space-y-2">
-<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Requisits addicionals</label>
-<textarea name="requirements" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="Explica'ns el lloc i el públic..." rows="4"></textarea>
+<label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Additional requirements</label>
+<textarea name="requirements" class="w-full bg-white border-2 border-outline-variant/20 rounded-xl px-4 py-3 focus:border-primary focus:ring-0 outline-none" placeholder="Tell us about the venue and audience..." rows="4"></textarea>
 </div>
 <button class="w-full bg-primary-container text-on-primary-container py-5 rounded-xl font-headline-md text-headline-md font-bold shadow-xl hover:shadow-2xl transition-all duration-300" type="submit">
-                            Enviar sol·licitud
+                            Send request
                         </button>
 <p id="bookingStatus" class="min-h-6 text-sm text-secondary-container"></p>
 </form>
@@ -257,25 +257,25 @@
 <span class="font-headline-md text-headline-md text-sapling block">Eseyasa Productions</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
-                    Curem el futur del so afro. Representem un col·lectiu de visionaris que empenyen els límits del ritme i l'ànima. Des de Barcelona.
+                    We curate the future of afro sound. We represent a collective of visionaries pushing the limits of rhythm and soul. From Barcelona.
                 </p>
 <p class="font-body-md text-body-md text-on-surface-variant"><a class="hover:text-tertiary" href="mailto:Eseyasaproductions@gmail.com">Eseyasaproductions@gmail.com</a></p>
 </div>
 <div class="space-y-4">
-<h4 class="font-label-sm text-label-sm text-primary uppercase font-bold">Connecta</h4>
+<h4 class="font-label-sm text-label-sm text-primary uppercase font-bold">Connect</h4>
 <ul class="space-y-2">
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="index.html">Inici</a></li>
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="artists.html">Artistes</a></li>
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="contact.html">Contacte</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="index.html">Home</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="artists.html">Artists</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="contact.html">Contact</a></li>
 </ul>
 </div>
 <div class="space-y-4">
 <h4 class="font-label-sm text-label-sm text-primary uppercase font-bold">Legal</h4>
 <ul class="space-y-2">
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="#">Política de privacitat</a></li>
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="#">Termes del servei</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="#">Privacy policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-transform duration-200 inline-block" href="#">Terms of service</a></li>
 </ul>
-<p class="font-label-sm text-label-sm text-on-surface-variant mt-8">© 2024 Eseyasa Productions. Tots els drets reservats.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-8">© 2024 Eseyasa Productions. All rights reserved.</p>
 </div>
 </div>
 </footer>
@@ -290,7 +290,7 @@
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                status.textContent = 'Enviando...';
+                status.textContent = 'Sending...';
                 const data = Object.fromEntries(new FormData(form).entries());
 
                 try {
@@ -301,8 +301,8 @@
                             name: data.event_name || 'Booking',
                             email: data.email,
                             message: data.requirements || '',
-                            subject: `Booking: ${data.event_name || 'Consulta'}`,
-                            source: 'Booking artista',
+                            subject: `Booking: ${data.event_name || 'Inquiry'}`,
+                            source: 'Artist booking',
                             artist: document.getElementById('artist-name-booking')?.textContent || '',
                             event_name: data.event_name,
                             event_date: data.event_date,
@@ -310,11 +310,11 @@
                             page: 'artist-detail',
                         }),
                     });
-                    if (!res.ok) throw new Error('No se pudo enviar');
+                    if (!res.ok) throw new Error('Could not send');
                     form.reset();
-                    status.textContent = 'Solicitud enviada.';
+                    status.textContent = 'Request sent.';
                 } catch (error) {
-                    status.textContent = 'Error al enviar. Inténtalo de nuevo.';
+                    status.textContent = 'Sending failed. Please try again.';
                 }
             });
         })();
@@ -335,11 +335,11 @@
                     nameEl.innerHTML = S.esc(first) + (rest ? '<br/><span class="text-tertiary">' + S.esc(rest) + '</span>' : '');
                 }
                 var g = document.getElementById('artist-genre');
-                if (g) g.textContent = a.genre || 'Artista destacat';
+                if (g) g.textContent = a.genre || 'Featured artist';
                 var bio = document.getElementById('artist-bio');
                 if (bio) bio.textContent = a.bio || '';
                 var photo = document.getElementById('artist-photo');
-                if (photo && a.imageUrl) { photo.src = a.imageUrl; photo.alt = 'Retrat de ' + a.name; }
+                if (photo && a.imageUrl) { photo.src = a.imageUrl; photo.alt = 'Portrait of ' + a.name; }
                 var nb = document.getElementById('artist-name-booking');
                 if (nb) nb.textContent = a.name;
                 if (photo && a.imageUrl) {

@@ -115,11 +115,11 @@
     container.className = 'relative rounded-3xl overflow-hidden bg-surface-container-highest group cursor-pointer';
     container.setAttribute('role', 'button');
     container.setAttribute('tabindex', '0');
-    container.setAttribute('aria-label', 'Reproduir vídeo' + (opts.title ? ': ' + opts.title : ''));
+    container.setAttribute('aria-label', 'Play video' + (opts.title ? ': ' + opts.title : ''));
 
     // Portada (lazy, sin reservar peso hasta que entra en viewport)
     var img = document.createElement('img');
-    img.alt = opts.title ? ('Portada del vídeo: ' + opts.title) : 'Portada del vídeo';
+    img.alt = opts.title ? ('Video thumbnail: ' + opts.title) : 'Video thumbnail';
     img.loading = 'lazy';
     img.decoding = 'async';
     img.className = 'w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-105';
@@ -153,7 +153,7 @@
     function play() {
       var iframe = document.createElement('iframe');
       iframe.src = v.embed;
-      iframe.title = opts.title || 'Vídeo';
+      iframe.title = opts.title || 'Video';
       iframe.className = 'w-full aspect-video';
       iframe.setAttribute('frameborder', '0');
       iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');

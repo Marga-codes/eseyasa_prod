@@ -3,7 +3,7 @@
     "id": 10,
     "name": "Edna Sey",
     "genre": "Afro/Soul",
-    "bio": "Cantant, artista, compositora i afroactivista. Més de 10 anys d'escenari, premis i una trajectòria que connecta Afrobeat i Soul.",
+    "bio": "Singer, artist, songwriter and afro-activist. Over 10 years on stage, awards and a career that bridges Afrobeat and Soul.",
     "imageUrl": "https://eahv8aixl1c8ovfr.public.blob.vercel-storage.com/DSC_5269%20%281%29-O2tBlBgDA3KNH87LfpNG2U1mdW8XgJ.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=XZ700sNagR0"
   },
@@ -11,7 +11,7 @@
     "id": 11,
     "name": "Bigwé",
     "genre": "Pop/R&B",
-    "bio": "Artista queer i afrodiaspòric amb una proposta que barreja pop, bikutsi, zouk i R&B Y2K.",
+    "bio": "Queer and afro-diasporic artist with a sound that blends pop, bikutsi, zouk and Y2K R&B.",
     "imageUrl": "https://eahv8aixl1c8ovfr.public.blob.vercel-storage.com/bigw%C3%A9-51H7W694ou4ioCyLtTuIJsjAzr4vLy.jpeg",
     "videoUrl": ""
   },
@@ -19,7 +19,7 @@
     "id": 12,
     "name": "Astrid Jones",
     "genre": "Soul",
-    "bio": "Actriu i cantant de Madrid, originària de Guinea Equatorial. Soul, teatre musical i trajectòria internacional.",
+    "bio": "Actress and singer from Madrid, originally from Equatorial Guinea. Soul, musical theatre and an international career.",
     "imageUrl": "https://eahv8aixl1c8ovfr.public.blob.vercel-storage.com/ASTRIDJ-tYuExAYIPUUhheybziq9ktrfthJ7Le.jpg",
     "videoUrl": "https://youtu.be/TH7iB83jM_U?si=Hvq7GzKcjrY3HYKm"
   },
@@ -27,7 +27,7 @@
     "id": 13,
     "name": "Marga Mbande",
     "genre": "Afrobeats/Afro-Pop",
-    "bio": "Cantant i compositora amb base a Barcelona, veu potent i una aposta clara per l'afro-fusió i l'innovació.",
+    "bio": "Singer and songwriter based in Barcelona, with a powerful voice and a clear commitment to afro-fusion and innovation.",
     "imageUrl": "https://eahv8aixl1c8ovfr.public.blob.vercel-storage.com/1711284294462-ydsqoDT14SQrYUtUgCMHjFDcdI5HbV.jpg",
     "videoUrl": "https://youtu.be/KD6DWefTu2U?si=H6nigTtJb-797Ipl&t=20"
   },
@@ -35,7 +35,7 @@
     "id": 14,
     "name": "Bren",
     "genre": "Hip hop / Rap",
-    "bio": "Compositora, actriu, rapera i ballarina. Un llenguatge artístic sense fronteres entre música, cos i paraula.",
+    "bio": "Songwriter, actress, rapper and dancer. An artistic language with no borders between music, body and word.",
     "imageUrl": "https://eahv8aixl1c8ovfr.public.blob.vercel-storage.com/image5-MYp43O6nvpDszjsy1lWJ4NmuO8SeRb.jpeg",
     "videoUrl": "https://youtu.be/jay823SnC4I?si=s7nlZEZyjNhpJ55H"
   },
@@ -43,7 +43,7 @@
     "id": 15,
     "name": "Bou",
     "genre": "Rap",
-    "bio": "Artista, productora i life coach amb un projecte que creua art, emprenedoria i defensa social.",
+    "bio": "Artist, producer and life coach with a project that crosses art, entrepreneurship and social advocacy.",
     "imageUrl": "https://eahv8aixl1c8ovfr.public.blob.vercel-storage.com/Bou1-1ogiGPh9KqYTzyV5St1P1te6flTbtv.jpeg",
     "videoUrl": ""
   },
@@ -51,7 +51,7 @@
     "id": 16,
     "name": "Afrikemet",
     "genre": "Afrobeat / Soukous / High Life",
-    "bio": "Homenatge a les grans orquestres africanes dels 60 i 70, amb fusió de soukous, afrobeat, high life i salsa africana.",
+    "bio": "A tribute to the great African orchestras of the '60s and '70s, fusing soukous, afrobeat, high life and African salsa.",
     "imageUrl": "https://eahv8aixl1c8ovfr.public.blob.vercel-storage.com/Afrikemet-XOB7UA1KVR3s0X80AN4gFrr1eRILOq.webp",
     "videoUrl": "https://youtu.be/EA4hb4HpUWY?si=PZ3tdckB_O97jyYf"
   },
@@ -59,7 +59,7 @@
     "id": 17,
     "name": "DJ Owey",
     "genre": "Amapiano / Afrobeats / Dancehall",
-    "bio": "DJ afroespañola amb base a Barcelona. Fusiona Afrobeat, Amapiano, Dancehall, Hip Hop i R&B.",
+    "bio": "Afro-Spanish DJ based in Barcelona. Fuses Afrobeat, Amapiano, Dancehall, Hip Hop and R&B.",
     "imageUrl": "https://eahv8aixl1c8ovfr.public.blob.vercel-storage.com/DJ%20OWEY%20%281%29-W5s8Ozgfc3wmi8ZH2ebX61CM02n0cE.jpeg",
     "videoUrl": ""
   }
