@@ -16,20 +16,23 @@ require __DIR__ . '/phpmailer/Exception.php';
 require __DIR__ . '/phpmailer/PHPMailer.php';
 require __DIR__ . '/phpmailer/SMTP.php';
 
-// --- Configuración SMTP (Gmail) ------------------------------------------
-// La cuenta que AUTENTICA y ENVÍA. El correo llega a este mismo buzón.
-const MAIL_TO   = 'Eseyasaproductions@gmail.com';   // destinatario
-const SMTP_HOST = 'smtp.gmail.com';
-const SMTP_PORT = 465;                               // 465 = SSL
-const SMTP_USER = 'Eseyasaproductions@gmail.com';    // tu cuenta Gmail
-const SMTP_FROM = 'Eseyasaproductions@gmail.com';    // remitente (debe ser la misma cuenta)
+// --- Configuración SMTP (Hostinger) --------------------------------------
+// Enviamos autenticados desde un buzón propio de Hostinger (tu dominio). Así
+// el correo pasa SPF/DKIM y llega a Gmail SIN caer en spam.
+const MAIL_TO   = 'Eseyasaproductions@gmail.com';   // a dónde QUIERES recibir
+const SMTP_HOST = 'smtp.hostinger.com';
+const SMTP_PORT = 465;                               // 465 = SSL (alternativa: 587 TLS)
 
-// La contraseña de aplicación se guarda en un archivo aparte (smtp-secret.php)
-// para no subirla nunca a git. Ese archivo debe devolver la cadena de 16
-// caracteres que genera Google (Cuenta Google → Seguridad → Contraseñas de aplicación).
-$SMTP_PASS = file_exists(__DIR__ . '/smtp-secret.php')
+// El usuario (buzón) y la contraseña se guardan en un archivo aparte
+// (smtp-secret.php) para no subirlos nunca a git. Ese archivo devuelve un
+// array: ['user' => 'web@tudominio.com', 'pass' => 'la-contraseña-del-buzón'].
+$cfg = file_exists(__DIR__ . '/smtp-secret.php')
     ? (require __DIR__ . '/smtp-secret.php')
-    : '';
+    : [];
+$SMTP_USER = is_array($cfg) ? ($cfg['user'] ?? '') : '';
+$SMTP_PASS = is_array($cfg) ? ($cfg['pass'] ?? '') : '';
+// El remitente DEBE ser el mismo buzón autenticado (mismo dominio) para SPF/DKIM.
+$SMTP_FROM = $SMTP_USER;
 
 // --- Cabeceras de respuesta ----------------------------------------------
 header('Content-Type: application/json; charset=utf-8');
