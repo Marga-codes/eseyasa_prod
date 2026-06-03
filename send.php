@@ -127,7 +127,7 @@ try {
 
     // From debe ser la cuenta autenticada (Gmail lo exige); Reply-To es el visitante,
     // así podés responderle directamente desde Gmail.
-    $mail->setFrom(SMTP_FROM, 'Eseyasa Web');
+    $mail->setFrom($SMTP_FROM, 'Eseyasa Web');
     $mail->addAddress(MAIL_TO);
     $mail->addReplyTo($email, $name);
 

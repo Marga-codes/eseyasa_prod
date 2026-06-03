@@ -25,7 +25,10 @@
   var LOCAL_ARTISTS_JSON = 'artists-data.json';
 
   function loadLocalArtists() {
-    return fetch(LOCAL_ARTISTS_JSON, { headers: { Accept: 'application/json' } })
+    // Cache-buster: evita que LiteSpeed/navegador sirvan una versión vieja del
+    // JSON. Cada carga pide ?v=<timestamp> para forzar datos frescos.
+    var url = LOCAL_ARTISTS_JSON + '?v=' + Date.now();
+    return fetch(url, { cache: 'no-store', headers: { Accept: 'application/json' } })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
   }
 
