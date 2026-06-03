@@ -69,8 +69,11 @@
     if (m) {
       return {
         provider: 'youtube',
+        // Usem youtube.com (no -nocookie): alguns videoclips amb segell mostren
+        // "vídeo no disponible" al domini nocookie tot i ser incrustables aquí.
+        // playsinline=1 evita que el mòbil obri el reproductor a pantalla completa.
         id: m[1],
-        embed: 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1&rel=0',
+        embed: 'https://www.youtube.com/embed/' + m[1] + '?autoplay=1&rel=0&playsinline=1',
       };
     }
     // Vimeo: vimeo.com/123456789 (o player.vimeo.com/video/123456789)
