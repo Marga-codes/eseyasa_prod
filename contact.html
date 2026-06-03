@@ -121,7 +121,8 @@
             clip-path: circle(150% at 100% 0%);
         }
     </style>
-    <link href="animations.css" rel="stylesheet" />
+<link href="animations.css" rel="stylesheet" />
+<script src="site-data.js"></script>
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
 <!-- TopAppBar -->
@@ -136,7 +137,7 @@
 <a class="text-on-background font-medium hover:text-primary transition-colors font-body-md text-body-md hover:scale-105 duration-300" href="artists.html">Artistes</a>
 <a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="contact.html">Contacte</a>
 <a href="contact.html" class="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold font-headline-md text-headline-md hover:scale-105 transition-all duration-300 active:scale-95 flex items-center justify-center">
-                    Reserva ara
+                    Booking
                 </a>
 </nav>
 <button class="md:hidden text-primary" id="mobileMenuBtn">
@@ -150,7 +151,7 @@
 <a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Inici</a>
 <a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="artists.html" onclick="toggleMobileMenu()">Artistes</a>
 <a class="font-headline-xl text-3xl text-primary font-bold" href="contact.html" onclick="toggleMobileMenu()">Contacte</a>
-<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Reserva ara</a>
+<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Booking</a>
 </div>
 <main class="pt-32 pb-20 bg-mesh">
 <!-- Hero Section -->
@@ -178,7 +179,7 @@
 <div class="md:col-span-7 bg-surface-container rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
 <div class="relative z-10">
 <h2 class="font-headline-xl text-headline-xl-mobile text-tertiary mb-8">Consulta de booking</h2>
-<form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" class="space-y-6" method="POST">
+<form id="contactForm" class="space-y-6">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-2">
 <label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">El teu nom</label>
@@ -194,12 +195,14 @@
 <label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Artista</label>
 <select name="artist" class="w-full bg-surface-cream text-background p-4 rounded-xl border-none focus:ring-2 focus:ring-primary font-body-md" required>
 <option value="">Selecciona un artista</option>
-<option value="Zara Elani">Zara Elani</option>
-<option value="Kofi Roots">Kofi Roots</option>
-<option value="The Sunset Sextet">The Sunset Sextet</option>
-<option value="Luna Amara">Luna Amara</option>
-<option value="The Riddim Crew">The Riddim Crew</option>
-<option value="Zola High">Zola High</option>
+<option value="Edna Sey">Edna Sey</option>
+<option value="Bigwé">Bigwé</option>
+<option value="Astrid Jones">Astrid Jones</option>
+<option value="Marga Mbande">Marga Mbande</option>
+<option value="Bren">Bren</option>
+<option value="Bou">Bou</option>
+<option value="Afrikemet">Afrikemet</option>
+<option value="DJ Owey">DJ Owey</option>
 </select>
 </div>
 <div class="space-y-2">
@@ -229,7 +232,8 @@
 <button class="w-full bg-primary text-on-primary py-5 rounded-xl font-headline-md text-headline-md font-bold hover:translate-y-[-4px] transition-transform duration-300 framer-btn" type="submit">
                                 Enviar consulta
                             </button>
-</form>
+<p id="contactStatus" class="min-h-6 text-sm text-tertiary"></p>
+                        </form>
 </div>
 <!-- Decorative Element -->
 <div class="absolute -bottom-10 -right-10 opacity-10 pointer-events-none">
@@ -349,16 +353,81 @@
 </div>
 <div class="col-span-1 flex flex-col gap-4">
 <h5 class="text-tertiary font-bold font-body-md">Apunta't al ritme</h5>
-<div class="flex items-center gap-2 border-b border-outline-variant py-2">
-<input class="bg-transparent border-none focus:ring-0 text-on-background flex-1 min-w-0" placeholder="El teu correu" type="email"/>
-<button class="text-primary font-bold whitespace-nowrap flex-shrink-0">Uneix-te</button>
-</div>
+<form id="newsletterForm" class="flex items-center gap-2 border-b border-outline-variant py-2">
+<input id="newsletterEmail" class="bg-transparent border-none focus:ring-0 text-on-background flex-1 min-w-0" placeholder="El teu correu" type="email" required/>
+<button class="text-primary font-bold whitespace-nowrap flex-shrink-0" type="submit">Uneix-te</button>
+</form>
+<p id="newsletterStatus" class="mt-2 min-h-5 text-xs text-on-surface-variant"></p>
 <p class="font-label-sm text-label-sm text-on-surface-variant">Barcelona · Catalunya</p>
 </div>
 </div>
 </footer>
-<script src="animations.js"></script>
-<script>
+    <script src="animations.js"></script>
+    <script>
+        (function () {
+            const S = window.EseyasaSite || {};
+            const API_BASE = S.API_BASE || (location.protocol + '//' + location.hostname + ':3001');
+            const form = document.getElementById('contactForm');
+            const status = document.getElementById('contactStatus');
+            const newsletterForm = document.getElementById('newsletterForm');
+            const newsletterStatus = document.getElementById('newsletterStatus');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                status.textContent = 'Enviando...';
+                const data = Object.fromEntries(new FormData(form).entries());
+                data.subject = `Consulta de booking: ${data.name || ''}`;
+                data.source = 'Formulario de contacto';
+                data.message = [
+                    `Artista: ${data.artist || ''}`,
+                    `Tipo de evento: ${data.event_type || ''}`,
+                    `Fecha preferida: ${data.event_date || ''}`,
+                    `Ubicación: ${data.location || ''}`,
+                    `Mensaje: ${data.message || ''}`,
+                ].join('\n');
+                data.page = 'contacto';
+
+                try {
+                    const res = await fetch(API_BASE + '/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+                    if (!res.ok) throw new Error('No se pudo enviar');
+                    form.reset();
+                    status.textContent = 'Mensaje enviado.';
+                } catch (error) {
+                    status.textContent = 'Error al enviar. Inténtalo de nuevo.';
+                }
+            });
+
+            newsletterForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                newsletterStatus.textContent = 'Enviando...';
+                const email = document.getElementById('newsletterEmail').value.trim();
+
+                try {
+                    const res = await fetch(API_BASE + '/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: 'Suscripción newsletter',
+                            email,
+                            message: 'Solicitud de suscripción al newsletter',
+                            subject: 'Suscripción newsletter',
+                            source: 'Footer newsletter',
+                            page: 'contacto-footer',
+                        }),
+                    });
+                    if (!res.ok) throw new Error('No se pudo enviar');
+                    newsletterForm.reset();
+                    newsletterStatus.textContent = '¡Gracias!';
+                } catch (error) {
+                    newsletterStatus.textContent = 'Error al enviar.';
+                }
+            });
+        })();
+
         // Sticky header — soft gradient on scroll
         const siteHeader = document.getElementById('siteHeader');
         function onScroll() {

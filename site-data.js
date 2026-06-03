@@ -13,14 +13,45 @@
   // la API del MISMO host donde se abre la página, en el puerto 3001. Así el
   // sitio funciona tanto en http://localhost:8000 como en http://<IP>:8000.
   // ⚠️ Cambia PROD_API por tu dominio real del dashboard si no es este.
-  var PROD_API = 'https://eseyasa-dashboard.vercel.app';
+  var PROD_API = 'http://<tu_IP_VPS>';
+// Reemplaza <tu_IP_VPS> por la IP real de tu VPS
   var host = location.hostname;
-  var isProd = /\.vercel\.app$/.test(host) || /(^|\.)eseyasaproductions\./.test(host);
-  var API_BASE = isProd ? PROD_API : (location.protocol + '//' + host + ':3001');
+  var isLocal = host === 'localhost' || host === '127.0.0.1' || /^192\.168\./.test(host) || /^10\./.test(host) || /^172\.(1[6-9]|2\d|3[0-1])\./.test(host);
+  var API_BASE = isLocal ? (location.protocol + '//' + host + ':3001') : PROD_API;
+  var LOCAL_ARTISTS_JSON = 'artists-data.json';
+
+  function loadLocalArtists() {
+    return fetch(LOCAL_ARTISTS_JSON, { headers: { Accept: 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+  }
 
   function apiGet(path) {
     return fetch(API_BASE + path, { headers: { Accept: 'application/json' } })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+  }
+
+  function measureOrientation(src) {
+    return new Promise(function (resolve) {
+      if (!src) return resolve('landscape');
+      var img = new Image();
+      img.onload = function () {
+        if (img.naturalHeight > img.naturalWidth) return resolve('portrait');
+        if (img.naturalWidth > img.naturalHeight) return resolve('landscape');
+        return resolve('square');
+      };
+      img.onerror = function () { resolve('landscape'); };
+      img.src = src;
+    });
+  }
+
+  function fetchArtists() {
+    return apiGet('/api/artists').then(function (list) {
+      if (!Array.isArray(list) || !list.length) throw new Error('No artists');
+      if (!list.some(function (a) { return a && a.imageUrl; })) throw new Error('No images');
+      return list.slice().reverse();
+    }).catch(function () {
+      return loadLocalArtists();
+    });
   }
 
   // --- Parseo de URLs de vídeo ----------------------------------------------
@@ -137,32 +168,43 @@
      Si l'API falla o no hi ha artistes, deixa el contingut de demostració. */
   function renderGrid(grid) {
     if (!grid) return Promise.resolve();
-    return apiGet('/api/artists').then(function (list) {
+    return fetchArtists().then(function (list) {
       if (!Array.isArray(list) || list.length === 0) return;
-      grid.innerHTML = '';
-      list.forEach(function (a, i) {
+      return Promise.all(list.map(function (a) {
+        return measureOrientation(a.imageUrl).then(function (orientation) {
+          return { artist: a, orientation: orientation };
+        });
+      })).then(function (items) {
+        grid.innerHTML = '';
+        items.forEach(function (item, i) {
+        var a = item.artist;
         var mod = i % 5;
         var span = mod === 0 ? 7 : (mod === 1 ? 5 : 4);
-        var aspect = mod === 0 ? 'aspect-[16/10]' : (mod === 1 ? 'aspect-square' : 'aspect-[3/4]');
+        var aspect = item.orientation === 'portrait' ? 'aspect-[4/5]' : (item.orientation === 'square' ? 'aspect-square' : 'aspect-[16/10]');
         var nameCls = mod === 0 ? 'font-display-lg text-primary text-4xl md:text-5xl mb-2' : 'font-headline-xl text-primary mb-1';
         var delay = ['', 'delay-100', 'delay-200', 'delay-300', 'delay-400'][mod];
         var media = a.imageUrl
           ? '<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" src="' + esc(a.imageUrl) + '" alt="' + esc(a.name) + '"/>'
           : '<div class="w-full h-full bg-gradient-to-br from-secondary-container to-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-6xl text-primary/40">music_note</span></div>';
+        var videoBadge = a.videoUrl
+          ? '<div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 text-on-primary flex items-center justify-center shadow-2xl"><span class="material-symbols-outlined text-3xl md:text-4xl" style="font-variation-settings: \'FILL\' 1;">play_arrow</span></span></div>'
+          : '';
         var card = document.createElement('div');
         card.className = 'md:col-span-' + span + ' group cursor-pointer framer-reveal ' + delay + ' framer-hover-scale';
         card.addEventListener('click', function () { location.href = 'artist-detail.html?id=' + encodeURIComponent(a.id); });
         card.innerHTML =
           '<div class="relative overflow-hidden rounded-3xl ' + aspect + ' bg-surface-container">' +
             media +
+            videoBadge +
             '<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>' +
             '<div class="absolute bottom-6 left-6 md:bottom-8 md:left-8">' +
               '<h3 class="' + nameCls + '">' + esc(a.name) + '</h3>' +
-              (a.genre ? '<p class="font-body-lg text-tertiary">' + esc(a.genre) + '</p>' : '') +
+              (a.genre ? '<p class="font-body-md text-on-surface-variant truncate max-w-[240px] whitespace-nowrap overflow-hidden">' + esc(a.genre) + '</p>' : '') +
             '</div>' +
           '</div>';
         grid.appendChild(card);
         requestAnimationFrame(function () { requestAnimationFrame(function () { card.classList.add('framer-visible'); }); });
+        });
       });
     }).catch(function () {});
   }
@@ -170,8 +212,16 @@
   // Expone la API mínima al resto de páginas
   window.EseyasaSite = {
     API_BASE: API_BASE,
-    getArtists: function () { return apiGet('/api/artists'); },
-    getArtist: function (id) { return apiGet('/api/artists/' + encodeURIComponent(id)); },
+    getArtists: function () { return fetchArtists(); },
+    getArtist: function (id) {
+      return apiGet('/api/artists/' + encodeURIComponent(id)).catch(function () {
+        return loadLocalArtists().then(function (list) {
+          var match = Array.isArray(list) ? list.find(function (a) { return String(a.id) === String(id); }) : null;
+          if (!match) throw new Error('Not found');
+          return match;
+        });
+      });
+    },
     parseVideo: parseVideo,
     mountVideoFacade: mountVideoFacade,
     renderGrid: renderGrid,

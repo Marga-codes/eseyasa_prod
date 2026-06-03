@@ -148,7 +148,7 @@
 <a class="text-primary font-bold border-b-2 border-primary pb-1 hover:scale-105 transition-all duration-300" href="artists.html">Artistes</a>
 <a class="text-on-background font-medium hover:text-primary transition-colors hover:scale-105" href="contact.html">Contacte</a>
 <a href="contact.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-headline-md text-body-md font-bold active:scale-95 transition-transform flex items-center justify-center">
-                    Reserva ara
+                    Booking
                 </a>
 </div>
 <button class="md:hidden text-primary" id="mobileMenuBtn">
@@ -162,7 +162,7 @@
 <a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Inici</a>
 <a class="font-headline-xl text-3xl text-primary font-bold" href="artists.html" onclick="toggleMobileMenu()">Artistes</a>
 <a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contacte</a>
-<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Reserva ara</a>
+<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Booking</a>
 </div>
 <main class="pt-32 pb-20">
 <!-- Hero Section -->
@@ -177,60 +177,8 @@
 <!-- <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-12">
 ... cerca i filtres deshabilitats temporalment ...
 </section> -->
-<!-- Artists Grid (Asymmetric) — es reompla dinàmicament des de site-data.js -->
-<section id="artists-grid" class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-fr">
-<!-- Artist 1 (Large Featured) -->
-<div class="md:col-span-7 group cursor-pointer framer-reveal framer-hover-scale" onclick="window.location.href='artist-detail.html'">
-<div class="relative overflow-hidden rounded-3xl aspect-[16/10] bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional studio portrait of a charismatic male Afrobeat artist with traditional gold jewelry and a vibrant patterned silk shirt. He is posing confidently against a deep forest green textured backdrop. The lighting is dramatic, high-contrast, highlighting the textures of the fabric and the soulful expression on his face. The overall aesthetic is premium, cultural, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4vWuy2qySgvCxbJsT9j4u2K6jKKa93huvjuYTiqsVniR5MjG8xQsf4qFJzzIXlq8w34VRk7AOUDA9p8cnE7MpyjvNLQ_tLWwrrIvP6dbFx2QUPKgrnetwxneuEgtiH2BsmUDkGPkcvxfYpENP10KfjfOf2r-ScMtCDWRwTQEqR7jQqleSAiBJ5oxrwwE5DB1_Vg2Q8Ryql60QFRvVSsTbGH5v7i66d0bp0awpAUDv7W4yCdwOJvvovSsHyuMwB31QRAKZ0bJOrJg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
-<div class="absolute bottom-8 left-8">
-<h3 class="font-display-lg text-primary text-5xl mb-2">Burna Soul</h3>
-<p class="font-body-lg text-tertiary">Afrobeat / Fusió</p>
-</div>
-</div>
-</div>
-<!-- Artist 2 -->
-<div class="md:col-span-5 group cursor-pointer framer-reveal delay-100 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
-<div class="relative overflow-hidden rounded-3xl aspect-square bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A dynamic action shot of a female Amapiano DJ performing at a sun-drenched outdoor festival. She is wearing stylish oversized sunglasses and a vibrant terracotta-colored streetwear outfit. The background is filled with a blurred, energetic crowd and tropical palm trees under a warm sunset glow. The vibe is electric, soulful, and rhythmic, reflecting the Eseyasa brand personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEIQjIz8kRk8J-NnfTvUI8J56i3f50aODK9SBz3wZ8prES_2HhRccqiDHGbIiJy-n1e8S8rsQB4HzEEpAlZjZ7uV0yDXcz_9ip2a0ZVUvOyztkXssOWGQvFwETpA4EK67qUcYaYZYy7eem490rUDFQRwOcOheDptloIpjAyMeuzZkeuYGLGY0_OaT1rTfTTP2cEvGgemr408FRjpRwoRA7NhrcKEUtGyU8DDz9YF2mOtBPmrICoxK_nYs5inBG18OKU_QSbry11Dg"/>
-<div class="absolute bottom-6 left-6">
-<h3 class="font-headline-xl text-primary mb-1">Luna Amara</h3>
-<p class="font-body-md text-tertiary">Amapiano / Electrònica</p>
-</div>
-</div>
-</div>
-<!-- Artist 3 -->
-<div class="md:col-span-4 group cursor-pointer framer-reveal delay-100 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
-<div class="relative overflow-hidden rounded-3xl aspect-[3/4] bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A moody, atmospheric close-up of a reggae artist playing an acoustic guitar in a dimly lit studio. Smoke curls softly in the air, caught by a warm amber spotlight. The artist has long dreadlocks and a serene, focused expression. The color palette consists of deep forest greens, rich ambers, and dark shadows, creating a soulful and intimate mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHq6htvFvOqaZn_9mDv9drou5cyCtHymmwxu_eCdiZtvFVdgWXi4418Z_w4f-8tb1wVPppaLEhqAInmQT_cFEAygxwcli9EyFpOxUvPpRuDOa6p6nrCu61Y-z26K-WHpVi1RUbrW5-zVFoxoc4H9RjjMpS0GHA6R191IQ_yZQPDAA78AI6pd9djoAzft-9zriePRTM_5EzVIkk3f8pnolhJBuXu2ynwHOzFL4xAm9h4_9L5ASUA4Q3ZeG5HJNQQV5GXaM6UU2RIDw"/>
-<div class="absolute bottom-6 left-6">
-<h3 class="font-headline-xl text-primary mb-1">Roots Jah</h3>
-<p class="font-body-md text-tertiary">Reggae / Arrels</p>
-</div>
-</div>
-</div>
-<!-- Artist 4 -->
-<div class="md:col-span-4 group cursor-pointer framer-reveal delay-200 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
-<div class="relative overflow-hidden rounded-3xl aspect-[3/4] bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A vibrant, high-energy photo of a dancehall group performing on a stage lit with neon pink and orange lights. The dancers are captured mid-movement, showing powerful athleticism and rhythm. The background is a dark night scene with colorful bokeh light effects. The overall image is bursting with life and captures the high-intensity vibe of Afro-centrist culture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxM8fy_KOjzflWaGglTMtcCetSGei8AKYlr0sHdZgAD9MkZpRawtb1AzqpObVeFmXMywwRAv0PhijKINxRD7QQIUPxdB-e0_qPfLzJet_WEgdMIBuTj5GtObF9Mgj-Wg7mcK8YJ1Z9GJWd7NJrg_cuHNZWYc0up_VdQoowJJR1bU56xXcbPpi3-UwK8fU1URsDHSZtA0IJyUwbky0pnbds5aNJ7kJ1UreAg4OOUdAGDKEj-E_rv2G0L6IaVItLY_E6lxpSs4G_NFg"/>
-<div class="absolute bottom-6 left-6">
-<h3 class="font-headline-xl text-primary mb-1">The Riddim Crew</h3>
-<p class="font-body-md text-tertiary">Dancehall / Carrer</p>
-</div>
-</div>
-</div>
-<!-- Artist 5 -->
-<div class="md:col-span-4 group cursor-pointer framer-reveal delay-300 framer-hover-scale" onclick="window.location.href='artist-detail.html'">
-<div class="relative overflow-hidden rounded-3xl aspect-[3/4] bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A sophisticated portrait of a jazz-fusion singer with a large floral crown made of exotic tropical flowers like hibiscus and protea. She is dressed in a flowing cream-colored robe against a warm sandy background. The lighting is soft and ethereal, creating a peaceful and high-end artistic feel. The design is magazine-style, elegant, and celebrates organic beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQRWqOHhIePSk8tbGV4ZaQRwwi1I4_-PbFbSxsFTkZRa0PdLUIr9AppnACpzBMPsEk03VjHOxadN1I4SDfH4e23Hs90jlsVRq7XWyb8JX-aF93dz3FzzHUqgM8kR6RkAHuFs-WdlkiUTIONkuYjHp7cazE8c9PSrydD1fVIdgOPw78BWI3DUoTl_nZ-XlYTQ7X0B26X-fzUOkil6U9OCIPb90q65cdTvFxoJLc5u8Oy24zkhpfiYRynmqbc3UVmFNveW7n79hpmaY"/>
-<div class="absolute bottom-6 left-6">
-<h3 class="font-headline-xl text-primary mb-1">Zola High</h3>
-<p class="font-body-md text-tertiary">Jazz Fusió / Highlife</p>
-</div>
-</div>
-</div>
-</section>
+<!-- Artists Grid — es reompla dinàmicament des de site-data.js -->
+<section id="artists-grid" class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-fr"></section>
 <!-- CTA Section -->
 <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mt-24 framer-reveal">
 <div class="bg-secondary-container rounded-[40px] p-12 md:p-24 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12">

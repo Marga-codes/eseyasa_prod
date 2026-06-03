@@ -3,11 +3,12 @@
 <html class="dark" lang="ca"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Malek Azikiwe | Eseyasa Productions</title>
+<title>Artista | Eseyasa Productions</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="site-data.js"></script>
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -145,7 +146,7 @@
 <a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 hover:scale-105 transition-all duration-300" href="artists.html">Artistes</a>
 <a class="font-body-md text-body-md text-on-background font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="contact.html">Contacte</a>
 <a href="contact.html" class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-headline-md text-headline-md text-base font-bold active:scale-95 transition-transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
-                    Reserva ara
+                    Booking
                 </a>
 </div>
 <!-- Mobile Menu Toggle -->
@@ -160,7 +161,7 @@
 <a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="index.html" onclick="toggleMobileMenu()">Inici</a>
 <a class="font-headline-xl text-3xl text-primary font-bold" href="artists.html" onclick="toggleMobileMenu()">Artistes</a>
 <a class="font-headline-xl text-3xl text-on-background font-bold hover:text-primary" href="contact.html" onclick="toggleMobileMenu()">Contacte</a>
-<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Reserva ara</a>
+<a href="contact.html" class="bg-primary text-on-primary px-8 py-4 rounded-full font-headline-md text-xl" onclick="toggleMobileMenu()">Booking</a>
 </div>
 <main class="pt-24">
 <!-- Hero Section -->
@@ -171,10 +172,8 @@
 </div>
 <div class="relative z-10 w-full md:w-1/2 px-margin-mobile md:pl-margin-desktop py-12">
 <p class="text-tertiary font-label-sm mb-4" id="artist-genre">Artista destacat</p>
-<h1 class="font-display-lg text-4xl md:text-display-lg text-primary mb-4 leading-none" id="artist-name">MALEK <br/><span class="text-tertiary">AZIKIWE</span></h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed" id="artist-bio">
-                    Un arquitecte rítmic que fusiona el Highlife tradicional amb textures Afro-electròniques contemporànies. Amb base a Lagos, la ressonància de Malek ha conquerit escenaris de tot el món.
-                </p>
+<h1 class="font-display-lg text-4xl md:text-display-lg text-primary mb-4 leading-none" id="artist-name">ARTISTA</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed" id="artist-bio"></p>
 <div class="flex flex-wrap gap-4">
 <a href="#booking" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline-md text-headline-md flex items-center gap-2 hover:scale-105 transition-all duration-300 framer-btn">
 <span class="material-symbols-outlined">calendar_today</span>
@@ -182,28 +181,18 @@
 </a>
 </div>
 </div>
-<div class="relative w-full md:w-1/2 h-[400px] md:h-[60vh]">
+<div id="artist-photo-wrap" class="relative w-full md:w-1/2 h-[400px] md:h-[60vh] flex items-center justify-center overflow-hidden bg-surface-container-lowest">
 <div class="absolute inset-0 bg-secondary-container/20 organic-mask-hero"></div>
-<img alt="Retrat de l'artista" id="artist-photo" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover organic-mask-hero" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1ALuT43Cy1O99SqMmq8etfIHpoZTcpHROxd_zTFTi8hcFVqnwPU5CnFviaBY0jk7MWaweExIeOtHPEJIR-bMByYUUqZroaO4PIpaoZUD9PJ6v-QVsu_HUtiB-W1YVCXhgZCmlcGhS1biJoaQKcIobnpXOKM5DGf_HyLDEhmjau5jFsIJtY3DA0gkpQVRKa-Z5uBkc5c8XSjecxVcQ50HFiCCGZS27KU__LQl8h9SntbMZjQTKbJsBYXQta3GHWo2VyYfVIxU-T1E"/>
+<img alt="Retrat de l'artista" id="artist-photo" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover organic-mask-hero transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1ALuT43Cy1O99SqMmq8etfIHpoZTcpHROxd_zTFTi8hcFVqnwPU5CnFviaBY0jk7MWaweExIeOtHPEJIR-bMByYUUqZroaO4PIpaoZUD9PJ6v-QVsu_HUtiB-W1YVCXhgZCmlcGhS1biJoaQKcIobnpXOKM5DGf_HyLDEhmjau5jFsIJtY3DA0gkpQVRKa-Z5uBkc5c8XSjecxVcQ50HFiCCGZS27KU__LQl8h9SntbMZjQTKbJsBYXQta3GHWo2VyYfVIxU-T1E"/>
 
 </div>
 </section>
-<!-- Biography & Video Section -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-<div class="lg:col-span-7 space-y-6">
-<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary">El recorregut</h2>
-<div class="w-20 h-1 bg-tertiary"></div>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-loose">
-                        Nascut en un llinatge de percussionistes de Lagos, Malek Azikiwe ha redefinit els límits de l'Afro-fusió. La seva obra es caracteritza pels "Ritmes Asimètrics" — una tècnica que barreja el batec del talking drum amb la síntesi modular.
-                    </p>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-loose">
-                        Durant l'última dècada, Malek ha encapçalat festivals a tres continents i s'ha guanyat el títol de "El Griot Modern". Els seus directes són més que concerts: són rituals culturals immersius que fan de pont entre les històries ancestrals i els futurs digitals.
-                    </p>
+<!-- Video Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div id="artist-video-wrap" class="mx-auto w-full max-w-5xl space-y-6" style="display:none">
+<div class="text-center space-y-3">
+<div class="w-20 h-1 bg-tertiary mx-auto"></div>
 </div>
-<!-- Video Player (a la dreta de la bio; es munta des de site-data.js) -->
-<div id="artist-video-wrap" class="lg:col-span-5 space-y-6 lg:sticky lg:top-28" style="display:none">
-<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary">En directe</h2>
-<div class="w-20 h-1 bg-tertiary"></div>
 <div id="artist-video"></div>
 </div>
 </section>
@@ -216,7 +205,7 @@
 <div class="w-full lg:w-1/2">
 <h2 class="font-display-lg text-4xl md:text-headline-xl text-primary mb-6">Reserva <span id="artist-name-booking">l'artista</span> per al teu <span class="text-tertiary">pròxim esdeveniment cultural.</span></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
-                        Ens encarreguem de tot, des del contracte fins al directe. Malek està disponible per a festivals internacionals, curacions privades i tallers col·laboratius.
+                        Ens encarreguem de tot, des del contracte fins al directe. Aquest artista està disponible per a festivals internacionals, curacions privades i tallers col·laboratius.
                     </p>
 <div class="space-y-4">
 <div class="flex items-center gap-4">
@@ -231,7 +220,7 @@
 </div>
 <div class="w-full lg:w-1/2 bg-surface-cream p-10 rounded-3xl text-background">
 <h3 class="font-headline-md text-headline-md mb-8 text-secondary-container">Consulta de booking</h3>
-<form class="space-y-6" id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+<form class="space-y-6" id="bookingForm">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-2">
 <label class="font-label-sm text-label-sm text-secondary-container uppercase font-bold">Nom de l'esdeveniment</label>
@@ -253,6 +242,7 @@
 <button class="w-full bg-primary-container text-on-primary-container py-5 rounded-xl font-headline-md text-headline-md font-bold shadow-xl hover:shadow-2xl transition-all duration-300" type="submit">
                             Enviar sol·licitud
                         </button>
+<p id="bookingStatus" class="min-h-6 text-sm text-secondary-container"></p>
 </form>
 </div>
 </div>
@@ -291,8 +281,44 @@
 </footer>
 <!-- Reproductor flotant eliminat — la playlist viu a la home -->
 <script src="animations.js"></script>
-<script src="site-data.js"></script>
 <script>
+        (function () {
+            const S = window.EseyasaSite || {};
+            const API_BASE = S.API_BASE || (location.protocol + '//' + location.hostname + ':3001');
+            const form = document.getElementById('bookingForm');
+            const status = document.getElementById('bookingStatus');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                status.textContent = 'Enviando...';
+                const data = Object.fromEntries(new FormData(form).entries());
+
+                try {
+                    const res = await fetch(API_BASE + '/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: data.event_name || 'Booking',
+                            email: data.email,
+                            message: data.requirements || '',
+                            subject: `Booking: ${data.event_name || 'Consulta'}`,
+                            source: 'Booking artista',
+                            artist: document.getElementById('artist-name-booking')?.textContent || '',
+                            event_name: data.event_name,
+                            event_date: data.event_date,
+                            requirements: data.requirements,
+                            page: 'artist-detail',
+                        }),
+                    });
+                    if (!res.ok) throw new Error('No se pudo enviar');
+                    form.reset();
+                    status.textContent = 'Solicitud enviada.';
+                } catch (error) {
+                    status.textContent = 'Error al enviar. Inténtalo de nuevo.';
+                }
+            });
+        })();
+
         // Carrega dinàmica de l'artista per ?id (des de l'API del dashboard)
         (function () {
             var S = window.EseyasaSite;
@@ -316,9 +342,26 @@
                 if (photo && a.imageUrl) { photo.src = a.imageUrl; photo.alt = 'Retrat de ' + a.name; }
                 var nb = document.getElementById('artist-name-booking');
                 if (nb) nb.textContent = a.name;
+                if (photo && a.imageUrl) {
+                    const applyPhotoLayout = () => {
+                        const portrait = photo.naturalHeight > photo.naturalWidth;
+                        photo.classList.toggle('object-contain', portrait);
+                        photo.classList.toggle('object-cover', !portrait);
+                        photo.classList.toggle('p-6', portrait);
+                        photo.classList.toggle('md:p-10', portrait);
+                        photo.classList.toggle('organic-mask-hero', !portrait);
+                        photoWrap.classList.toggle('bg-gradient-to-br', portrait);
+                        photoWrap.classList.toggle('from-surface-container-lowest', portrait);
+                        photoWrap.classList.toggle('to-surface-container', portrait);
+                    };
+                    const photoWrap = document.getElementById('artist-photo-wrap');
+                    if (photo.complete && photo.naturalWidth) applyPhotoLayout();
+                    else photo.addEventListener('load', applyPhotoLayout, { once: true });
+                }
+
                 if (a.videoUrl && S.parseVideo(a.videoUrl)) {
                     document.getElementById('artist-video-wrap').style.display = '';
-                    S.mountVideoFacade(document.getElementById('artist-video'), a.videoUrl, { title: a.name, subtitle: 'Vídeo oficial' });
+                    S.mountVideoFacade(document.getElementById('artist-video'), a.videoUrl, { title: a.name });
                 }
             }).catch(function () {});
         })();

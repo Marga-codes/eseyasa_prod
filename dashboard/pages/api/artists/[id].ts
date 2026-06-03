@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '../../../lib/prisma'
+import { getAdminPasswordFromCookieHeader, isAdminPassword } from '../../../lib/admin-auth'
 
 function setCors(res: NextApiResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -9,7 +10,7 @@ function setCors(res: NextApiResponse) {
 
 function checkAdmin(req: NextApiRequest) {
   const pw = req.headers['x-admin-password'] as string | undefined
-  return pw && pw === process.env.ADMIN_PASSWORD
+  return isAdminPassword(pw) || isAdminPassword(getAdminPasswordFromCookieHeader(req.headers.cookie))
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

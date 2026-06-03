@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client'
+import { getAdminPasswordFromCookieHeader, isAdminPassword } from '../../lib/admin-auth'
 
 function setCors(res: NextApiResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -25,7 +26,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       body,
       request: req,
       onBeforeGenerateToken: async (_pathname, clientPayload) => {
-        if (!clientPayload || clientPayload !== process.env.ADMIN_PASSWORD) {
+        const cookiePassword = getAdminPasswordFromCookieHeader(req.headers.cookie)
+        if (!isAdminPassword(clientPayload as string | undefined) && !isAdminPassword(cookiePassword)) {
           throw new Error('Not authorized')
         }
         return {
