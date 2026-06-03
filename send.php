@@ -51,6 +51,13 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo json_encode(['error' => 'Email no válido']);
     exit;
 }
+// Defensa contra inyección de cabeceras: ningún campo que acabe en una cabecera
+// del correo puede contener saltos de línea (\r o \n).
+if (preg_match('/[\r\n]/', $name) || preg_match('/[\r\n]/', $email)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Entrada inválida']);
+    exit;
+}
 
 // --- Construcción del cuerpo del email -----------------------------------
 // Recorremos los campos conocidos y añadimos solo los que vengan informados.
@@ -80,12 +87,18 @@ $body = implode("\n", $lines);
 // El "From" debe ir en el dominio del propio hosting para que no lo rechacen.
 // El "Reply-To" es el visitante, así puedes responderle directamente.
 $host = preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'localhost');
+// Solo caracteres válidos de un hostname (defensa por si HTTP_HOST viene manipulado).
+$host = preg_replace('/[^a-zA-Z0-9.\-]/', '', $host);
+if ($host === '') { $host = 'localhost'; }
 $from = 'no-reply@' . $host;
 
 $mailSubject = $subject !== '' ? $subject : ('Contacto / Booking: ' . $name);
 
+// El nombre del visitante se codifica (RFC 2047) para neutralizar cualquier
+// carácter especial en la cabecera Reply-To.
+$replyName = '=?UTF-8?B?' . base64_encode($name) . '?=';
 $headers  = 'From: Eseyasa Web <' . $from . ">\r\n";
-$headers .= 'Reply-To: ' . $name . ' <' . $email . ">\r\n";
+$headers .= 'Reply-To: ' . $replyName . ' <' . $email . ">\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
