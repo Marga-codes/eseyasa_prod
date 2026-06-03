@@ -30,3 +30,6 @@ __pycache__/
 # Hostinger deploy artifacts
 eseyasa-hostinger.zip
 eseyasa-hostinger.OLD.zip
+
+# SMTP app password (secret — never commit)
+smtp-secret.php
