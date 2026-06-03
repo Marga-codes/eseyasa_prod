@@ -166,19 +166,19 @@
                 <img class="slide-thumb" src="assets/images/Marga_MB.jpg" alt="Marga Mbande" loading="eager" fetchpriority="high">
             </div>
             <div class="slide">
-                <img class="slide-thumb" src="assets/images/Bou1.jpeg" alt="Bou" loading="lazy" decoding="async">
+                <img class="slide-thumb" src="assets/images/Bou1.jpeg" alt="Bou" loading="eager" decoding="async">
             </div>
             <div class="slide">
-                <img class="slide-thumb" src="assets/images/ASTRID.jpg" alt="Eseyasa — slide 3" loading="lazy" decoding="async">
+                <img class="slide-thumb" src="assets/images/ASTRID.jpg" alt="Eseyasa — slide 3" loading="eager" decoding="async">
             </div>
             <div class="slide">
-                <img class="slide-thumb" src="assets/images/bigwé.jpeg" alt="Bigwé" loading="lazy" decoding="async">
+                <img class="slide-thumb" src="assets/images/bigwe.jpeg" alt="Bigwé" loading="eager" decoding="async">
             </div>
             <div class="slide">
-                <img class="slide-thumb" src="assets/images/Bren3.jpeg" alt="Bren" loading="lazy" decoding="async">
+                <img class="slide-thumb" src="assets/images/Bren3.jpeg" alt="Bren" loading="eager" decoding="async">
             </div>
             <div class="slide">
-                <img class="slide-thumb" src="assets/images/EdnaSay.JPG" alt="Edna Say" loading="lazy" decoding="async">
+                <img class="slide-thumb" src="assets/images/EdnaSay.JPG" alt="Edna Say" loading="eager" decoding="async">
             </div>
         </div>
         <div class="hero-scrim"></div>
@@ -350,76 +350,40 @@ src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Feseyasa
         const slider = document.getElementById('heroSlider');
         if (!slider) return;
         const slidesEl = slider.querySelector('.slides');
-        const allSlides = Array.from(slider.querySelectorAll('.slide'));
-        const allDots = Array.from(slider.querySelectorAll('.slider-dot'));
+        const slides = Array.from(slider.querySelectorAll('.slide'));
+        const dots = Array.from(slider.querySelectorAll('.slider-dot'));
+        if (!slides.length) return;
 
-        function detectOrientation(img) {
-            return new Promise((resolve) => {
-                const done = () => {
-                    if (img.naturalWidth > img.naturalHeight) return resolve('landscape');
-                    if (img.naturalHeight > img.naturalWidth) return resolve('portrait');
-                    return resolve('square');
-                };
-                if (img.complete && img.naturalWidth) return done();
-                img.addEventListener('load', done, { once: true });
-                img.addEventListener('error', () => resolve('landscape'), { once: true });
-            });
-        }
-
-        Promise.all(allSlides.map((slide, idx) => {
+        // Revelar cada imagen al cargar. Si alguna falla, la revelamos igual para
+        // que NUNCA se quede invisible ni bloquee el auto-avance del slider.
+        slides.forEach((slide) => {
             const img = slide.querySelector('.slide-thumb');
-            if (!img) return Promise.resolve({ slide, dot: allDots[idx], orientation: 'landscape' });
-            if (img.complete && img.naturalWidth) img.classList.add('is-loaded');
-            img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
-            return detectOrientation(img).then((orientation) => ({ slide, dot: allDots[idx], orientation }));
-        })).then((items) => {
-            const landscapeItems = items.filter((item) => item.orientation === 'landscape');
-            const activeItems = landscapeItems.length ? landscapeItems : items.slice(0, 1);
-
-            items.forEach((item) => {
-                if (!activeItems.includes(item)) {
-                    item.slide.remove();
-                    if (item.dot) item.dot.remove();
-                }
-            });
-
-            const slides = Array.from(slider.querySelectorAll('.slide'));
-            const dots = Array.from(slider.querySelectorAll('.slider-dot'));
-            if (!slides.length) return;
-
-            slides.forEach((slide) => {
-                const img = slide.querySelector('.slide-thumb');
-                if (!img) return;
-                if (img.complete && img.naturalWidth) img.classList.add('is-loaded');
-                else img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
-            });
-
-            let current = 0;
-            let timer;
-
-            function go(i) {
-                current = (i + slides.length) % slides.length;
-                slidesEl.style.transform = `translateX(-${current * 100}%)`;
-                dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
-                slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+            if (!img) return;
+            const reveal = () => img.classList.add('is-loaded');
+            if (img.complete && img.naturalWidth) reveal();
+            else {
+                img.addEventListener('load', reveal, { once: true });
+                img.addEventListener('error', reveal, { once: true });
             }
-            function next() { go(current + 1); }
-            function restart() { clearInterval(timer); timer = setInterval(next, 5500); }
-
-            dots.forEach((dot, idx) => {
-                dot.addEventListener('click', () => { go(idx); restart(); });
-            });
-            go(0);
-            const waitLoaded = () => {
-                const pending = slides.some((slide) => {
-                    const img = slide.querySelector('.slide-thumb');
-                    return img && !img.classList.contains('is-loaded');
-                });
-                if (pending) return setTimeout(waitLoaded, 120);
-                restart();
-            };
-            waitLoaded();
         });
+
+        let current = 0;
+        let timer;
+
+        function go(i) {
+            current = (i + slides.length) % slides.length;
+            slidesEl.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+            slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+        }
+        function next() { go(current + 1); }
+        function start() { clearInterval(timer); timer = setInterval(next, 5500); }
+
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => { go(idx); start(); });
+        });
+        go(0);
+        start(); // arranca siempre, sin esperar a que cargue ninguna imagen
     })();
 
     // Mobile Navigation Drawer Toggle

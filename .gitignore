@@ -26,3 +26,7 @@ __pycache__/
 
 # Misc
 .history/
+
+# Hostinger deploy artifacts
+eseyasa-hostinger.zip
+eseyasa-hostinger.OLD.zip
