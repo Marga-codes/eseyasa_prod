@@ -80,8 +80,8 @@
 }
 
 .framer-hover-scale:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(238, 168, 59, 0.15); /* matching Eseyasa primary color glow */
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 6px 13px rgba(238, 168, 59, 0.15); /* matching Eseyasa primary color glow */
 }
 
 /* Custom interactive button animation */

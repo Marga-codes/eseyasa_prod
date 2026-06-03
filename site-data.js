@@ -181,7 +181,7 @@
         var mod = i % 5;
         var span = mod === 0 ? 7 : (mod === 1 ? 5 : 4);
         var aspect = item.orientation === 'portrait' ? 'aspect-[4/5]' : (item.orientation === 'square' ? 'aspect-square' : 'aspect-[16/10]');
-        var nameCls = mod === 0 ? 'font-display-lg text-primary text-4xl md:text-5xl mb-2' : 'font-headline-xl text-primary mb-1';
+        var nameCls = mod === 0 ? 'font-display-lg text-primary text-3xl md:text-4xl mb-1' : 'font-headline-xl text-primary mb-0';
         var delay = ['', 'delay-100', 'delay-200', 'delay-300', 'delay-400'][mod];
         var media = a.imageUrl
           ? '<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" src="' + esc(a.imageUrl) + '" alt="' + esc(a.name) + '"/>'
@@ -199,7 +199,7 @@
             '<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>' +
             '<div class="absolute bottom-6 left-6 md:bottom-8 md:left-8">' +
               '<h3 class="' + nameCls + '">' + esc(a.name) + '</h3>' +
-              (a.genre ? '<p class="font-body-md text-on-surface-variant truncate max-w-[240px] whitespace-nowrap overflow-hidden">' + esc(a.genre) + '</p>' : '') +
+              (a.genre ? '<p class=\"font-label-sm text-on-surface-variant truncate max-w-[180px] whitespace-nowrap overflow-hidden leading-none\">' + esc(a.genre) + '</p>' : '') +
             '</div>' +
           '</div>';
         grid.appendChild(card);
