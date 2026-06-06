@@ -155,7 +155,13 @@
 
     function play() {
       var iframe = document.createElement('iframe');
-      iframe.src = v.embed;
+      var src = v.embed;
+      // Passar l'origin real ajuda que alguns videoclips oficials (amb segell)
+      // no mostrin "vídeo no disponible" en certs dominis/IP.
+      if (v.provider === 'youtube') {
+        src += (src.indexOf('?') > -1 ? '&' : '?') + 'origin=' + encodeURIComponent(location.origin);
+      }
+      iframe.src = src;
       iframe.title = opts.title || 'Video';
       iframe.className = 'w-full aspect-video';
       iframe.setAttribute('frameborder', '0');

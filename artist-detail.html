@@ -185,7 +185,7 @@
 </div>
 <div id="artist-photo-wrap" class="relative w-full md:w-1/2 h-[400px] md:h-[60vh] flex items-center justify-center overflow-hidden bg-surface-container-lowest">
 <div class="absolute inset-0 bg-secondary-container/20 organic-mask-hero"></div>
-<img alt="Artist portrait" id="artist-photo" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover organic-mask-hero transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1ALuT43Cy1O99SqMmq8etfIHpoZTcpHROxd_zTFTi8hcFVqnwPU5CnFviaBY0jk7MWaweExIeOtHPEJIR-bMByYUUqZroaO4PIpaoZUD9PJ6v-QVsu_HUtiB-W1YVCXhgZCmlcGhS1biJoaQKcIobnpXOKM5DGf_HyLDEhmjau5jFsIJtY3DA0gkpQVRKa-Z5uBkc5c8XSjecxVcQ50HFiCCGZS27KU__LQl8h9SntbMZjQTKbJsBYXQta3GHWo2VyYfVIxU-T1E"/>
+<img alt="Artist portrait" id="artist-photo" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover organic-mask-hero transition-opacity duration-500" style="opacity:0" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/>
 
 </div>
 </section>
@@ -348,6 +348,7 @@
                 if (nb) nb.textContent = a.name;
                 if (photo && a.imageUrl) {
                     const applyPhotoLayout = () => {
+                        photo.style.opacity = '1';
                         const portrait = photo.naturalHeight > photo.naturalWidth;
                         photo.classList.toggle('object-contain', portrait);
                         photo.classList.toggle('object-cover', !portrait);
