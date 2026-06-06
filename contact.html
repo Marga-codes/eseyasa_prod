@@ -258,6 +258,15 @@
 <p class="font-headline-md text-[20px] md:text-[22px] break-all group-hover:text-primary transition-colors">Eseyasaproductions@gmail.com</p>
 </div>
 </a>
+<a href="tel:+34659034403" class="flex items-start gap-4 group">
+<div class="bg-primary/20 p-3 rounded-lg group-hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined text-primary">call</span>
+</div>
+<div>
+<p class="font-label-sm uppercase opacity-70">Call or WhatsApp</p>
+<p class="font-headline-md text-[20px] md:text-[22px] group-hover:text-primary transition-colors">+34 659 034 403</p>
+</div>
+</a>
 <div class="flex items-start gap-4">
 <div class="bg-primary/20 p-3 rounded-lg">
 <span class="material-symbols-outlined text-primary">location_on</span>
@@ -375,27 +384,31 @@
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 status.textContent = 'Sending...';
-                const data = Object.fromEntries(new FormData(form).entries());
-                data.subject = `Booking inquiry: ${data.name || ''}`;
-                data.source = 'Contact form';
-                data.message = [
-                    `Artist: ${data.artist || ''}`,
-                    `Event type: ${data.event_type || ''}`,
-                    `Preferred date: ${data.event_date || ''}`,
-                    `Location: ${data.location || ''}`,
-                    `Message: ${data.message || ''}`,
-                ].join('\n');
-                data.page = 'contact';
+                const fd = new FormData(form);
+                const payload = {
+                    name: fd.get('name') || '',
+                    email: fd.get('email') || '',
+                    _subject: `Booking inquiry: ${fd.get('name') || ''}`,
+                    _template: 'table',
+                    _captcha: 'false',
+                    message: [
+                        `Artist: ${fd.get('artist') || ''}`,
+                        `Event type: ${fd.get('event_type') || ''}`,
+                        `Preferred date: ${fd.get('event_date') || ''}`,
+                        `Location: ${fd.get('location') || ''}`,
+                        `Message: ${fd.get('message') || ''}`,
+                    ].join('\n'),
+                };
 
                 try {
-                    const res = await fetch('send.php', {
+                    const res = await fetch('https://formsubmit.co/ajax/Eseyasaproductions@gmail.com', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data),
-                });
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify(payload),
+                    });
                     if (!res.ok) throw new Error('Could not send');
                     form.reset();
-                    status.textContent = 'Message sent.';
+                    status.textContent = 'Message sent. We will be in touch soon.';
                 } catch (error) {
                     status.textContent = 'Sending failed. Please try again.';
                 }
@@ -407,16 +420,16 @@
                 const email = document.getElementById('newsletterEmail').value.trim();
 
                 try {
-                    const res = await fetch('send.php', {
+                    const res = await fetch('https://formsubmit.co/ajax/Eseyasaproductions@gmail.com', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                         body: JSON.stringify({
                             name: 'Newsletter subscription',
                             email,
-                            message: 'Newsletter subscription request',
-                            subject: 'Newsletter subscription',
-                            source: 'Footer newsletter',
-                            page: 'contact-footer',
+                            _subject: 'New newsletter subscription',
+                            _template: 'table',
+                            _captcha: 'false',
+                            message: 'New newsletter subscription request',
                         }),
                     });
                     if (!res.ok) throw new Error('Could not send');

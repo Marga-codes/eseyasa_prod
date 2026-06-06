@@ -293,37 +293,39 @@
                 status.textContent = 'Sending...';
                 const data = Object.fromEntries(new FormData(form).entries());
 
+                const artistName = document.getElementById('artist-name-booking')?.textContent || '';
                 try {
-                    const res = await fetch('send.php', {
+                    const res = await fetch('https://formsubmit.co/ajax/Eseyasaproductions@gmail.com', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                         body: JSON.stringify({
                             name: data.event_name || 'Booking',
                             email: data.email,
-                            message: data.requirements || '',
-                            subject: `Booking: ${data.event_name || 'Inquiry'}`,
-                            source: 'Artist booking',
-                            artist: document.getElementById('artist-name-booking')?.textContent || '',
-                            event_name: data.event_name,
-                            event_date: data.event_date,
-                            requirements: data.requirements,
-                            page: 'artist-detail',
+                            _subject: `Booking: ${artistName || data.event_name || 'Inquiry'}`,
+                            _template: 'table',
+                            _captcha: 'false',
+                            message: [
+                                `Artist: ${artistName}`,
+                                `Event: ${data.event_name || ''}`,
+                                `Preferred date: ${data.event_date || ''}`,
+                                `Requirements: ${data.requirements || ''}`,
+                            ].join('\n'),
                         }),
                     });
                     if (!res.ok) throw new Error('Could not send');
                     form.reset();
-                    status.textContent = 'Request sent.';
+                    status.textContent = 'Request sent. We will be in touch soon.';
                 } catch (error) {
                     status.textContent = 'Sending failed. Please try again.';
                 }
             });
         })();
 
-        // Carrega dinàmica de l'artista per ?id (des de l'API del dashboard)
+        // Dynamic load of the artist by ?id (from the dashboard API)
         (function () {
             var S = window.EseyasaSite;
             var id = new URLSearchParams(location.search).get('id');
-            if (!id || !S) return; // sense id: es manté el contingut de demostració
+            if (!id || !S) return; // no id: keep the demo content
             S.getArtist(id).then(function (a) {
                 if (!a || a.error) return;
                 document.title = a.name + ' | Eseyasa Productions';

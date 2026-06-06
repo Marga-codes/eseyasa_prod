@@ -161,7 +161,7 @@
 <section class="relative h-screen w-full flex items-center overflow-hidden">
     <div class="slider absolute inset-0 z-0" id="heroSlider">
         <div class="slides">
-            <!-- SLIDER HERO — fotos pròpies de /assets/images/ -->
+            <!-- HERO SLIDER — own photos from /assets/images/ -->
             <div class="slide active">
                 <img class="slide-thumb" src="assets/images/Marga_MB.jpg" alt="Marga Mbande" loading="eager" fetchpriority="high">
             </div>
@@ -251,7 +251,7 @@
 <a class="border-b-2 border-sapling text-sapling font-headline-md pb-1 hover:text-primary hover:border-primary transition-colors" href="artists.html">View all artists</a>
 </div>
 
-<!-- Grid d'artistes (mateix disseny que artistes.html; es reompla des de site-data.js) -->
+<!-- Artists grid (same design as artists.html; filled from site-data.js) -->
 <div id="artists-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-5 md:gap-6"></div>
 </div>
 </section>
@@ -332,7 +332,7 @@ src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Feseyasa
 <script src="animations.js"></script>
 <script src="site-data.js"></script>
 <script>
-    // Render dinàmic del grid d'artistes (mateix que a artistes.html)
+    // Dynamic render of the artists grid (same as artists.html)
     if (window.EseyasaSite) window.EseyasaSite.renderGrid(document.getElementById('artists-grid'));
 </script>
 <script>
