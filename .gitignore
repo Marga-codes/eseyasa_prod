@@ -33,3 +33,11 @@ eseyasa-hostinger.OLD.zip
 
 # SMTP app password (secret — never commit)
 smtp-secret.php
+
+# Carpetas/artefactos de despliegue local (no versionar)
+_SUBIR/
+eseyasa-code-fix/
+eseyasa-code-fix.zip
+eseyasa-hostinger/
+eseyasa-artistas.html
+eseyasa-artistas.pdf
